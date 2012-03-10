@@ -1,4 +1,6 @@
-<h1>Home Page</h1>
-<p>And here goes my subtitle text</p>
+<% provide(:title, "Witaj na Tuduk!") %>
+<p>
+	Możesz zobaczyć listę aktualnych użytkowników
+	<%= link_to "Zobacz użytkowników", users_path, :class => "btn btn-primary pull-right" %>
+</p>
 
-<%= link_to "Zobacz użytkowników", users_path, :class => "btn btn-primary btn-large" %>

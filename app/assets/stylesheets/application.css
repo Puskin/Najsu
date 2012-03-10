@@ -11,6 +11,3 @@
  *= require_self
  *= require_tree .
 */
-
-body { padding: 25px }
-h1 { margin-bottom: 25px!important }

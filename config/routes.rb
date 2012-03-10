@@ -4,6 +4,9 @@ Tuduk::Application.routes.draw do
 
   root :to => 'pages#home'
 
+  match "/signup", to: 'users#new'
+  match "/about", to: 'pages#about'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
