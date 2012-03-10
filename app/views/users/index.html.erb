@@ -4,18 +4,18 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
-    <td><%= link_to 'Show', user, :class => "btn btn-mini" %></td>
-    <td><%= link_to 'Edit', edit_user_path(user), :class => "btn btn-primary btn-mini" %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete, :class => "btn btn-mini btn-danger" %></td>
+    <td>
+      <%= link_to 'Show', user, :class => "btn btn-mini" %>
+      <%= link_to 'Edit', edit_user_path(user), :class => "btn btn-primary btn-mini" %>
+      <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete, :class => "btn btn-mini btn-danger" %>
+    </td>
   </tr>
 <% end %>
 </table>
