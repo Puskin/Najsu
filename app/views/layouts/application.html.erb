@@ -10,7 +10,11 @@
 
 		<%= render "layouts/header" %>
 
-		<div class="container">
+		<div class="container" id="content">
+
+			<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 
 			<div class="page-header">
 				<h2><%= yield(:title) %></h2>
@@ -18,6 +22,10 @@
 
 			<%= yield %>
 		</div>
+
+		<div class="container">
+      <%= debug(params) if Rails.env.development? %>
+    </div>
 	
 </body>
 </html>

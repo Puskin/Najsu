@@ -1,18 +1,7 @@
 <%= form_for(@user, :html => { :class => "form-horizontal pull-left"}) do |f| %>
   <fieldset>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <%= render 'shared/error_messages' %>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <legend>No dalej, utwórz użytkownika!</legend>
 
     <div class="control-group">
     <%= f.label :name, :class => "control-label" %>
@@ -29,10 +18,25 @@
     </div>
 
     <div class="control-group">
+    <%= f.label :password, :class => "control-label" %>
       <div class="controls">
-      <%= f.submit "Utwórz użytkownika", :class => "btn btn-primary", :disable_with => "Ładowanie" %>
+        <%= f.password_field :password %>
+      </div>
+    </div>
+
+    <div class="control-group">
+    <%= f.label :password_confirmation, :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+      <%= f.submit :class => "btn btn-primary btn-large pull-right", :disable_with => "Ładowanie" %>
       </div>
     </div>
 
   </fieldset>
 <% end %>
+

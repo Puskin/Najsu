@@ -1,0 +1,24 @@
+
+/* HTML ELEMENTS ----------------------------------------------------------------*/
+body { padding-top: 40px }
+
+/* Basic Content ----------------------------------------------------------------*/
+.navbar .container { padding: 0 }
+
+
+/* HEADER -----------------------------------------------------------------------*/
+.navbar-inner a.brand { float: left }
+
+
+/* CONTENT ----------------------------------------------------------------------*/
+#content { padding: 20px 0 }
+
+/* Shared forms */
+#error_explanation ul { list-style-type: none; margin: 0 0 20px 0; }
+
+/* Registration form */
+#new_user input[type=text],
+#new_user input[type=password] { width: 270px }
+
+
+/* FOOTER -----------------------------------------------------------------------*/
