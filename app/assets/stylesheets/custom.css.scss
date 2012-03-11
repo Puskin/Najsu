@@ -15,6 +15,7 @@ body.app { background: lightGray }
 #content { padding-top: 20px; padding-bottom: 20px }
 body.app #content { padding-bottom: 0 }
 
+#main .row { padding: 20px }
 /* Shared forms */
 #error_explanation ul { list-style-type: none; margin: 0 0 20px 0; }
 
@@ -25,7 +26,11 @@ body.app #content { padding-bottom: 0 }
 /* Side elements */
 #side { background-color: #f6f6f6; }
 #side .nav-tabs { margin: 0; width: 100% }
-#side h6 { padding: 12px; font-size: 12px; }
+#side h6 { padding: 12px; font-size: 12px; border-bottom: 2px dotted lightgray; border-top: 2px dotted lightgray  }
+#side li:first-child h6 { border-top: none }
+#side li i.icon-time,
+#side li i.icon-warning-sign { margin-right: 8px; float: left }
+
 
 
 
