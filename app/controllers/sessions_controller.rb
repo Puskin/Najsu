@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  layout "frontend", only: [:new]
+
 	def new
 	end
 

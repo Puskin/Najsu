@@ -6,30 +6,78 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="app">
 
-		<%= render "layouts/header" %>
+	<div class="navbar navbar-fixed-top">
+	 <div class="navbar-inner">
+			<div class="container-fluid">
+				<%= link_to "Tuduk", root_path, :class => "brand" %>
+				<ul class="nav pull-left">
+					<li<%=" class='active'" if action_name == 'home'%>><%= link_to "Dashboard", root_path %>
+				</ul>
 
-		<div class="container" id="content">
+        <ul class="nav pull-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= "#{current_user.name}" %>
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", user_path(current_user) %>
+              <li><%= link_to "Settings", edit_user_path(current_user) %>
+              <li class="divider"></li>
+              <li><%= link_to "Sign out", signout_path, method: "delete" %>
+            </ul>
+          </li>
+        </ul>
+	    </div>
+	  </div>
+	</div>
 
-			<% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
+	<div class="container-fluid" id="content">
 
-			<div class="page-header">
-				<h2><%= yield(:title) %></h2>
+		<% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
+		<div class="row-fluid">
+			<div class="span3" id="side">
+				<div class="tabbable tabs-left">
+				  <ul class="nav nav-tabs">
+				    <li><h6>Lists<a href="#" class="btn btn-mini pull-right"><i class="icon-plus"></i></a></h6></li>
+				    <li class="active"><a href="#1" data-toggle="tab">Section 1</a></li>
+				    <li><a href="#2" data-toggle="tab">Section 2</a></li>
+				    <li><a href="#2" data-toggle="tab">Section 2</a></li>
+				    <li><a href="#2" data-toggle="tab">Section 2</a></li>
+				    <li><a href="#2" data-toggle="tab">Section 2</a></li>
+				  </ul>
+				</div>
 			</div>
 
-			<%= yield %>
+			<div class="span9" id="content">
+				<h2><%= yield(:title) %></h2>
+				<%= yield %>
+
+				<div class="tab-content">
+			    <div class="tab-pane active" id="1">
+			      <p>I'm in Section 1.</p>
+			    </div>
+			    <div class="tab-pane" id="2">
+			      <p>Howdy, I'm in Section 2.</p>
+			    </div>
+			  </div>
+
+			</div>	
 		</div>
+	</div>
 
-		<% # render "layouts/footer" %>
+	<% # render "layouts/footer" %>
 
-		<% if Rails.env.development? %>
-			<div class="container">
-	      <%= debug(params) %>
-	    </div>
-    <% end %>
+	<% if Rails.env.development? %>
+		<div class="container-fluid">
+      <%= debug(params) %>
+    </div>
+  <% end %>
 	
 </body>
 </html>

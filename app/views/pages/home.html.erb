@@ -1,6 +1,14 @@
-<% provide(:title, "Witaj na Tuduk!") %>
-<p>
-	Możesz zobaczyć listę aktualnych użytkowników
-	<%= link_to "Zobacz użytkowników", users_path, :class => "btn btn-primary pull-right" %>
-</p>
+<% if signed_in? %>
 
+	<% provide(:title, "Your Dashboard") %>
+	<p>There will be your tasks here.</p>
+
+<% else %>
+
+	<% provide(:title, "Witaj na Tuduk!") %>
+	<p>
+		Możesz zobaczyć listę aktualnych użytkowników
+		<%= link_to "Zobacz użytkowników", users_path, :class => "btn btn-primary pull-right" %>
+	</p>
+
+<% end %>

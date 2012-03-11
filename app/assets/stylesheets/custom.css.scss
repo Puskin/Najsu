@@ -1,9 +1,10 @@
 
 /* HTML ELEMENTS ----------------------------------------------------------------*/
-body { padding-top: 40px }
+body { padding-top: 40px; background: #fff }
+body.app { background: lightGray }
 
 /* Basic Content ----------------------------------------------------------------*/
-.navbar .container { padding: 0 }
+#content .row-fluid { background: #fff }
 
 
 /* HEADER -----------------------------------------------------------------------*/
@@ -11,7 +12,7 @@ body { padding-top: 40px }
 
 
 /* CONTENT ----------------------------------------------------------------------*/
-#content { padding: 20px 0 }
+#content { padding-top: 20px; padding-bottom: 20px }
 
 /* Shared forms */
 #error_explanation ul { list-style-type: none; margin: 0 0 20px 0; }
@@ -19,6 +20,12 @@ body { padding-top: 40px }
 /* Registration form */
 #new_user input[type=text],
 #new_user input[type=password] { width: 270px }
+
+/* Side elements */
+#side { background-color: #f6f6f6; }
+#side .nav-tabs { margin: 0; width: 100% }
+#side h6 { padding: 12px; font-size: 12px; }
+
 
 
 /* FOOTER -----------------------------------------------------------------------*/

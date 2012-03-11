@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= page_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div class="navbar navbar-fixed-top">
+	 <div class="navbar-inner">
+			<div class="container">
+				<%= link_to "Tuduk", root_path, :class => "brand" %>
+				
+	      <ul class="nav">
+	          <li><%= link_to "Home", root_path %></li>
+	          <li><%= link_to "About", about_path %></li>
+	          <% unless signed_in? %>
+	            <li><%= link_to "Sign in", signin_path %></li>
+	            <li><%= link_to "Sign up", signup_path %></li>
+	          <% end %>
+	      </ul>
+
+	    </div>
+	  </div>
+	</div>
+
+	<div class="container" id="content">
+
+		<div class="row">
+			<div class="span3">&nbsp;</div>
+			<div class="span6">
+				<% flash.each do |key, value| %>
+		      <div class="alert alert-<%= key %>"><%= value %></div>
+		    <% end %>
+
+				<div class="page-header">
+					<h2><%= yield(:title) %></h2>
+				</div>
+
+				<%= yield %>
+			</div>
+			<div class="span3">&nbsp;</div>
+		</div>
+
+	</div>
+
+	<% # render "layouts/footer" %>
+
+	<% if Rails.env.development? %>
+		<div class="container">
+      <%= debug(params) %>
+    </div>
+  <% end %>
+	
+</body>
+</html>

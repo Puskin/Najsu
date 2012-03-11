@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update]
   before_filter :correct_user,   only: [:edit, :update, :destroy]
+  layout "frontend",             only: [:new]
+
 
   def index
     @users = User.all
