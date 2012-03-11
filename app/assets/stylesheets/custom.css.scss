@@ -13,6 +13,7 @@ body.app { background: lightGray }
 
 /* CONTENT ----------------------------------------------------------------------*/
 #content { padding-top: 20px; padding-bottom: 20px }
+body.app #content { padding-bottom: 0 }
 
 /* Shared forms */
 #error_explanation ul { list-style-type: none; margin: 0 0 20px 0; }
