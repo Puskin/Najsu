@@ -1,3 +1,3 @@
 <li>
-	<iframe width="200" height="70" src="http://www.youtube.com/embed/<%= movie.resource_id %>" frameborder="0" allowfullscreen></iframe>
+	<%= link_to(image_tag("http://img.youtube.com/vi/#{movie.resource_id}/hqdefault.jpg"), movie_path(movie.id), :remote => true) %>
 </li>

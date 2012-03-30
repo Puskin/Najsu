@@ -1,0 +1,2 @@
+$('.overlay').css('display','table');
+$('#lightbox_content').html("<%= escape_javascript( render :partial => 'movies/lightbox', :locals => { :resource_id => @movie.resource_id} ) %>");

@@ -16,8 +16,8 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @movie }
+      format.html 
+      format.js
     end
   end
 

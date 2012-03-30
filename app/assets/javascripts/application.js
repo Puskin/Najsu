@@ -13,3 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function(ev){	
+
+	$('.bye').click(function(ev){
+		$('.overlay').fadeOut();
+	}); 
+
+});                                                     
