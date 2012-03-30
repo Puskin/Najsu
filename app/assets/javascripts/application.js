@@ -21,4 +21,28 @@ $(document).ready(function(ev){
 		$('.overlay').fadeOut();
 	}); 
 
-});                                                     
+	$(window).bind("resize", resizeWindow);
+
+	$(document).keyup(function(e) {
+		if (e.keyCode == 27) { $('.overlay').fadeOut(); }   // esc
+	});
+	
+
+ 
+
+});          
+
+function resizeWindow( e ) {
+		var newWindowWidth = $(window).width();
+
+		/* 
+		var newWindowHeight = $(window).height();
+		$("#container").css("min-height", newWindowHeight );
+		*/
+		if(newWindowWidth > 1280) {
+			$("#videokupa").addClass("biggest")
+		}
+		else if(newWindowWidth < 1280) { 	
+			$("#videokupa").removeClass("biggest")
+		}
+	}                                           

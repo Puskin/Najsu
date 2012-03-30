@@ -30,6 +30,9 @@ ul.movies li img { width: 200px; margin-top: -22px }
 .overlay .lightbox { vertical-align: middle; display: table-cell; }
 .overlay .lightbox .content { margin: auto; text-align: center; z-index: 1000  }
 
+#videokupa { width: 853px; height: 480px; }
+#videokupa.biggest { width: 1280px; height: 720px; }
+
 #main .row { padding: 20px }
 /* Shared forms */
 #error_explanation ul { list-style-type: none; margin: 0 0 20px 0; }
