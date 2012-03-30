@@ -4,6 +4,8 @@ class PagesController < ApplicationController
 	layout :layout_switcher
   
   def home
+    @movie = Movie.new
+    @movies = Movie.all
   end
 
   private

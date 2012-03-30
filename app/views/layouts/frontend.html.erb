@@ -10,8 +10,8 @@
 
 	<div class="navbar navbar-fixed-top">
 	 <div class="navbar-inner">
-			<div class="container">
-				<%= link_to "Tuduk", root_path, :class => "brand" %>
+			<div class="container-fluid">
+				<%= link_to "Najsu", root_path, :class => "brand" %>
 				
 	      <ul class="nav">
 	          <li><%= link_to "Home", root_path %></li>
@@ -26,32 +26,25 @@
 	  </div>
 	</div>
 
-	<div class="container" id="content">
+	<div class="container-fluid" id="content">
 
-		<div class="row">
-			<div class="span3">&nbsp;</div>
-			<div class="span6">
+		<div class="row-fluid">
+			<div class="span12">
 				<% flash.each do |key, value| %>
 		      <div class="alert alert-<%= key %>"><%= value %></div>
 		    <% end %>
-
-				<div class="page-header">
-					<h2><%= yield(:title) %></h2>
-				</div>
-
 				<%= yield %>
 			</div>
-			<div class="span3">&nbsp;</div>
 		</div>
 
 	</div>
 
-	<div class="container">
+	<div class="container-fluid">
 		<%= render "layouts/footer" %>
 	</div>
 
 	<% if Rails.env.development? %>
-		<div class="container">
+		<div class="container-fluid">
       <%= debug(params) %>
     </div>
   <% end %>

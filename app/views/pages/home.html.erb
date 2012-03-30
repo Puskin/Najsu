@@ -5,10 +5,13 @@
 
 <% else %>
 
-	<% provide(:title, "Witaj na Tuduk!") %>
-	<p>
-		Możesz zobaczyć listę aktualnych użytkowników
-		<%= link_to "Zobacz użytkowników", users_path, :class => "btn btn-primary pull-right" %>
-	</p>
+	<div class="row-fluid">
+		<%= render 'movies/form' %>
+	</div>					
+
+	<div class="row-fluid">
+		<ul class="unstyled"><%= render @movies %></ul>
+	</div>					
+
 
 <% end %>
