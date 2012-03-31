@@ -26,9 +26,25 @@ ul.movies li a:hover .play { display: block; }
 .overlay { 
 	z-index: 9999; position: absolute; top: 0; left: 0; width: 100%; 
 	height: 100%; background-color: #000; display: none; }
-.overlay .bye { 
-	font-size: 24px; color: #fff; cursor: pointer;
-	font-weight: bold; position: absolute; right: 25px; top: 25px }	
+.overlay .actions { position: absolute; right: 25px; top: 25px; width: 32px }	
+.overlay .actions li { display: block; float: left; margin-bottom: 10px }
+.overlay .actions li a { display: block; width: 32px; height: 32px; background: url(iconLightboxActions.png); text-indent: -9999px }
+
+.overlay .actions li a#bye { background-position: -64px 0; height: 30px }
+.overlay .actions li a#bye:hover { background-position: -32px 0; }
+.overlay .actions li a.active#bye,
+.overlay .actions li a#bye:active { background-position: 0px 0px; }
+
+.overlay .actions li a#nice { background-position: -64px -30px; }
+.overlay .actions li a#nice:hover { background-position: -32px -30px; }
+.overlay .actions li a.active#nice,
+.overlay .actions li a#nice:active { background-position: 0px -30px; }
+
+.overlay .actions li a#bad { background-position: -64px -62px; }
+.overlay .actions li a#bad:hover { background-position: -32px -62px; }
+.overlay .actions li a.active#bad,
+.overlay .actions li a#bad:active { background-position: 0px -62px; }
+
 .overlay .lightbox { vertical-align: middle; display: table-cell; }
 .overlay .lightbox .content { margin: auto; text-align: center; z-index: 1000  }
 

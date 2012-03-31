@@ -17,7 +17,7 @@
 
 $(document).ready(function(ev){	
 
-	$('.bye').click(function(ev){
+	$('#bye').click(function(ev){
 		$('.overlay').fadeOut();
 	}); 
 
