@@ -1,11 +1,19 @@
 class PagesController < ApplicationController
 
-  before_filter :signed_in_user, except: [:home]
-	layout :layout_switcher
-  
+  before_filter :signed_in_user, except: [:home, :submit]
+  layout :layout_switcher
+
   def home
     @movie = Movie.new
     @movies = Movie.all
+  end
+
+  def submit
+    if params[:resource_id]
+      video_id = params[:resource_id]
+      Movie.create(:resource_id => video_id)
+      redirect_to :action => "submit", notice: 'Movie added to library.'    
+    end
   end
 
   private
@@ -17,8 +25,10 @@ class PagesController < ApplicationController
   	def layout_switcher
   		if signed_in? && action_name == "home"
   			"application"
-  		else
-  			"frontend"
+  		elsif action_name == "submit"
+  			"clean"
+      else
+        "frontend"
   		end
   	end
 

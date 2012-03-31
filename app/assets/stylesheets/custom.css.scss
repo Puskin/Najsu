@@ -30,6 +30,24 @@ ul.movies li img { width: 200px; margin-top: -22px }
 .overlay .lightbox { vertical-align: middle; display: table-cell; }
 .overlay .lightbox .content { margin: auto; text-align: center; z-index: 1000  }
 
+.bookmarklet {
+	background-color: #626262;
+	border: 1px solid #626262;
+	border-radius: 8px 8px 8px 8px;
+	color: #FFFFFF;
+	display: inline-block;
+	font-family: 'Lucida Grande',Verdana,sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	min-width: 62px;
+	padding: 0 7px 1px;
+	text-align: center;
+	text-shadow: 1px 1px 0 #3B3B3B;
+	vertical-align: 2px;
+}
+.bookmarklet:hover { color: #fff; text-decoration: none }
+
+
 #videokupa { width: 853px; height: 480px; }
 #videokupa.biggest { width: 1280px; height: 720px; }
 

@@ -11,6 +11,7 @@ Tuduk::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match "/about", to: 'pages#about'
+  match "/submit", to: 'pages#submit'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
