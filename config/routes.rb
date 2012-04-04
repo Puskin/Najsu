@@ -1,5 +1,6 @@
 Tuduk::Application.routes.draw do
 
+  resources :votes
   resources :movies
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

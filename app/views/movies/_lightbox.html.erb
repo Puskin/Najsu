@@ -1,1 +1,29 @@
-<embed src="http://www.youtube.com/v/<%=resource_id%>&autoplay=1&rel=0&autohide=1&cc_load_policy=0&controls=0&hd=1&egm=0" type="application/x-shockwave-flash" wmode="transparent" id="videokupa"></embed>
+
+
+<ul class="actions unstyled">
+	<li><a id="bye" href="#">Close</a></li>	
+	<% if movie.voted?(4) %>
+		<% vote_character = movie.vote?(4) %>
+		<%= form_for(movie.votes.build, :remote => true) do |f| %>
+			<%= f.hidden_field :movie_id, :value => movie.id %>
+	  	<li><%= f.submit "Nice", :id => "nice", :class => "#{voteClassNice(vote_character)}" %></li>
+	  	<li><%= f.submit "Bad", :id => nil, :id => "bad", :class => "#{voteClassBad(vote_character)}" %></li>
+		<% end %>
+	<% else %>
+		<%= form_for(movie.votes.build, :remote => true) do |f| %>
+			<%= f.hidden_field :movie_id, :value => movie.id %>
+	  	<li><%= f.submit "Nice", :id => "nice" %></li>
+	  	<li><%= f.submit "Bad", :id => nil, :id => "bad" %></li>
+		<% end %>
+	<% end %>
+</ul>
+
+
+
+<div class="lightbox">
+	<div class="content" id="lightbox_content">
+		<embed src="http://www.youtube.com/v/<%=movie.resource_id%>&autoplay=1&rel=0&autohide=1&cc_load_policy=0&controls=0&hd=1&egm=0" type="application/x-shockwave-flash" wmode="transparent" id="embed_video">
+		</embed>
+	</div>
+</div>
+

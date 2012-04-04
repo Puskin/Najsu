@@ -17,32 +17,34 @@
 
 $(document).ready(function(ev){	
 
-	$('#bye').click(function(ev){
-		$('.overlay').fadeOut();
-	}); 
-
 	$(window).bind("resize", resizeWindow);
-
 	$(document).keyup(function(e) {
 		if (e.keyCode == 27) { $('.overlay').fadeOut(); }   // esc
 	});
 	
+});
 
- 
 
-});          
+function lightboxButtons(ev) {
+	$('#bye').click(function(ev){
+		$('.overlay').fadeOut();
+	});
+	$('#cinema .actions input').click(function() {
+		$('#cinema .actions input').removeClass('active');
+		$(this).toggleClass('active');
+	});
+}           
 
 function resizeWindow( e ) {
-		var newWindowWidth = $(window).width();
-
-		/* 
-		var newWindowHeight = $(window).height();
-		$("#container").css("min-height", newWindowHeight );
-		*/
-		if(newWindowWidth > 1280) {
-			$("#videokupa").addClass("biggest")
-		}
-		else if(newWindowWidth < 1280) { 	
-			$("#videokupa").removeClass("biggest")
-		}
-	}                                           
+	var newWindowWidth = $(window).width();
+	/* 
+	var newWindowHeight = $(window).height();
+	$("#container").css("min-height", newWindowHeight );
+	*/
+	if(newWindowWidth > 1280) {
+		$("#embed_video").addClass("biggest")
+	}
+	else if(newWindowWidth < 1280) { 	
+		$("#embed_video").removeClass("biggest")
+	}
+}                                           
