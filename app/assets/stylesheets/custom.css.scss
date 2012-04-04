@@ -14,7 +14,7 @@ body.app { background: lightGray }
 #content { padding-top: 20px; padding-bottom: 20px }
 body.app #content { padding-bottom: 0 }
 
-ul.movies li { display: block; float: left; margin: 0 5px }
+ul.movies li { display: block; float: left; margin: 0 5px 10px 5px }
 ul.movies li a { 
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
