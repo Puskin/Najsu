@@ -20,7 +20,7 @@ body.app { background: lightGray }
 filter: dropshadow(color=#000, offx=1, offy=1); }
 #featured p { line-height: 20px; text-shadow: 1px 1px 2px #000;
 filter: dropshadow(color=#000, offx=1, offy=1); }
-#content { padding-top: 20px; padding-bottom: 20px }
+#content { padding-bottom: 20px }
 body.app #content { padding-bottom: 0 }
 
 #bookmarklet_info { 
