@@ -23,6 +23,18 @@ filter: dropshadow(color=#000, offx=1, offy=1); }
 #content { padding-top: 20px; padding-bottom: 20px }
 body.app #content { padding-bottom: 0 }
 
+#bookmarklet_info { 
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: rgba(155, 155, 155, 0.5); 
+	border: 1px solid rgba(155, 155, 155, 0.9); 
+	margin-bottom: 15px;
+	padding: 10px;
+	width: auto;
+	float: left;
+	color: #fff; }
+
 ul.movies li { 
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -39,7 +51,7 @@ ul.movies li a {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	width: 176px; float: left; display: block; height: 94px; 
+	width: 178px; float: left; display: block; height: 94px; 
 	overflow: hidden; position: relative; }
 ul.movies li img { width: 178px; margin-top: -22px }
 ul.movies li a .play { display: none; background: rgba(0, 0, 0, 0.6) url(iconPlay.png) center no-repeat; height: 94px; width: 178px; position: absolute; left: 0; top: 0 }
@@ -75,7 +87,7 @@ ul.movies li a:hover .play { display: block; }
 .overlay .lightbox .content { margin: auto; text-align: center; z-index: 1000  }
 
 .bookmarklet {
-	background-color: #626262;
+	background-color: #000;
 	border: 1px solid #626262;
 	border-radius: 8px 8px 8px 8px;
 	color: #FFFFFF;
