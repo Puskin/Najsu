@@ -23,9 +23,7 @@ class PagesController < ApplicationController
   	end
 
   	def layout_switcher
-  		if signed_in? && action_name == "home"
-  			"application"
-  		elsif action_name == "submit"
+  		if action_name == "submit"
   			"clean"
       else
         "frontend"

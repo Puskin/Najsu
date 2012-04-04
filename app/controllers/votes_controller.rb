@@ -1,10 +1,11 @@
 class VotesController < ApplicationController
 
+  before_filter :signed_in_user
   layout "frontend"
 
   def create
   	vote = Vote.new(params[:vote])
-    vote.user_id = 4 #will be replaced with current_user.id
+    vote.user_id = current_user.id
 	 	case params[:commit]
     when "Nice"
       vote.nice
@@ -19,5 +20,12 @@ class VotesController < ApplicationController
 
   def update
   end
+
+  
+  private
+    
+    def signed_in_user
+      redirect_to signin_path, notice: "Please sign in" unless signed_in?
+    end
 
 end

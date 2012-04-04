@@ -2,19 +2,24 @@
 
 <ul class="actions unstyled">
 	<li><a id="bye" href="#">Close</a></li>	
-	<% if movie.voted?(4) %>
-		<% vote_character = movie.vote?(4) %>
-		<%= form_for(movie.votes.build, :remote => true) do |f| %>
-			<%= f.hidden_field :movie_id, :value => movie.id %>
-	  	<li><%= f.submit "Nice", :id => "nice", :class => "#{voteClassNice(vote_character)}" %></li>
-	  	<li><%= f.submit "Bad", :id => nil, :id => "bad", :class => "#{voteClassBad(vote_character)}" %></li>
+	<% if signed_in? %>
+		<% if movie.voted?(current_user.id) %>
+			<% vote_character = movie.vote?(current_user.id) %>
+			<%= form_for(movie.votes.build, :remote => true) do |f| %>
+				<%= f.hidden_field :movie_id, :value => movie.id %>
+		  	<li><%= f.submit "Nice", :id => "nice", :class => "#{voteClassNice(vote_character)}" %></li>
+		  	<li><%= f.submit "Bad", :id => nil, :id => "bad", :class => "#{voteClassBad(vote_character)}" %></li>
+			<% end %>
+		<% else %>
+			<%= form_for(movie.votes.build, :remote => true) do |f| %>
+				<%= f.hidden_field :movie_id, :value => movie.id %>
+		  	<li><%= f.submit "Nice", :id => "nice" %></li>
+		  	<li><%= f.submit "Bad", :id => nil, :id => "bad" %></li>
+			<% end %>
 		<% end %>
 	<% else %>
-		<%= form_for(movie.votes.build, :remote => true) do |f| %>
-			<%= f.hidden_field :movie_id, :value => movie.id %>
-	  	<li><%= f.submit "Nice", :id => "nice" %></li>
-	  	<li><%= f.submit "Bad", :id => nil, :id => "bad" %></li>
-		<% end %>
+		<li><%= link_to "Nice", signup_path, :id => "nice", :class => "#{voteClassNice(vote_character)}" %></li>
+		<li><%= link_to "Bad", signup_path, :id => "bad", :class => "#{voteClassBad(vote_character)}" %></li>
 	<% end %>
 </ul>
 

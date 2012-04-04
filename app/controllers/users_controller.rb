@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, except: [:new, :create]
   before_filter :correct_user,   only: [:edit, :update, :destroy]
-  layout "frontend",             only: [:new]
+  layout "frontend"
 
 
   def index
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Tuduk."
-      redirect_to @user
+      redirect_to root_path
     else
       render action: "new"
     end

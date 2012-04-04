@@ -1,11 +1,12 @@
 
 /* HTML ELEMENTS ----------------------------------------------------------------*/
 html { background: url(background.jpg) }
-body { padding-top: 40px; background: url(moutain.png) center 40px no-repeat }
+body { padding-top: 40px; background: url(moutain.png) center 40px no-repeat; color: #fff }
 body.app { background: lightGray }
 
 /* Basic Content ----------------------------------------------------------------*/
 
+label { color: #fff }
 
 /* HEADER -----------------------------------------------------------------------*/
 #header { border-bottom: 1px solid #181818 }
