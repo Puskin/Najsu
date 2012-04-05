@@ -18,7 +18,9 @@ label { color: #fff }
 /* CONTENT ----------------------------------------------------------------------*/
 
 #timeline { padding: 20px 0 }
-#timeline ul { float: left; display: block; width: 100% }
+#timeline ul { float: left; display: block; width: 100%; padding-left: 50px }
+#timeline ul { position: relative; }
+#timeline ul li.first { position: absolute; left: 0 }
 
 #featured { padding: 80px 0; color: #fff }
 #featured h1 { 
