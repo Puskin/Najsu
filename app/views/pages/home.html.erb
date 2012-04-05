@@ -2,10 +2,13 @@
 	<div class="span5">
 		<% if signed_in? %>
 		<% else %>
+			<% if 1 != 1 %>
+			<!-- disabled for now -->
 			<h1>Hello wanderer!</h1>
 			<p>
 				Your long journey is finished, seems like you are on the right track to find what is best on the internet video. Go ahead - one thing that is left to do is log in via facebook and youre good to go! Have fun because real adventure starts now!
 			</p>
+			<% end %>
 		<% end %>
 		<div id="bookmarklet_info">
   		Drag this to your bookmark bar » &nbsp;<a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://burczynski.com/youtube_id.js';})();" class="bookmarklet">Najsu!</a>

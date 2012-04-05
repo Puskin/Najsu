@@ -25,7 +25,7 @@ label { color: #fff }
 #timeline { position: relative; }
 #timeline div.first { position: absolute; left: 0; padding: 0 10px; margin: 0; border: 0  }
 
-#featured { padding: 80px 0; color: #fff }
+#featured { padding: 20px 0 0 0; color: #fff }
 #featured h1 { 
 	color: #fff; margin-bottom: 10px;
 	text-shadow: 1px 1px 2px #000;
@@ -79,7 +79,7 @@ box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 #moviesList .movie .comments li img.avatar { width: 25px; height: 25px; margin: 0 3px 0 0; float: left }
 
 
-.movie #comment_content { height: 20px; width: 160px }
+.movie #comment_content { height: 20px; width: 140px }
 .movie form { margin: 0; padding: 0 }
 .movie form input,
 .movie form textarea { margin: 0; }

@@ -1,4 +1,4 @@
-<%= form_for(@comment, :remote => true) do |f| %>
+<%= form_for(@comment, :remote => true, :html => {:class => "form-horizontal pull-left"}) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -12,7 +12,7 @@
   <% end %>
 
     <%= f.hidden_field :movie_id, :value => movie.id %>
-    <%= f.text_area :content, :placeholder => "Comment ..." %>
+    <%= f.text_field :content, :placeholder => "Comment ..." %>
  
-    <%= f.submit "OK", :class => "btn" %>
+    <%= f.submit "OK", :class => "btn", :disable_with => "Sec..." %>
 <% end %>
