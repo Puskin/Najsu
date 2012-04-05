@@ -18,9 +18,12 @@ label { color: #fff }
 /* CONTENT ----------------------------------------------------------------------*/
 
 #timeline { padding: 20px 0 }
-#timeline ul { float: left; display: block; width: 100%; padding-left: 50px }
+#timeline ul { 
+	padding-top: 10px;
+	background: none repeat scroll 0 0 rgba(155, 155, 155, 0.4);
+	float: left; display: block; width: 94%; padding-left: 50px }
 #timeline ul { position: relative; }
-#timeline ul li.first { position: absolute; left: 0 }
+#timeline ul li.first { position: absolute; left: 0; padding: 0 10px; margin: 0  }
 
 #featured { padding: 80px 0; color: #fff }
 #featured h1 { 
@@ -50,9 +53,9 @@ ul.movies li {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	-webkit-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);
+	/*-webkit-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);
 -moz-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);
-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);
+box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 	display: block; float: left; margin: 0 5px 10px 5px }
 ul.movies li a { 
 	/*border-top: 1px solid rgba(155, 155, 155, 0.2);*/
