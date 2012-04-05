@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def timeline
-    @movies = current_user.movies.group_by { |m| m.created_at.at_beginning_of_day }
+    @movies = Movie.all.group_by { |m| m.created_at.at_beginning_of_day }
 
   end
 
