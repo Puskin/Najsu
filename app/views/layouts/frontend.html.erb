@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body <%="class='app'" if signed_in? %>>
 
 	<div class="navbar navbar-fixed-top" id="header">
 	 <div class="navbar-inner">
@@ -15,7 +15,7 @@
 				
 	      <ul class="nav">
 	          <li><%= link_to "Home", root_path %></li>
- 	          <li><%= link_to "Timeline", root_path %></li>
+ 	          <li><%= link_to "Timeline", timeline_path %></li>
 
             <% if signed_in? %>
             	<li><%= link_to "Signed in as #{current_user.name}", "#{}" %></li>

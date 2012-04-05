@@ -1,8 +1,7 @@
 
 /* HTML ELEMENTS ----------------------------------------------------------------*/
-html { background: url(background.jpg) }
-body { padding-top: 40px; background: url(moutain.png) center 40px no-repeat; color: #fff }
-body.app { background: lightGray }
+html { /*background: url(background.jpg)*/ }
+body { padding-top: 40px; /*background: url(moutain.png) center 40px no-repeat;*/ background: gray; color: #fff }
 
 html.clean,
 html.clean body { background: none; color: #000; padding: 20px }
@@ -17,6 +16,10 @@ label { color: #fff }
 
 
 /* CONTENT ----------------------------------------------------------------------*/
+
+#timeline { padding: 20px 0 }
+#timeline ul { float: left; display: block; width: 100% }
+
 #featured { padding: 80px 0; color: #fff }
 #featured h1 { 
 	color: #fff; margin-bottom: 10px;
@@ -26,6 +29,8 @@ filter: dropshadow(color=#000, offx=1, offy=1); }
 filter: dropshadow(color=#000, offx=1, offy=1); }
 #content { padding-bottom: 20px }
 body.app #content { padding-bottom: 0 }
+
+body.app #featured { padding: 20px 0 }
 
 #bookmarklet_info { 
 	-webkit-border-radius: 3px;

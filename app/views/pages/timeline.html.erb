@@ -1,0 +1,12 @@
+<div class="row-fluid" id="timeline">
+
+		<% @movies.each do |day, movies| %>
+			<ul class="unstyled movies">
+				<li><%= day.strftime("%m.%d") %></li>
+				<% movies.each do |movie| %>
+	    		<%= render :partial => "movies/movie", :locals => {:movie => movie} %>
+	  		<% end %>
+  		</ul>
+  	<% end %>
+
+</div>					

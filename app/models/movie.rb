@@ -1,8 +1,9 @@
 class Movie < ActiveRecord::Base
 
-	attr_accessible :resource_id
+	attr_accessible :resource_id, :user_id
   default_scope order: 'movies.created_at DESC'
   has_many :votes
+  belongs_to :user
 
 
   def vote?(user_id)

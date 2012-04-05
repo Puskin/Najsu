@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  before_filter :signed_in_user, except: [:home, :submit]
+  before_filter :signed_in_user, except: [:home, :submit, :timeline]
   layout :layout_switcher
 
   def home
@@ -9,7 +9,8 @@ class PagesController < ApplicationController
   end
 
   def timeline
-    @movies = current_user.movies
+    @movies = current_user.movies.group_by { |m| m.created_at.at_beginning_of_day }
+
   end
 
   def submit
