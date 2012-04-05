@@ -8,6 +8,10 @@ class PagesController < ApplicationController
     @movies = Movie.all
   end
 
+  def timeline
+    @movies = current_user.movies
+  end
+
   def submit
     if params[:resource_id]
       video_id = params[:resource_id]
