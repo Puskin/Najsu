@@ -1,6 +1,6 @@
 <% if @comment.content != "" %>
 $("#moviesList #clip_<%=@comment.movie_id%> .comments").append("<%= escape_javascript( render :partial => 'comments/comment', :locals => { :comment => @comment} ) %>")          
-$("#moviesList #clip_<%=@comment.movie_id%> #new_comment textarea").val("");                         
+$("#moviesList #clip_<%=@comment.movie_id%> #new_comment #comment_content").val("");                         
 $('#moviesList').masonry({
  	itemSelector: '.movie'
 });
