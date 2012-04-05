@@ -1,10 +1,24 @@
-<% if params[:resource_id] %>
-	<p style="padding: 0 0 0 30px">Loading...</p>
-<% end %>
+<% if signed_in? %>
+	
+	<% if params[:resource_id] %>
+		<p style="padding: 0 0 0 30px">Loading...</p>
+	<% end %>
 
-<% if params[:notice] %>
-	<p style="padding: 0 0 0 30px"><%= params[:notice] %></p>
+	<% if params[:notice] %>
+		<p style="padding: 0 0 0 30px"><%= params[:notice] %></p>
+		<script type="text/javascript">
+			setTimeout("window.close()", 1000);	
+		</script>
+	<% end %>
+
+<% else %>
+
+	You're not loged in.<br/>
+	<%= link_to "Log in here!", signin_path, :target => "_blank", :id => "close" %>
 	<script type="text/javascript">
-		setTimeout("window.close()", 1000);	
+		$('#close').click(function() {
+			setTimeout("window.close()", 100);	
+		});
 	</script>
+
 <% end %>

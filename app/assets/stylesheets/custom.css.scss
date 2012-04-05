@@ -4,6 +4,9 @@ html { background: url(background.jpg) }
 body { padding-top: 40px; background: url(moutain.png) center 40px no-repeat; color: #fff }
 body.app { background: lightGray }
 
+html.clean,
+html.clean body { background: none; color: #000; padding: 20px }
+
 /* Basic Content ----------------------------------------------------------------*/
 
 label { color: #fff }

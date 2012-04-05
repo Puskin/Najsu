@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   def submit
     if params[:resource_id]
       video_id = params[:resource_id]
-      Movie.create(:resource_id => video_id)
+      Movie.create(:resource_id => video_id, :user_id => current_user.id)
       redirect_to :action => "submit", notice: 'Movie added to library.'    
     end
   end
