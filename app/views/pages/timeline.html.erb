@@ -2,9 +2,14 @@
 
 		<% @movies.each do |day, movies| %>
 			<ul class="unstyled movies">
-				<li class="first"><%= day.strftime("%m.%d") %></li>
+				<div class="first"><%= day.strftime("%m.%d") %></div>
 				<% movies.each do |movie| %>
-	    		<%= render :partial => "movies/movie", :locals => {:movie => movie} %>
+	    		<div class="movie" id="clip_<%=movie.id%>">
+					<%= link_to(movie_path(movie.id), :remote => true) do %>
+						<div class="play"></div>
+						<%= image_tag("http://img.youtube.com/vi/#{movie.resource_id}/hqdefault.jpg") %>
+					<% end %>
+				</div>
 	  		<% end %>
   		</ul>
   	<% end %>

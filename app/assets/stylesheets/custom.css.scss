@@ -18,12 +18,12 @@ label { color: #fff }
 /* CONTENT ----------------------------------------------------------------------*/
 
 #timeline { padding: 20px 0 }
-#timeline ul { 
+#timeline { 
 	padding-top: 10px;
 	background: none repeat scroll 0 0 rgba(155, 155, 155, 0.4);
 	float: left; display: block; width: 94%; padding-left: 50px }
-#timeline ul { position: relative; }
-#timeline ul li.first { position: absolute; left: 0; padding: 0 10px; margin: 0; border: 0  }
+#timeline { position: relative; }
+#timeline div.first { position: absolute; left: 0; padding: 0 10px; margin: 0; border: 0  }
 
 #featured { padding: 80px 0; color: #fff }
 #featured h1 { 
@@ -49,22 +49,40 @@ body.app #featured { padding: 20px 0 }
 	float: left;
 	color: #fff; }
 
-ul.movies li { 
+#moviesList .movie { 
 	/*-webkit-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);
 -moz-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);
 box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
-	border: 1px solid rgba(0,0,0, 0.7);
+	width: 222px; background: #fff;
 	display: block; float: left; margin: 0 5px 10px 5px }
-ul.movies li a { 
+#moviesList .movie a { 
 	/*border-top: 1px solid rgba(155, 155, 155, 0.2);*/	
-
-	width: 178px; float: left; display: block; height: 94px; 
+	width: 222px; float: left; display: block; height: 123px; 
 	overflow: hidden; position: relative;
 
 }
-ul.movies li img { width: 178px; margin-top: -22px }
-ul.movies li a .play { display: none; background: rgba(0, 0, 0, 0.6) url(iconPlay.png) center no-repeat; height: 94px; width: 178px; position: absolute; left: 0; top: 0 }
-ul.movies li a:hover .play { display: block; }
+#moviesList .movie img { width: 222px; margin-top: -22px }
+#moviesList .movie a .play { 
+	width: 222px; height: 123px; 
+	display: none; background: rgba(0, 0, 0, 0.6) url(iconPlay.png) center no-repeat; position: absolute; left: 0; top: 0 }
+#moviesList .movie a:hover .play { display: block; }
+
+#moviesList .movie .comments { width: 222px; float: left; margin: 0 }
+#moviesList .movie .comments li {
+	list-style-type: none; float: left;
+	width: 212px; line-height: 14px;
+	border: 0; padding: 5px; margin: 0; font-size: 11px; color: #000;
+	border-bottom: 1px solid lightgray; }
+#moviesList .movie .comments li a,
+#moviesList .movie .comments li a img { width: auto; height: auto; margin: 0 5px 0 0  }
+
+#moviesList .movie .comments li img.avatar { width: 25px; height: 25px; margin: 0 3px 0 0; float: left }
+
+
+.movie #comment_content { height: 20px; width: 160px }
+.movie form { margin: 0; padding: 0 }
+.movie form input,
+.movie form textarea { margin: 0; }
 
 /* Modal */
 .overlay { 

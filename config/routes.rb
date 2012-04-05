@@ -1,5 +1,7 @@
 Tuduk::Application.routes.draw do
 
+  resources :comments
+
   resources :votes
   resources :movies
   resources :users

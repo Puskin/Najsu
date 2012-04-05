@@ -21,6 +21,10 @@ $(document).ready(function(ev){
 	$(document).keyup(function(e) {
 		if (e.keyCode == 27) { $('.overlay').fadeOut(); }   // esc
 	});
+
+	$('#moviesList').masonry({
+  	itemSelector: '.movie'
+	});
 	
 });
 

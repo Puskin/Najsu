@@ -6,11 +6,11 @@ class PagesController < ApplicationController
   def home
     @movie = Movie.new
     @movies = Movie.all
+    @comment = Comment.new
   end
 
   def timeline
     @movies = Movie.all.group_by { |m| m.created_at.at_beginning_of_day }
-
   end
 
   def submit

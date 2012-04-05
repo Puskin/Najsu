@@ -1,6 +1,10 @@
-<li>
+<div class="movie" id="clip_<%=movie.id%>">
 	<%= link_to(movie_path(movie.id), :remote => true) do %>
 		<div class="play"></div>
 		<%= image_tag("http://img.youtube.com/vi/#{movie.resource_id}/hqdefault.jpg") %>
 	<% end %>
-</li>
+	<ul class="comments">
+		<%= render movie.comments %>
+	</ul>
+	<% if signed_in? %>	<%= render :partial => "comments/form", :locals => { :movie => movie } %> <% end %>
+</div>
