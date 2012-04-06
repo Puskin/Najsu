@@ -11,8 +11,10 @@
     </div>
   <% end %>
 
+    <%= image_tag(gravatar_url_for(current_user), :class => "avatar") %>
+
     <%= f.hidden_field :movie_id, :value => movie.id %>
     <%= f.text_field :content, :placeholder => "Comment ..." %>
  
-    <%= f.submit "OK", :class => "btn", :disable_with => "Sec..." %>
+    <%= f.submit "OK", :class => "enter", :disable_with => "Sec..." %>
 <% end %>

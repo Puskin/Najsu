@@ -86,10 +86,16 @@ box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 #moviesList .movie .comments li a.close { float: right; display: none; }
 #moviesList .movie .comments li:hover a.close { display: block; }
 
-.movie #comment_content { height: 20px; width: 140px }
+.movie #comment_content { height: 20px; width: 148px }
 .movie form { margin: 0; padding: 0 }
 .movie form input,
 .movie form textarea { margin: 0; }
+#moviesList .movie form input.enter { 
+	padding: 0; 
+	border: 0; background: url(iconEnter.png) no-repeat center; text-indent: -9999px; width: 20px; height: 20px }
+#moviesList .movie form#new_comment img.avatar { 
+	float: left; width: 25px; height: 25px; margin: 5px 3px 5px 5px }
+#moviesList .movie form#new_comment #comment_content { margin: 5px 0 0 0; height: 14px; line-height: 14px }
 
 /* Modal */
 .overlay { 
@@ -165,6 +171,9 @@ box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 	width: 30px; height: 30px; float: left }
 .overlay .lightbox .content.sidepanel .comments ul li a.close { display: none }
 .overlay .lightbox .content.sidepanel .comments ul li:hover a.close { display: block; }
+.overlay .lightbox .content.sidepanel #new_comment { margin: 0; padding: 0 }
+.overlay .lightbox .content.sidepanel #new_comment #comment_content { height: 20px; padding: 0; line-height: 20px }
+.overlay .lightbox .content.sidepanel #new_comment img.avatar { width: 25px; height: 25px; float: left; margin-right: 3px }
 
 #main .row { padding: 20px }
 /* Shared forms */
