@@ -17,6 +17,7 @@
 		  	<li><%= f.submit "Bad", :id => nil, :id => "bad" %></li>
 			<% end %>
 		<% end %>
+		<li><%= link_to "Comments", "#", :id => "comments" %></li>
 	<% else %>
 		<li><%= link_to "Nice", signup_path, :id => "nice", :class => "#{voteClassNice(vote_character)}" %></li>
 		<li><%= link_to "Bad", signup_path, :id => "bad", :class => "#{voteClassBad(vote_character)}" %></li>
@@ -29,6 +30,12 @@
 	<div class="content" id="lightbox_content">
 		<embed src="http://www.youtube.com/v/<%=movie.resource_id%>&autoplay=1&rel=0&autohide=1&cc_load_policy=0&controls=0&hd=1&egm=0" type="application/x-shockwave-flash" wmode="transparent" id="embed_video">
 		</embed>
+		<div class="comments">
+			<ul>
+				<%= render movie.comments %>
+			</ul>
+			<% if signed_in? %>	<%= render :partial => "comments/form", :locals => { :movie => movie } %> <% end %>
+		</div>
 	</div>
 </div>
 

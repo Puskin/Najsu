@@ -37,6 +37,10 @@ function lightboxButtons(ev) {
 		$('#cinema .actions input').removeClass('active');
 		$(this).toggleClass('active');
 	});
+	$('#cinema .actions #comments').click(function() {
+		$(this).toggleClass('active');
+		$('#lightbox_content').toggleClass('sidepanel');
+	});
 }           
 
 function resizeWindow( e ) {
