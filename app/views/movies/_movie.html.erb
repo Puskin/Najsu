@@ -5,9 +5,16 @@
 	<% end %>
 	<ul class="comments">
 		<li class="author">
-			<%= image_tag(gravatar_url_for(movie.user), :class => "avatar") %> by 
-			<strong><%= movie.user.name %></strong>
-			<%= movie.created_at.strftime("%m-%d") %>
+			<div class="data">
+				<%= image_tag(gravatar_url_for(movie.user), :class => "avatar") %> by 
+				<strong><%= movie.user.name %></strong>
+				<%= movie.created_at.strftime("%m-%d") %>
+			</div>
+			<% if signed_in? && current_user?(movie.user) %>	
+				<div class="actions">
+					<%= link_to "&times;".html_safe, movie, :confirm => "Entire movie fo' sho?", :method => :delete, :class => "btn btn-mini pull-right", :remote => true %>
+				</div>
+			<% end %>
 		</li>
 		<% if movie.comments.count > 5 %>
 			<% movies_left = movie.comments.count - 5 %>

@@ -77,7 +77,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to movies_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 end
