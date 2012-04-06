@@ -4,7 +4,11 @@
 		<%= image_tag("http://img.youtube.com/vi/#{movie.resource_id}/hqdefault.jpg") %>
 	<% end %>
 	<ul class="comments">
-		<%= render movie.comments %>
+		<% if movie.comments.count > 5 %>
+			<% movies_left = movie.comments.count - 5 %>
+			<li class="more"><%= "Wczytaj jeszcze #{movies_left} komentów" %></li>
+		<% end %>
+		<%= render movie.comments.last(5) %>
 	</ul>
 	<% if signed_in? %>	<%= render :partial => "comments/form", :locals => { :movie => movie } %> <% end %>
 </div>
