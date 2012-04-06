@@ -3,7 +3,9 @@
 	$("#lightbox_content .comments ul").append("<%= escape_javascript( render :partial => 'comments/comment', :locals => { :comment => @comment} ) %>")          
    
 	$("#moviesList #clip_<%=@comment.movie_id%> #new_comment #comment_content").val("");                   
-	$("#lightbox_content #new_comment #comment_content").val("");                         
+	$("#lightbox_content #new_comment #comment_content").val("");     
+
+	$('#lightbox_content .comments ul').animate({ scrollTop: $("#comment_<%=@comment.id%>").offset().top }, 0);                   
       
 	$('#moviesList').masonry({
 	 	itemSelector: '.movie'
