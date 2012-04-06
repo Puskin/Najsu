@@ -80,7 +80,8 @@ box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 #moviesList .movie .comments li.more { font-weight: bold }
 
 #moviesList .movie .comments li img.avatar { width: 25px; height: 25px; margin: 0 3px 0 0; float: left }
-
+#moviesList .movie .comments li a.close { float: right; display: none; }
+#moviesList .movie .comments li:hover a.close { display: block; }
 
 .movie #comment_content { height: 20px; width: 140px }
 .movie form { margin: 0; padding: 0 }

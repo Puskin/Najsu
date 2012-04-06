@@ -1,4 +1,7 @@
-<li>
+<li id="comment_<%= comment.id %>">
 	<%= image_tag(gravatar_url_for(comment.user), :class => "avatar") %>
 	<%= comment.content %>
+	<% if current_user?(comment.user) %>
+		<%= link_to "&times;".html_safe, comment, :confirm => "Fo' sho?", :method => :delete, :class => "close", :remote => true %>
+	<% end %>
 </li>

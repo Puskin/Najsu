@@ -74,10 +74,9 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-
     respond_to do |format|
       format.html { redirect_to comments_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 end
