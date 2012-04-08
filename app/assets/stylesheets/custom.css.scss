@@ -1,7 +1,7 @@
 
 /* HTML ELEMENTS ----------------------------------------------------------------*/
 html { /*background: url(background.jpg)*/ }
-body { padding-top: 40px; /*background: url(moutain.png) center 40px no-repeat;*/ background: gray; color: #fff }
+body { padding-top: 40px; /*background: url(moutain.png) center 40px no-repeat;*/ background: gray; color: #000 }
 
 html.clean,
 html.clean body { background: none; color: #000; padding: 20px }
@@ -45,9 +45,11 @@ body.app #featured { padding: 20px 0 }
 	border: 1px solid rgba(155, 155, 155, 0.9); 
 	margin-bottom: 15px;
 	padding: 10px;
-	width: 600px;
+	width: 900px;
 	float: left;
 	color: #fff; }
+
+#bookmarklet_info a { margin-left: 10px }	
 
 #moviesList .movie { 
 	/*-webkit-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);
@@ -193,6 +195,10 @@ box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 #side li i.icon-time,
 #side li i.icon-warning-sign { margin-right: 8px; float: left }
 
+
+
+
+.alert.mini { margin: 0; padding: 0 4px; font-size: 11px; line-height: 17px }
 
 
 

@@ -1,5 +1,6 @@
 Tuduk::Application.routes.draw do
 
+  resources :invitations
   resources :authentications
   resources :comments
   resources :votes

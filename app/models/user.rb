@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 	has_many :votes
 	has_many :movies
 	has_many :comments
-
+	has_many :invitations
 
 
 	#users following relations
