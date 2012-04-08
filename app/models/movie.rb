@@ -10,6 +10,16 @@ class Movie < ActiveRecord::Base
   # Returns movies from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
 
+  def views_update
+    self.views_count+=1
+    save!
+  end
+
+  def likes_count
+    self.votes.like.count - self.votes.unlike.count
+  end
+
+
   #voting movies
   def vote?(user_id)
   	if self.voted?(user_id)
