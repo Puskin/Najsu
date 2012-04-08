@@ -5,8 +5,12 @@ class PagesController < ApplicationController
 
   def home
     @movie = Movie.new
-    @movies = Movie.all
     @comment = Comment.new
+    if signed_in?
+      @movies = current_user.feed
+    else
+      @movies = Movie.all
+    end
   end
 
   def timeline

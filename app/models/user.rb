@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
 
 	#users following relations
 	def feed
+	  Movie.from_users_followed_by(self)
   end
 
   def following?(other_user)

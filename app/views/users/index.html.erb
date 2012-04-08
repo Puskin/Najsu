@@ -1,5 +1,5 @@
 <% provide(:title, 'Lista użytkowników') %>
-
+<br/><br/>
 <table class="table table-bordered">
   <tr>
     <th>Name</th>
@@ -12,14 +12,18 @@
     <td><%= user.name %></td>
     <td><%= user.email %></td>
     <td>
-      <%= link_to 'Show', user, :class => "btn btn-mini" %>
-      <%= link_to 'Edit', edit_user_path(user), :class => "btn btn-primary btn-mini" %>
-      <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete, :class => "btn btn-mini btn-danger" %>
+      
+      <% unless current_user?(user) %>
+        <div id="follow_form">
+        <% if current_user.following?(user) %>
+          <%= render :partial => 'unfollow', :locals => { :user => user } %>
+        <% else %>
+          <%= render :partial => 'follow', :locals => { :user => user } %>
+        <% end %>
+        </div>
+      <% end %>
+    
     </td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New User', new_user_path, :class => "btn btn-primary" %>
