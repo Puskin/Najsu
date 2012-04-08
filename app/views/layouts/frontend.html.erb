@@ -18,7 +18,7 @@
  	          <li><%= link_to "Timeline", timeline_path %></li>
 
             <% if signed_in? %>
-            	<li><%= link_to "Signed in as #{current_user.name}", "#{}" %></li>
+            	<li><%= link_to "Signed in as #{current_user.name}", user_path(current_user) %></li>
             	<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
 	          <% end %>
 	          <% unless signed_in? %>
@@ -54,6 +54,7 @@
     </div>
   <% end %>
 
+ 	<%= render "layouts/modal" %>
 
   <div class="overlay" id="cinema">
   </div>

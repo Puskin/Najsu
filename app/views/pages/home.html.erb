@@ -16,6 +16,14 @@
 	</div>
 </div>
 
+<% if signed_in? %>
+	<% if current_user.facebook? %>
+		<div class="row-fluid">
+			<%= link_to "Zaproś znajomych z Facebook!", "#", :class => "btn btn-primary" %>
+		</div>
+	<% end %>
+<% end %>		
+
 <div class="row-fluid" id="moviesList">
 	<%= render @movies %>
 </div>					

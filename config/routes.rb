@@ -1,7 +1,7 @@
 Tuduk::Application.routes.draw do
 
+  resources :authentications
   resources :comments
-
   resources :votes
   resources :movies
   resources :users
@@ -16,6 +16,8 @@ Tuduk::Application.routes.draw do
   match "/about", to: 'pages#about'
   match "/submit", to: 'pages#submit'
   match "/timeline", to: 'pages#timeline'
+
+  match '/auth/:provider/callback' => 'authentications#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
