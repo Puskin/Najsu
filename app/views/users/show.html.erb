@@ -17,3 +17,24 @@
 		<hr>
 	<% end %>
 </p>
+
+<% unless current_user?(@user) %>
+  <div id="follow_form">
+  <% if current_user.following?(@user) %>
+    <%= render 'unfollow' %>
+  <% else %>
+    <%= render 'follow' %>
+  <% end %>
+  </div>
+<% end %>
+
+
+<strong>Obserwowani:</strong><br/>
+<% @user.followed_users.each do |followed| %>
+	<%= followed.name %>
+<% end %><br/>
+
+<strong>Obserwujący:</strong><br/>
+<% @user.followers.each do |follower| %>
+	<%= follower.name %>
+<% end %><br/>

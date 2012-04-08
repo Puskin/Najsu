@@ -76,6 +76,8 @@ box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 #moviesList .movie .comments li a,
 #moviesList .movie .comments li a img { width: auto; height: auto; margin: 0 5px 0 0  }
 
+#moviesList .movie .comments li a { margin: 0 }
+
 #moviesList .movie .comments li.author { background: #ebebeb }
 #moviesList .movie .comments li.author .data { float: left; width: 180px }
 #moviesList .movie .comments li.author .actions { float: right; }

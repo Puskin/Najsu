@@ -12,11 +12,40 @@ class User < ActiveRecord::Base
 										uniqueness: { case_sensitive: false }
 	validates :password, length: { minimum: 6 }			
 
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: "followed_id",
+                                   class_name:  "Relationship",
+                                   dependent:   :destroy
+  has_many :followers, through: :reverse_relationships, source: :follower
+  
 	has_many :authentications
 	has_many :votes
 	has_many :movies
 	has_many :comments
 
+
+
+	#users following relations
+	def feed
+  end
+
+  def following?(other_user)
+    relationships.find_by_followed_id(other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    relationships.find_by_followed_id(other_user.id).destroy
+  end
+
+
+
+
+  #facebook integration stuff
 	def facebook?
 		if self.authentications.find_by_provider("facebook")
 			true
