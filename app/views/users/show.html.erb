@@ -18,16 +18,7 @@
 	<% end %>
 </p>
 
-<% unless current_user?(@user) %>
-  <div id="follow_form">
-  <% if current_user.following?(@user) %>
-    <%= render :partial => 'unfollow', :locals => { :user => @user } %>
-  <% else %>
-    <%= render :partial => 'follow', :locals => { :user => @user } %>
-  <% end %>
-  </div>
-<% end %>
-
+<%= render :partial => "users/followForm", :locals => { :user => @user } %>
 
 <strong>Obserwowani:</strong><br/>
 <% @user.followed_users.each do |followed| %>

@@ -11,19 +11,7 @@
   <tr>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
-    <td>
-      
-      <% unless current_user?(user) %>
-        <div id="follow_form">
-        <% if current_user.following?(user) %>
-          <%= render :partial => 'unfollow', :locals => { :user => user } %>
-        <% else %>
-          <%= render :partial => 'follow', :locals => { :user => user } %>
-        <% end %>
-        </div>
-      <% end %>
-    
-    </td>
+    <td><%= render :partial => "users/followForm", :locals => { :user => user } %></td>
   </tr>
 <% end %>
 </table>
