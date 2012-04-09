@@ -9,7 +9,7 @@
 				<%= link_to(image_tag(gravatar_url_for(movie.user), :class => "avatar"), user_path(movie.user)) %> by 
 				<strong><%= movie.user.name %></strong>
 				<%= movie.created_at.strftime("%m-%d") %></br>
-				Views: <%= movie.views_count %>; Likes: <%= movie.likes_count %>
+				Views: <%= movie.views_count %>; Likes: <%= movie.likes_count %>; Cmnts: <%= movie.comments.count %>
 			</div>
 			<% if signed_in? && current_user?(movie.user) %>	
 				<div class="actions">

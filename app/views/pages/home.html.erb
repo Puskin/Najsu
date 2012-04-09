@@ -1,27 +1,17 @@
-<div class="row" id="featured">
+<div class="row-fluid" id="featured">
 
-	<div class="span5">
-		<% if signed_in? %>
-		<% else %>
-			<% if 1 != 1 %>
-			<!-- disabled for now -->
-			<h1>Hello wanderer!</h1>
-			<p>
-				Your long journey is finished, seems like you are on the right track to find what is best on the internet video. Go ahead - one thing that is left to do is log in via facebook and youre good to go! Have fun because real adventure starts now!
-			</p>
-			<% end %>
-		<% end %>
-		<div id="bookmarklet_info">
-  		Drag this to your bookmark bar » &nbsp;<a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://burczynski.com/youtube_id.js';})();" class="bookmarklet">Najsu!</a>
-  		<%= link_to "Subskrybuj ludzi!", users_path, :class => "btn btn-success pull-right" %> 
+	<div class="span12">
+			<p>Odkrywaj, oglądaj i dziel najciekawsze filmy w Twoim otoczeniu!</p>
+  		<%= link_to "Subskrybuj ludzi!", users_path, :class => "button button-orange" %> 
+  		<%= link_to "Zaloguj z Facebook", "auth/facebook", :class => "button button-facebook facebook_popup", :disable_with => "Sekunda..." %>
 
   		<% if signed_in? %>
 				<% if current_user.facebook? %>
-					<%= link_to "Zaproś znajomych z Facebook!", invitations_path, :remote => true, :disable_with => "Ładowanie...", :class => "btn btn-primary pull-right" %>
+					<%= link_to "Zaproś znajomych z Facebook!", invitations_path, :remote => true, :disable_with => "Ładowanie...", :class => "button button-facebook" %>
 				<% end %>
 			<% end %>		
-		</div>
 	</div>
+
 </div>
 
 
