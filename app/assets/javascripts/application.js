@@ -23,7 +23,8 @@ $(document).ready(function(ev){
 	});
 
 	$('#moviesList').masonry({
-  	itemSelector: '.movie'
+  	itemSelector: '.movie',
+  	isFitWidth: true
 	});
 
 	function popupCenter(url, width, height, name) {

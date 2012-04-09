@@ -67,7 +67,7 @@ html.clean body { background: none; color: #000; padding: 20px }
 #content { padding-bottom: 20px }
 body.app #content { padding-bottom: 0 }
 
-#moviesList { margin-top: 10px }
+#moviesList { padding-top: 10px; margin: 0 auto; }
 #moviesList .movie { 
 	/*-webkit-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);
 -moz-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);
@@ -173,7 +173,11 @@ box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 
 
 #embed_video { width: 853px; height: 480px; }
+#embed_video.biggest { width: 1100px; height: 619px; }
+/*
+#embed_video.biggest { width: 960px; height: 540px; }
 #embed_video.biggest { width: 1280px; height: 720px; }
+*/
 
 .overlay .lightbox .content .comments { display: none; }
 
