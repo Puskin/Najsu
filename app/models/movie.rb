@@ -47,8 +47,8 @@ class Movie < ActiveRecord::Base
     # We include the user's own id as well. (REMOVED TEMP)
     def self.followed_by(user)
       followed_user_ids = %(SELECT followed_id FROM relationships WHERE follower_id = :user_id)
-      where("user_id IN (#{followed_user_ids})", { user_id: user })
-      #where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", { user_id: user })
+      #where("user_id IN (#{followed_user_ids})", { user_id: user })
+      where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", { user_id: user })
     end
 
 
