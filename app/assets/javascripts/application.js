@@ -36,6 +36,11 @@ $(document).ready(function(ev){
 	  popupCenter($(this).attr("href"), 600, 400, "authPopup");
 	  e.stopPropagation(); return false;
 	});	
+
+	$("#featured a.close").click(function(e){
+		$("#featured").fadeOut();
+	});
+
 });
 
 

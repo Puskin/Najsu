@@ -2,6 +2,8 @@
 
 	<div class="span12">
 			<p>Odkrywaj, oglądaj i dziel najciekawsze filmy w Twoim otoczeniu!</p>
+			<a class="close pull-right">&times;</a>
+
   		<% unless current_user %>
   			<%= link_to "Zaloguj z Facebook", "auth/facebook", :class => "button button-facebook facebook_popup", :disable_with => "Sekunda..." %>
   			<%= link_to "Załóż konto", signup_path, :class => "button button-green" %>
