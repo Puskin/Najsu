@@ -16,7 +16,7 @@ class Movie < ActiveRecord::Base
   end
 
   def likes_count
-    self.votes.like.count - self.votes.unlike.count
+    self.votes.likes.count - self.votes.dislikes.count
   end
 
 

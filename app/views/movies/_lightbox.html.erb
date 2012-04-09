@@ -7,8 +7,10 @@
 			<% vote_character = movie.vote?(current_user.id) %>
 			<%= form_for(movie.votes.build, :remote => true) do |f| %>
 				<%= f.hidden_field :movie_id, :value => movie.id %>
-		  	<li><%= f.submit "Nice", :id => "nice", :class => "#{voteClassNice(vote_character)}" %></li>
-		  	<li><%= f.submit "Bad", :id => nil, :id => "bad", :class => "#{voteClassBad(vote_character)}" %></li>
+		  	<li><%= f.submit "Nice", :id => "nice", :rel => "popover", :class => "#{voteClassNice(vote_character)}", 
+		  	"data-content" => users_liked(movie), "data-original-title" => "Friends likes (#{movie.votes.likes.count})" %></li>
+		  	<li><%= f.submit "Bad", :id => nil, :id => "bad", :class => "#{voteClassBad(vote_character)}",
+		  	"data-content" => users_disliked(movie), "data-original-title" => "Friends dislikes (#{movie.votes.dislikes.count})" %></li>
 			<% end %>
 		<% else %>
 			<%= form_for(movie.votes.build, :remote => true) do |f| %>

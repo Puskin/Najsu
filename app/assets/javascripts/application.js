@@ -35,8 +35,7 @@ $(document).ready(function(ev){
 	$("a.facebook_popup").click(function(e) {
 	  popupCenter($(this).attr("href"), 600, 400, "authPopup");
 	  e.stopPropagation(); return false;
-	});
-	
+	});	
 });
 
 
@@ -52,6 +51,9 @@ function lightboxButtons(ev) {
 		$(this).toggleClass('active');
 		$('#lightbox_content').toggleClass('sidepanel');
 	});
+	$('#nice').popover({placement: 'left'});
+	$('#bad').popover({placement: 'left'});
+
 }           
 
 function resizeWindow( e ) {

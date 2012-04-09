@@ -3,8 +3,8 @@ class Vote < ActiveRecord::Base
 	belongs_to :movie
 	belongs_to :user
 
-	scope :like, where(:character => 1)
-	scope :unlike, where(:character => 0)  
+	scope :likes, where(:character => 1)
+	scope :dislikes, where(:character => 0)  
 
 	def nice
 		vote = Vote.conn(self.movie_id, self.user_id)
