@@ -12,8 +12,10 @@
 		<% else %>
 			<%= form_for(movie.votes.build, :remote => true) do |f| %>
 				<%= f.hidden_field :movie_id, :value => movie.id %>
-		  	<li><%= f.submit "Nice", :id => "nice" %></li>
-		  	<li><%= f.submit "Bad", :id => nil, :id => "bad" %></li>
+		  	<li><%= f.submit "Nice", :id => "nice", :rel => "popover", "data-content" => users_liked(movie), 
+		  	"data-original-title" => "Friends likes (#{movie.votes.likes.count})" %></li>
+		  	<li><%= f.submit "Bad", :id => nil, :id => "bad", "data-content" => users_disliked(movie), 
+		  	"data-original-title" => "Friends dislikes (#{movie.votes.dislikes.count})" %></li>
 			<% end %>
 		<% end %>
 		<li><%= link_to "Comments", "#", :id => "comments" %></li>
