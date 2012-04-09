@@ -10,8 +10,6 @@ html.clean body { background: none; color: #000; padding: 20px }
 
 /* Basic Content ----------------------------------------------------------------*/
 
-label { color: #fff }
-
 /* HEADER -----------------------------------------------------------------------*/
 #header {  }
 #header .navbar-inner { 
@@ -25,6 +23,7 @@ label { color: #fff }
 
 #header .nav { float: right }
 #header .nav li a { color: #fff }
+#header .nav li a img { float: left; margin-right: 5px }
 
 /* CONTENT ----------------------------------------------------------------------*/
 
@@ -43,7 +42,7 @@ label { color: #fff }
 	-moz-border-radius-bottomleft: 4px;
 	border-bottom-right-radius: 4px;
 	border-bottom-left-radius: 4px;
-	background: #fffbb4; border-bottom: 1px solid #cfcb8c; margin-bottom: 10px 
+	background: #fffbb4; border-bottom: 2px solid #e1db6e; margin-bottom: 10px 
 }
 #featured .span12 { padding: 7px 0 }
 #featured .span12 p { margin: 0 0 0 10px; font-size: 12px; color: #544f48; float: left; line-height: 27px; }
@@ -62,6 +61,7 @@ label { color: #fff }
 #featured .span12 a.button:hover { text-decoration: none }
 .button.button-facebook { background-color: #315c9a; }
 .button.button-orange { background-color: #dc8413 }
+.button.button-green { background-color: #5bb95c }
 
 #content { padding-bottom: 20px }
 body.app #content { padding-bottom: 0 }

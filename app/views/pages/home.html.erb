@@ -2,13 +2,16 @@
 
 	<div class="span12">
 			<p>Odkrywaj, oglądaj i dziel najciekawsze filmy w Twoim otoczeniu!</p>
-  		<%= link_to "Subskrybuj ludzi!", users_path, :class => "button button-orange" %> 
-  		<%= link_to "Zaloguj z Facebook", "auth/facebook", :class => "button button-facebook facebook_popup", :disable_with => "Sekunda..." %>
+  		<% unless current_user %>
+  			<%= link_to "Zaloguj z Facebook", "auth/facebook", :class => "button button-facebook facebook_popup", :disable_with => "Sekunda..." %>
+  			<%= link_to "Załóż konto", signup_path, :class => "button button-green" %>
+  		<% end %>
 
   		<% if signed_in? %>
 				<% if current_user.facebook? %>
 					<%= link_to "Zaproś znajomych z Facebook!", invitations_path, :remote => true, :disable_with => "Ładowanie...", :class => "button button-facebook" %>
 				<% end %>
+	  		<%= link_to "Subskrybuj ludzi!", users_path, :class => "button button-orange" %> 
 			<% end %>		
 	</div>
 
