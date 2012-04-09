@@ -14,13 +14,9 @@ class VotesController < ApplicationController
     end
     respond_to do |format|
     	format.html
-    	format.js
+    	format.js { @movie = Movie.find(vote.movie_id) }
     end
   end
-
-  def update
-  end
-
   
   private
     

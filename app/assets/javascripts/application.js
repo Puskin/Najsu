@@ -43,6 +43,7 @@ function lightboxButtons(ev) {
 	$('#bye').click(function(ev){
 		$('.overlay').fadeOut();
 	});
+	/* not needed because of partial reload
 	$('#cinema .actions input').click(function() {
 		$('#cinema .actions input').removeClass('active');
 		$(this).toggleClass('active');
@@ -51,9 +52,10 @@ function lightboxButtons(ev) {
 		$(this).toggleClass('active');
 		$('#lightbox_content').toggleClass('sidepanel');
 	});
+	*/
+	$('.popover').remove();
 	$('#nice').popover({placement: 'left'});
 	$('#bad').popover({placement: 'left'});
-
 }           
 
 function resizeWindow( e ) {
