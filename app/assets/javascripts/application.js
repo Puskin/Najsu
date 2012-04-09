@@ -48,11 +48,24 @@ function lightboxButtons(ev) {
 		$('#cinema .actions input').removeClass('active');
 		$(this).toggleClass('active');
 	});
-	$('#cinema .actions #comments').click(function() {
-		$(this).toggleClass('active');
-		$('#lightbox_content').toggleClass('sidepanel');
-	});
 	*/
+	
+	$('#cinema .actions #comments').click(function() {
+		var sidepanel = $('#lightbox_content').hasClass('sidepanel');
+		if (sidepanel == true) {
+			$(this).removeClass('active');
+			$('#lightbox_content').removeClass('sidepanel');
+		}
+		else {
+			$(this).addClass('active');
+			$('#lightbox_content').addClass('sidepanel');
+		}
+	});
+	var sidepanel = $('#lightbox_content').hasClass('sidepanel');
+	if (sidepanel == true) {
+		$('#cinema .actions #comments').addClass('active');
+	}
+
 	$('.popover').remove();
 	$('#nice').popover({placement: 'left'});
 	$('#bad').popover({placement: 'left'});
