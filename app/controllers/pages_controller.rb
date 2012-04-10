@@ -21,7 +21,8 @@ class PagesController < ApplicationController
     if signed_in?
       if params[:resource_id]
         video_id = params[:resource_id]
-        Movie.create(:resource_id => video_id, :user_id => current_user.id)
+        movie = Movie.create(:resource_id => video_id, :user_id => current_user.id)
+        movie.votes.create(:user_id => current_user.id, :character => 1)
         redirect_to :action => "submit", notice: 'Movie added to library.'    
       end
     end
