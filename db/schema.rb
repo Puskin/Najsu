@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20120408200813) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "user_id"
-    t.integer  "views_count", :default => 0
+    t.integer  "views_count", :default => 1
   end
 
   create_table "relationships", :force => true do |t|
