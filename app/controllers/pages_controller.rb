@@ -4,13 +4,27 @@ class PagesController < ApplicationController
   layout :layout_switcher
 
   def home
-    @movie = Movie.new
     @comment = Comment.new
     if signed_in?
-      @movies = current_user.feed
+      case params[:feed]
+      when "popular"
+        @movies = Movie.all.first(10)
+      when "friends"
+        @movies = current_user.movies # should be friend feed but current for now - to show the diff
+      when "discussed"
+        @movies = current_user.feed
+      else 
+        @movies = Movie.all
+      end
     else
       @movies = Movie.all
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def timeline

@@ -20,6 +20,13 @@
 </div>
 
 <div id="categories" class="row-fluid">
+
+	<ul class="switcher unstyled">
+		<li><%= link_to "Popularne", root_path(:feed => "popular"), :id => "popular", :remote => true %></li>
+		<li><%= link_to "Od znajomych", root_path(:feed => "friends"), :id => "friends", :remote => true %></li>
+		<li><%= link_to "Dyskutowane", root_path(:feed => "discussed"), :id => "discussed", :remote => true %></li>
+	</ul>
+
 </div>
 
 

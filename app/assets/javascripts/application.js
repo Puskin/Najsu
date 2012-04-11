@@ -42,6 +42,12 @@ $(document).ready(function(ev){
 		$("#featured").fadeOut();
 	});
 
+	$("#categories .switcher li a").click(function(e){
+		$("#categories .switcher li a").removeClass();
+		$(this).addClass("active");
+	});
+
+
 });
 
 
