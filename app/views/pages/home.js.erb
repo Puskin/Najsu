@@ -1,2 +1,12 @@
 $("#moviesList").html("<%= escape_javascript( render @movies ) %>");       
-$("#moviesList").masonry( 'reload' );
+$("#moviesList").masonry( 'reload' );       
+
+
+/*
+$("#moviesList").delay(2000)
+    .queue(function(n) {
+        $(this).html("<%= escape_javascript( render @movies ) %>");       
+        n();
+        $("#moviesList").masonry( 'reload' );
+    })
+*/

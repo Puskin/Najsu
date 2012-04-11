@@ -44,6 +44,7 @@ $(document).ready(function(ev){
 
 	$("#categories .switcher li a").click(function(e){
 		$("#categories .switcher li a").removeClass();
+		$("#moviesList").html("<div class='loader'></div>");
 		$(this).addClass("active");
 	});  /* TEMP SHIT */
 
