@@ -14,7 +14,7 @@ class PagesController < ApplicationController
       when "discussed"
         @movies = current_user.feed.first(10)
       else 
-        @movies = Movie.all.first(10)
+        @movies = Movie.all
       end
     else
       @movies = Movie.all
