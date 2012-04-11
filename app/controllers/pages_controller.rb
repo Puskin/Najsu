@@ -10,11 +10,11 @@ class PagesController < ApplicationController
       when "popular"
         @movies = Movie.all.first(10)
       when "friends"
-        @movies = current_user.movies # should be friend feed but current for now - to show the diff
+        @movies = current_user.movies.first(10) # should be friend feed but current for now - to show the diff
       when "discussed"
-        @movies = current_user.feed
+        @movies = current_user.feed.first(10)
       else 
-        @movies = Movie.all
+        @movies = Movie.all.first(10)
       end
     else
       @movies = Movie.all

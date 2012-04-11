@@ -1,1 +1,2 @@
 $("#moviesList #clip_<%=@movie.id%>").fadeOut(350, function() { $(this).remove(); });
+$("#moviesList").masonry( 'reload' );

@@ -1,1 +1,2 @@
-$("#moviesList").html("<%= escape_javascript( render @movies ) %>")       
+$("#moviesList").html("<%= escape_javascript( render @movies ) %>");       
+$("#moviesList").masonry( 'reload' );
