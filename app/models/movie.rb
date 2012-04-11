@@ -20,6 +20,15 @@ class Movie < ActiveRecord::Base
   end
 
 
+  def reposts
+    Movie.find_all_by_resource_id(self.resource_id)
+  end
+
+  def reposted_by
+    Movie.find_all_by_resource_id(self.resource_id).map(&:user_id)
+  end
+
+
   #voting movies
   def vote?(user_id)
   	if self.voted?(user_id)

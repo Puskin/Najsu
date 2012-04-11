@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
+      sign_in @user
       redirect_to @user, notice: 'User was successfully updated.'
     else
       render action: "edit"
