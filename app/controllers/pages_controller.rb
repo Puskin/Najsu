@@ -14,7 +14,7 @@ class PagesController < ApplicationController
       when "discussed"
         @movies = current_user.feed.order('movies.comments_count DESC')
       else 
-        @movies = current_user.feed
+        @movies = current_user.feed.order('movies.created_at DESC')
       end
     else
       @movies = Movie.order('movies.created_at DESC')
