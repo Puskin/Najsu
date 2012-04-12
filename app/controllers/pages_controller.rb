@@ -12,7 +12,7 @@ class PagesController < ApplicationController
       when "friends"
         @movies = current_user.feed
       when "discussed"
-        @movies = current_user.feed.first(10)
+        @movies = current_user.feed.order('comments_count')
       else 
         @movies = current_user.feed
       end
