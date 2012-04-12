@@ -8,16 +8,16 @@ class PagesController < ApplicationController
     if signed_in?
       case params[:feed]
       when "popular"
-        @movies = Movie.all.first(30)
+        @movies = Movie.order('movies.created_at DESC').first(10)
       when "friends"
-        @movies = current_user.feed
+        @movies = current_user.feed.order('movies.created_at DESC')
       when "discussed"
-        @movies = current_user.feed.order('comments_count')
+        @movies = current_user.feed.order('movies.comments_count DESC')
       else 
         @movies = current_user.feed
       end
     else
-      @movies = Movie.all
+      @movies = Movie.order('movies.created_at DESC')
     end
 
     respond_to do |format|
