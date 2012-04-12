@@ -23,7 +23,7 @@
 
 	<ul class="switcher unstyled">
 		<li id="switcherItem1"><%= link_to "Popularne", root_path(:feed => "popular"), :id => "popular", :rel => "tooltip", :title => "Popularne", :remote => true %></li>
-		<li id="switcherItem2"><%= link_to "Od znajomych", root_path(:feed => "friends"), :id => "friends", :rel => "tooltip", :title => "Twoje", :remote => true %></li>
+		<li id="switcherItem2"><%= link_to "Od znajomych", root_path(:feed => "friends"), :id => "friends", :rel => "tooltip", :class => "active", :title => "Od znajomych", :remote => true %></li>
 		<li id="switcherItem3"><%= link_to "Dyskutowane", root_path(:feed => "discussed"), :id => "discussed", :rel => "tooltip", :title => "Dyskutowane", :remote => true %></li>
 	</ul>
 
