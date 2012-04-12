@@ -61,6 +61,9 @@ $(document).ready(function(ev){
 		}
 	});  /* TEMP SHIT */
 
+	$('[rel="tooltip"]').tooltip();
+
+
 });
 
 
