@@ -46,6 +46,19 @@ $(document).ready(function(ev){
 		$("#categories .switcher li a").removeClass();
 		$("#moviesList").html("<div class='loader'></div>");
 		$(this).addClass("active");
+
+		var item = $(this).parent().attr("id")
+		switch(item){
+			case 'switcherItem1': 
+				$("#categories #switcherItem1").css('margin-left','90px');
+				break;
+			case 'switcherItem2': 
+				$("#categories #switcherItem1").css('margin-left','3px');
+				break;
+			case 'switcherItem3': 
+				$("#categories #switcherItem1").css('margin-left','-84px');		
+				break;
+		}
 	});  /* TEMP SHIT */
 
 

@@ -71,9 +71,9 @@ body.app #content { padding-bottom: 0 }
 
 
 #categories { background: url(categories_arrow.png) center bottom no-repeat; height: 52px; margin: 12px 0 0 0  }
-#categories .switcher { width: 132px; margin: auto; }
-#categories .switcher li { float: left; display: block; margin: 0 5px }
-#categories .switcher li a { display: block; width: 34px; height: 34px; background: url(categories.png) left top; text-indent: -9999px }
+#categories .switcher { height: 34px; text-align: center }
+#categories .switcher li { display: inline-block; margin: 0 3px; }
+#categories .switcher li a { display: block; width: 34px; height: 34px; background: url(categories.png) left top; text-indent: -9999px; outline: none }
 #categories .switcher li a#popular { background-position: 0 0 }
 #categories .switcher li a#popular:hover,
 #categories .switcher li a#popular.active { background-position: 0 -34px }
