@@ -1,6 +1,10 @@
-$("#moviesList").html("<%= escape_javascript( render @movies ) %>");       
-$("#moviesList").masonry( 'reload' );       
+<% if params[:page] %> 
+	$("#moviesList").append("<%= escape_javascript(render(@movies)) %>");
+<% else %>
+	$("#moviesList").html("<%= escape_javascript( render @movies ) %>");       
+<% end %>
 
+$("#moviesList").masonry( 'reload' );       
 
 /*
 $("#moviesList").delay(2000)
