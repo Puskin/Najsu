@@ -50,13 +50,13 @@ $(document).ready(function(ev){
 		var item = $(this).parent().attr("id")
 		switch(item){
 			case 'switcherItem1': 
-				$("#categories #switcherItem1").css('margin-left','90px');
+				$("#categories #switcherItem1").animate({marginLeft:'90px'}, 100);
 				break;
 			case 'switcherItem2': 
-				$("#categories #switcherItem1").css('margin-left','3px');
+				$("#categories #switcherItem1").animate({marginLeft:'3px'}, 100);
 				break;
 			case 'switcherItem3': 
-				$("#categories #switcherItem1").css('margin-left','-84px');		
+				$("#categories #switcherItem1").animate({marginLeft:'-84px'}, 100);		
 				break;
 		}
 	});  /* TEMP SHIT */
