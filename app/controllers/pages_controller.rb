@@ -8,13 +8,13 @@ class PagesController < ApplicationController
     if signed_in?
       case params[:feed]
       when "popular"
-        @movies = Movie.order(:created_at).page(params[:page])
+        @movies = Movie.all.first(10)
       when "friends"
-        @movies = current_user.movies.order(:created_at).page(params[:page]) # should be friend feed but current for now - to show the diff
+        @movies = current_user.movies.first(10) # should be friend feed but current for now - to show the diff
       when "discussed"
-        @movies = current_user.feed.order(:created_at).page(params[:page])
+        @movies = current_user.feed.first(10)
       else 
-        @movies = Movie.order(:created_at).page(params[:page])
+        @movies = Movie.all
       end
     else
       @movies = Movie.all

@@ -4,10 +4,6 @@ gem 'rails', '3.2.2'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'omniauth-facebook'
 gem 'fb_graph'
-gem 'kaminari'
-
-
-
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
