@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
 
-	attr_accessible :resource_id, :user_id
+	attr_accessible :resource_id, :user_id, :title
 
   has_many :votes
   has_many :comments
