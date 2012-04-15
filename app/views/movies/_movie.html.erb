@@ -5,17 +5,29 @@
 	<% end %>
 	<ul class="comments">
 		<li class="author">
-			<div class="data">
-				<%= link_to(image_tag(gravatar_url_for(movie.user), :class => "avatar"), user_path(movie.user)) %> by 
-				<strong><%= movie.user.name %></strong>
-				<%= movie.created_at.strftime("%m-%d") %></br>
-				Views: <%= movie.views_count %>; Likes: <%= movie.likes_count %>; Cmnts: <%= movie.comments.count %>
-			</div>
-			<% if signed_in? && current_user?(movie.user) %>	
-				<div class="actions">
-					<%= link_to "&times;".html_safe, movie, :confirm => "Entire movie fo' sho?", :method => :delete, :class => "btn btn-mini pull-right", :remote => true %>
+
+			<div class="title">
+				<%= "<p>#{truncate(movie.title, :length => 70)}</p>".html_safe if movie.title %>
+				<div class="counters">
+					<div class="views_count"><%= movie.views_count %></div> 
+					<div class="likes_count"><%= movie.likes_count %></div>
+					<div class="comments_count"><%= movie.comments.count %></div>
 				</div>
-			<% end %>
+			</div>
+
+			<div class="data">
+				<div class="content">
+					<%= link_to(image_tag(gravatar_url_for(movie.user), :class => "avatar"), user_path(movie.user)) %>
+					<strong><%= movie.user.name %></strong><br/>
+					<small><%= time_ago_in_words(movie.created_at) %> ago.</small>
+				</div>
+				<div class="action">
+					<% if signed_in? && current_user?(movie.user) %>	
+						<%= link_to "&times;".html_safe, movie, :confirm => "Entire movie fo' sho?", :method => :delete, :class => "btn btn-mini pull-right", :remote => true %>
+					<% end %>
+				</div>
+			</div>
+			
 		</li>
 		<% if movie.comments.count > 5 %>
 			<% movies_left = movie.comments.count - 5 %>

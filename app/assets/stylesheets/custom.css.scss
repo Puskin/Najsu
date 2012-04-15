@@ -95,6 +95,13 @@ box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 	width: 222px; background: #fff; border: 2px solid #dbdbdb; padding: 5px;
 	display: block; float: left; margin: 0 5px 10px 5px }
 #moviesList .movie a { 
+	-webkit-border-top-left-radius: 2px;
+-webkit-border-top-right-radius: 2px;
+-moz-border-radius-topleft: 2px;
+-moz-border-radius-topright: 2px;
+border-top-left-radius: 2px;
+border-top-right-radius: 2px;
+overflow: hidden;
 	/*border-top: 1px solid rgba(155, 155, 155, 0.2);*/	
 	width: 222px; float: left; display: block; height: 123px; 
 	overflow: hidden; position: relative;
@@ -106,37 +113,74 @@ box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 	display: none; background: rgba(0, 0, 0, 0.6) url(iconPlay.png) center no-repeat; position: absolute; left: 0; top: 0 }
 #moviesList .movie a:hover .play { display: block; }
 
-#moviesList .movie .comments { width: 222px; float: left; margin: 0 }
+#moviesList .movie .comments { width: 222px; float: left; margin: 0; color: #484848 }
 #moviesList .movie .comments li {
-	list-style-type: none; float: left;
-	width: 212px; line-height: 14px;
-	border: 0; padding: 5px; margin: 0; font-size: 11px; color: #000;
-	border-bottom: 1px solid lightgray; }
+	list-style-type: none; float: left; min-height: 25px;
+	width: 192px; line-height: 12px; position: relative;
+	border: 0; padding: 5px 0px 5px 30px; font-size: 11px; color: #484848;
+	border-bottom: 1px solid #e9e9e9; }
 #moviesList .movie .comments li a,
 #moviesList .movie .comments li a img { width: auto; height: auto; margin: 0 5px 0 0  }
 
-#moviesList .movie .comments li a { margin: 0 }
+#moviesList .movie .comments li a { position: absolute; left: 0px; top: 5px }
+#moviesList .movie .comments li .author_avatar a { float: right; position: static; } 
 
-#moviesList .movie .comments li.author { background: #ebebeb }
-#moviesList .movie .comments li.author .data { float: left; width: 180px }
+#moviesList .movie .comments li a { margin: 0; }
+
+#moviesList .movie .comments li.author { padding: 0;  border: 0; width: 222px; }
+#moviesList .movie .comments li.author .title { width: 100%; float: left }
+#moviesList .movie .comments li.author .title p { 
+	font-weight: bold;
+	-webkit-border-bottom-right-radius: 3px;
+-webkit-border-bottom-left-radius: 3px;
+-moz-border-radius-bottomright: 3px;
+-moz-border-radius-bottomleft: 3px;
+border-bottom-right-radius: 3px;
+border-bottom-left-radius: 3px;
+	background: #eeeeee;
+	padding: 5px;
+	margin: 0;
+	line-height: 14px; font-size: 11px; color: #5f5f5f; }
+#moviesList .movie .comments li.author .data { 
+	padding: 0 0 5px 0; border-bottom: 2px solid #DBDBDB;
+	float: left; width: 222px }
+#moviesList .movie .comments li small { color: gray }
+#moviesList .movie .comments li.author .data strong { /*color: #3B6EA7*/ }
+#moviesList .movie .comments li.author .data a { position: static; }
+
+#moviesList .movie .comments li.author .data .content { width: 180px; float: left }
+#moviesList .movie .comments li.author .data .action { float: right }
+
+#moviesList .movie .comments li.author .title .counters { 
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px; text-align: center;
+	border-radius: 3px; border: 2px solid #DBDBDB;
+	padding: 5px 0; width: 218px; float: left; margin: 5px 0 }
+#moviesList .movie .comments li.author .title .counters div { 
+	width: auto; background: url(iconMovie.png) top left no-repeat; color: #828282; display: inline-block;
+	padding-left: 10px; height: 11px; line-height: 10px; margin: 0 10px 0 0;  }
+#moviesList .movie .comments li.author .title .counters div.likes_count { padding-left: 14px }
+#moviesList .movie .comments li.author .title .counters div.views_count { background-position: 0 -22px; padding-left: 21px }
+#moviesList .movie .comments li.author .title .counters div.comments_count { background-position: 0 -11px; padding-left: 15px }
+
 #moviesList .movie .comments li.author .actions { float: right; }
 #moviesList .movie .comments li.author .actions a { margin: 0 0 0 5px }
 #moviesList .movie .comments li.more { font-weight: bold }
 
-#moviesList .movie .comments li img.avatar { width: 25px; height: 25px; margin: 0 3px 0 0; float: left }
-#moviesList .movie .comments li a.close { float: right; display: none; }
+#moviesList .movie .comments li img.avatar { width: 25px; height: 25px; margin: 0 5px 0 0; float: left }
+#moviesList .movie .comments li a.close { float: right; display: none; position: static; }
 #moviesList .movie .comments li:hover a.close { display: block; }
 
 .movie #comment_content { height: 20px; width: 148px }
-.movie form { margin: 0; padding: 0 }
+.movie form { margin: 0; padding: 5px 5px 0 0 }
 .movie form input,
 .movie form textarea { margin: 0; }
 #moviesList .movie form input.enter { 
 	padding: 0; 
 	border: 0; background: url(iconEnter.png) no-repeat center; text-indent: -9999px; width: 20px; height: 20px }
 #moviesList .movie form#new_comment img.avatar { 
-	float: left; width: 25px; height: 25px; margin: 5px 3px 5px 5px }
-#moviesList .movie form#new_comment #comment_content { margin: 5px 0 0 0; height: 14px; line-height: 14px }
+	float: left; width: 25px; height: 25px; margin: 0 5px 0px 0px }
+#moviesList .movie form#new_comment #comment_content { height: 14px; line-height: 14px }
 
 /* Modal */
 .overlay { 
