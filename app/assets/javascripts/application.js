@@ -63,6 +63,11 @@ $(document).ready(function(ev){
 
 	$('[rel="tooltip"]').tooltip();
 
+	$('.next_page').click(function(e){
+		$(".pagination").html("<div class='loader'></div>");
+	});
+
+
 
 });
 
