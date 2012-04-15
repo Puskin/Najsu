@@ -127,7 +127,11 @@ overflow: hidden;
 
 #moviesList .movie .comments li a { margin: 0; }
 
-#moviesList .movie .comments li.author { padding: 0;  border: 0; width: 222px; }
+#moviesList .movie .comments li.author { 
+
+	width: 222px;
+	padding: 0 0 5px 0; border-bottom: 1px solid #DBDBDB;
+ }
 #moviesList .movie .comments li.author .title { width: 100%; float: left }
 #moviesList .movie .comments li.author .title p { 
 	font-weight: bold;
@@ -142,7 +146,6 @@ border-bottom-left-radius: 3px;
 	margin: 0;
 	line-height: 14px; font-size: 11px; color: #5f5f5f; }
 #moviesList .movie .comments li.author .data { 
-	padding: 0 0 5px 0; border-bottom: 1px solid #DBDBDB;
 	float: left; width: 222px }
 #moviesList .movie .comments li small { color: gray }
 #moviesList .movie .comments li.author .data strong { /*color: #3B6EA7*/ }
@@ -171,16 +174,29 @@ border-bottom-left-radius: 3px;
 #moviesList .movie .comments li a.close { float: right; display: none; position: static; }
 #moviesList .movie .comments li:hover a.close { display: block; }
 
+#moviesList .movie .comments li:last-child { border: 0!important; padding-bottom: 0!important }
+
 .movie #comment_content { height: 20px; width: 148px }
-.movie form { margin: 0; padding: 5px 5px 0 0 }
+.movie form { 
+	padding: 5px 0 0 0; border-top: 1px solid #DBDBDB;
+	margin: 5px 0 0 0;}
 .movie form input,
 .movie form textarea { margin: 0; }
 #moviesList .movie form input.enter { 
 	padding: 0; 
-	border: 0; background: url(iconEnter.png) no-repeat center; text-indent: -9999px; width: 20px; height: 20px }
+	-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+	border: 1px solid lightgray; background: url(iconEnter.png) no-repeat center; text-indent: -9999px; width: 25px; height: 25px }
 #moviesList .movie form#new_comment img.avatar { 
 	float: left; width: 25px; height: 25px; margin: 0 5px 0px 0px }
-#moviesList .movie form#new_comment #comment_content { height: 14px; line-height: 14px }
+#moviesList .movie form#new_comment #comment_content { 
+	-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+margin-right: 3px; width: 150px;
+	height: 15px; line-height: 15px;
+	border-color: lightgray }
 
 /* Modal */
 .overlay { 
