@@ -11,7 +11,7 @@
 				<div class="counters">
 					<div class="views_count"><%= movie.views_count %></div> 
 					<div class="likes_count"><%= movie.likes_count %></div>
-					<div class="comments_count"><%= movie.comments.count %></div>
+					<div class="comments_count"><%= movie.comments_count %></div>
 				</div>
 			</div>
 
@@ -29,8 +29,8 @@
 			</div>
 			
 		</li>
-		<% if movie.comments.count > 5 %>
-			<% movies_left = movie.comments.count - 5 %>
+		<% if movie.comments_count > 5 %>
+			<% movies_left = movie.comments_count - 5 %>
 			<li class="more"><%= "Wczytaj jeszcze #{movies_left} komentów" %></li>
 		<% end %>
 		<%= render movie.comments.last(5) %>

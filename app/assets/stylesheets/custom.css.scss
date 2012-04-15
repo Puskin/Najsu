@@ -168,13 +168,15 @@ border-bottom-left-radius: 3px;
 
 #moviesList .movie .comments li.author .actions { float: right; }
 #moviesList .movie .comments li.author .actions a { margin: 0 0 0 5px }
-#moviesList .movie .comments li.more { font-weight: bold }
 
 #moviesList .movie .comments li img.avatar { width: 25px; height: 25px; margin: 0 5px 0 0; float: left }
 #moviesList .movie .comments li a.close { float: right; display: none; position: static; }
 #moviesList .movie .comments li:hover a.close { display: block; }
 
 #moviesList .movie .comments li:last-child { border: 0!important; padding-bottom: 0!important }
+
+#moviesList .movie .comments li.more { font-weight: bold; padding: 5px 0; min-height: 13px; text-align: center; width: 222px; }
+
 
 .movie #comment_content { height: 20px; width: 148px }
 .movie form { 
