@@ -7,6 +7,9 @@ class Movie < ActiveRecord::Base
 
   belongs_to :user
 
+  self.per_page = 4
+
+
 
   # Returns movies from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }

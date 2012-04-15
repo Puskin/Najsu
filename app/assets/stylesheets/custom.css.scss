@@ -305,4 +305,31 @@ margin-right: 3px; width: 150px;
 
 
 
+.pagination { text-align: center }
+
+.pagination em,
+.pagination a { 
+	-moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    display: inline-block;
+    line-height: 34px;
+    padding: 0 14px;
+    text-decoration: none;
+    float: none;
+} 
+.pagination .next_page { 
+	display: inline-block;
+	    border-style: solid;
+line-height: 34px;
+height: 34px;
+    padding: 0 14px;
+	border-color: #DDDDDD;
+	border-width: 1px }
+
 /* FOOTER -----------------------------------------------------------------------*/

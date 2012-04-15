@@ -1,5 +1,17 @@
-$("#moviesList").html("<%= escape_javascript( render @movies ) %>");       
-$("#moviesList").masonry( 'reload' );       
+<% if params[:page] %>
+	$("#moviesList").append("<%= escape_javascript( render @movies ) %>");       
+	$("#moviesList").masonry( 'reload' );       
+	$("#paginaDomina").html("<%= escape_javascript( will_paginate @movies, :page_links => false, :next_label => 'Load more!' ) %>");       
+  $('.pagination a').attr('data-remote', 'true');
+  $('.previous_page').remove()
+<% else %>
+	$("#moviesList").html("<%= escape_javascript( render @movies ) %>");       
+	$("#paginaDomina").html("<%= escape_javascript( will_paginate @movies, :page_links => false, :next_label => 'Load more!' ) %>");       
+	$("#moviesList").masonry( 'reload' );       
+	 $('.pagination a').attr('data-remote', 'true');
+	 $('.previous_page').remove()
+<% end %>
+
 
 /*
 $("#moviesList").delay(2000)

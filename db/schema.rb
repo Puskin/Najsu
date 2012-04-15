@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20120412201928) do
     t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
     t.integer  "views_count",    :default => 1
-    t.integer  "comments_count"
+    t.integer  "comments_count", :default => 0
     t.string   "title"
   end
 
