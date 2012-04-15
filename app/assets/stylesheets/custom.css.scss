@@ -193,6 +193,7 @@ border-radius: 0px;
 #moviesList .movie form#new_comment img.avatar { 
 	float: left; width: 25px; height: 25px; margin: 0 5px 0px 0px }
 #moviesList .movie form#new_comment #comment_content { 
+	font-size: 11px;
 	-webkit-border-radius: 0px;
 -moz-border-radius: 0px;
 border-radius: 0px;
@@ -279,7 +280,7 @@ margin-right: 3px; width: 150px;
 .overlay .lightbox .content.sidepanel .comments ul li a.close { display: none }
 .overlay .lightbox .content.sidepanel .comments ul li:hover a.close { display: block; }
 .overlay .lightbox .content.sidepanel #new_comment { margin: 0; padding: 0 }
-.overlay .lightbox .content.sidepanel #new_comment #comment_content { height: 20px; padding: 0; line-height: 20px }
+.overlay .lightbox .content.sidepanel #new_comment #comment_content { height: 20px; padding: 0; line-height: 20px; font-size: 11px }
 .overlay .lightbox .content.sidepanel #new_comment img.avatar { width: 25px; height: 25px; float: left; margin-right: 3px }
 
 #main .row { padding: 20px }
