@@ -7,7 +7,7 @@ class Movie < ActiveRecord::Base
 
   belongs_to :user
 
-  self.per_page = 4
+  self.per_page = 10
 
 
 
