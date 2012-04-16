@@ -67,6 +67,16 @@ $(document).ready(function(ev){
 		$(".pagination").html("<div class='loader'></div>");
 	});
 
+	/* pagination auto click */
+	$(window).scroll(function(){
+		var scroll_top = $(document).scrollTop()
+		var window_height = $(window).height()
+		var document_height = $(document).height()
+		if(scroll_top + window_height == document_height){
+			$(".next_page").trigger('click');
+		}
+	});
+
 
 
 });
