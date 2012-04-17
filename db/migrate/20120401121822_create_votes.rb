@@ -1,8 +1,7 @@
-class CreateVotes < ActiveRecord::Migration
+class CreateLikes < ActiveRecord::Migration
   def change
-    create_table :votes do |t|
+    create_table :likes do |t|
       t.integer :movie_id
-      t.integer :character
       t.integer :user_id
 
       t.timestamps

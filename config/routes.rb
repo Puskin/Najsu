@@ -3,7 +3,7 @@ Tuduk::Application.routes.draw do
   resources :invitations
   resources :authentications
   resources :comments
-  resources :votes
+  resources :likes
   resources :movies
   resources :users
   resources :users do

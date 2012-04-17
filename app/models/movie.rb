@@ -2,27 +2,28 @@ class Movie < ActiveRecord::Base
 
 	attr_accessible :resource_id, :user_id, :title
 
-  has_many :votes
+  has_many :likes
   has_many :comments
-
   belongs_to :user
 
+  # Pagination parameter
   self.per_page = 10
-
-
 
   # Returns movies from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
+
+  # Period scopes for various types 
+  scope :last_week, lambda { where("created_at > ?", 7.days.ago ) }
+
+  # Hype type scopes
+  scope :popular, order("likes_count DESC")
+  scope :watched, order("views_count DESC")
+
 
   def views_update
     self.views_count+=1
     save!
   end
-
-  def likes_count
-    self.votes.likes.count - self.votes.dislikes.count
-  end
-
 
   def reposts
     Movie.find_all_by_resource_id(self.resource_id)
@@ -33,20 +34,10 @@ class Movie < ActiveRecord::Base
   end
 
 
-  #voting movies
-  def vote?(user_id)
-  	if self.voted?(user_id)
-  		votes = self.votes
-  		vote = votes.find_by_user_id(user_id)
-  		vote.character
-  	else
-  		false
-  	end	
-  end
-
-  def voted?(user_id)
-  	votes = self.votes
-  	if vote = votes.find_by_user_id(user_id)
+  #Cheking if liked by user
+  def liked?(user_id)
+  	likes = self.likes
+  	if likes.find_by_user_id(user_id)
 	  	true
   	else 
   		false

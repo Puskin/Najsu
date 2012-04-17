@@ -49,14 +49,20 @@ $(document).ready(function(ev){
 
 		var item = $(this).parent().attr("id")
 		switch(item){
+			case 'switcherItem0': 
+				$("#categories #switcherItem0").animate({marginLeft:'179px'}, 100);
+				break;
 			case 'switcherItem1': 
-				$("#categories #switcherItem1").animate({marginLeft:'90px'}, 100);
+				$("#categories #switcherItem0").animate({marginLeft:'90px'}, 100);
 				break;
 			case 'switcherItem2': 
-				$("#categories #switcherItem1").animate({marginLeft:'3px'}, 100);
+				$("#categories #switcherItem0").animate({marginLeft:'3px'}, 100);
 				break;
 			case 'switcherItem3': 
-				$("#categories #switcherItem1").animate({marginLeft:'-84px'}, 100);		
+				$("#categories #switcherItem0").animate({marginLeft:'-84px'}, 100);		
+				break;
+			case 'switcherItem4': 
+				$("#categories #switcherItem0").animate({marginLeft:'-169px'}, 100);		
 				break;
 		}
 	});  /* TEMP SHIT */
@@ -111,8 +117,7 @@ function lightboxButtons(ev) {
 	}
 
 	$('.popover').remove();
-	$('#nice').popover({placement: 'left'});
-	$('#bad').popover({placement: 'left'});
+	$('#like').popover({placement: 'left'});
 }           
 
 function resizeWindow( e ) {

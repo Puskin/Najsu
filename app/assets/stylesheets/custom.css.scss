@@ -84,6 +84,13 @@ body.app #content { padding-bottom: 0 }
 #categories .switcher li a#discussed:hover,
 #categories .switcher li a#discussed.active { background-position: -68px -34px }
 
+#categories .switcher li a#newest { background-position: -102px 0 }
+#categories .switcher li a#newest:hover,
+#categories .switcher li a#newest.active { background-position: -102px -34px }
+#categories .switcher li a#watched { background-position: -136px 0 }
+#categories .switcher li a#watched:hover,
+#categories .switcher li a#watched.active { background-position: -136px -34px }
+
 #moviesList { padding-top: 10px; margin: 0 auto; }
 #moviesList .movie { 
 	/*-webkit-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);
@@ -217,15 +224,17 @@ margin-right: 3px; width: 150px;
 .overlay .actions li a.active#bye,
 .overlay .actions li a#bye:active { background-position: 0px 0px; }
 
-.overlay .actions li #nice { background-position: -64px -30px; }
-.overlay .actions li #nice:hover { background-position: -32px -30px; }
-.overlay .actions li .active#nice,
-.overlay .actions li #nice:active { background-position: 0px -30px; }
+.overlay .actions li #like { background-position: -64px -30px; }
+.overlay .actions li #like:hover { background-position: -32px -30px; }
+.overlay .actions li .active#like,
+.overlay .actions li #like:active { background-position: 0px -30px; }
 
+/*
 .overlay .actions li #bad { background-position: -64px -62px; }
 .overlay .actions li #bad:hover { background-position: -32px -62px; }
 .overlay .actions li .active#bad,
 .overlay .actions li #bad:active { background-position: 0px -62px; }
+*/
 
 .overlay .actions li #comments { background-position: -64px -94px; }
 .overlay .actions li #comments:hover { background-position: -32px -94px; }

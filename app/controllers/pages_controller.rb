@@ -7,12 +7,16 @@ class PagesController < ApplicationController
     @comment = Comment.new
     if signed_in?
       case params[:feed]
-      when "popular"
+      when "newest"
         @movies = Movie.order('movies.created_at DESC').paginate(:page => params[:page])
+      when "popular"
+        @movies = Movie.last_week.popular.paginate(:page => params[:page])
       when "friends"
         @movies = current_user.feed.order('movies.created_at DESC').paginate(:page => params[:page])
       when "discussed"
         @movies = current_user.feed.order('movies.comments_count DESC').paginate(:page => params[:page])
+      when "watched"
+        @movies = Movie.last_week.watched.paginate(:page => params[:page])
       else 
         @movies = current_user.feed.order('movies.created_at DESC').paginate(:page => params[:page])
       end
@@ -40,7 +44,7 @@ class PagesController < ApplicationController
           redirect_to :action => "submit", notice: 'Movie already in library.'    
         else
           movie = Movie.create(:resource_id => video_id, :user_id => current_user.id, :title => video_title)
-          movie.votes.create(:user_id => current_user.id, :character => 1)
+          movie.likes.create(:user_id => current_user.id)
           redirect_to :action => "submit", notice: 'Movie added to library.'    
         end
       end

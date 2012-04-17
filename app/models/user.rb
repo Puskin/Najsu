@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   
 	has_many :authentications
-	has_many :votes
+	has_many :likes
 	has_many :movies
 	has_many :comments
 	has_many :invitations

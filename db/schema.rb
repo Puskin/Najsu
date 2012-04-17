@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412201928) do
+ActiveRecord::Schema.define(:version => 20120417170130) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(:version => 20120412201928) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "likes", :force => true do |t|
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "movies", :force => true do |t|
     t.string   "resource_id"
     t.datetime "created_at",                    :null => false
@@ -45,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20120412201928) do
     t.integer  "views_count",    :default => 1
     t.integer  "comments_count", :default => 0
     t.string   "title"
+    t.integer  "likes_count",    :default => 0
   end
 
   create_table "relationships", :force => true do |t|
@@ -69,13 +77,5 @@ ActiveRecord::Schema.define(:version => 20120412201928) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
-
-  create_table "votes", :force => true do |t|
-    t.integer  "movie_id"
-    t.integer  "character"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
 end
