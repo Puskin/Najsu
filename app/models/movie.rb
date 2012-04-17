@@ -1,9 +1,11 @@
 class Movie < ActiveRecord::Base
 
-	attr_accessible :resource_id, :user_id, :title
+	attr_accessible :resource_id, :user_id, :title, :source
 
   has_many :likes
   has_many :comments
+  has_many :reposts
+  
   belongs_to :user
 
   # Pagination parameter
@@ -25,14 +27,16 @@ class Movie < ActiveRecord::Base
     save!
   end
 
-  def reposts
-    Movie.find_all_by_resource_id(self.resource_id)
-  end
 
-  def reposted_by
-    Movie.find_all_by_resource_id(self.resource_id).map(&:user_id)
+  # Check if video to be added is unique 
+  def self.unique?(resource_id, source)
+    movie = find_by_resource_id_and_source(resource_id, source) 
+    if movie
+      movie
+    else
+      false
+    end
   end
-
 
   #Cheking if liked by user
   def liked?(user_id)

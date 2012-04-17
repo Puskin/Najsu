@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417170130) do
+ActiveRecord::Schema.define(:version => 20120417202134) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(:version => 20120417170130) do
     t.integer  "comments_count", :default => 0
     t.string   "title"
     t.integer  "likes_count",    :default => 0
+    t.integer  "source"
+    t.integer  "reposts_count",  :default => 0
   end
 
   create_table "relationships", :force => true do |t|
@@ -65,6 +67,15 @@ ActiveRecord::Schema.define(:version => 20120417170130) do
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
+
+  create_table "reposts", :force => true do |t|
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "resource_id"
+    t.integer  "source"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

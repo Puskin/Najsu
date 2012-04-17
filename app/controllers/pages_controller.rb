@@ -40,10 +40,20 @@ class PagesController < ApplicationController
       if params[:resource_id]
         video_id = params[:resource_id]
         video_title = params[:resource_title]
-        if current_user.movies.find_by_resource_id(params[:resource_id])
-          redirect_to :action => "submit", notice: 'Movie already in library.'    
+        video_source = 1 #as youtube is 1 source by now
+        movie_record = Movie.unique?(video_id, video_source)
+        if movie_record
+          repost = current_user.reposts.find_by_resource_id_and_source(video_id, video_source)
+          if repost
+            redirect_to :action => "submit", notice: 'Movie already in your library.'     
+          else
+            Repost.create(:movie_id => movie_record.id, :user_id => current_user.id, :resource_id => video_id, :source => video_source ) 
+            Like.create(:user_id => current_user.id, :movie_id => movie_record.id)
+            redirect_to :action => "submit", notice: 'Movie added to library.'     
+          end
         else
-          movie = Movie.create(:resource_id => video_id, :user_id => current_user.id, :title => video_title)
+          movie = Movie.create(:resource_id => video_id, :user_id => current_user.id, :title => video_title, :source => video_source)
+                  Repost.create(:movie_id => movie.id, :user_id => current_user.id, :resource_id => video_id, :source => video_source ) 
           movie.likes.create(:user_id => current_user.id)
           redirect_to :action => "submit", notice: 'Movie added to library.'    
         end
