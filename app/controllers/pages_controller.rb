@@ -48,7 +48,7 @@ class PagesController < ApplicationController
             redirect_to :action => "submit", notice: 'Movie already in your library.'     
           else
             Repost.create(:movie_id => movie_record.id, :user_id => current_user.id, :resource_id => video_id, :source => video_source ) 
-            Like.create(:user_id => current_user.id, :movie_id => movie_record.id)
+            Like.find_or_create_by_user_id_and_movie_id(:user_id => current_user.id, :movie_id => movie_record.id)
             redirect_to :action => "submit", notice: 'Movie added to library.'     
           end
         else

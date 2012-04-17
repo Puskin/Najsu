@@ -8,6 +8,8 @@
 	$("#moviesList").html("<%= escape_javascript( render @movies ) %>");       
 	$("#paginaDomina").html("<%= escape_javascript( will_paginate @movies, :page_links => false, :next_label => 'Load more!' ) %>");       
 	$("#moviesList").masonry( 'reload' );       
+		$('[rel="tooltip"]').tooltip();
+
 	 $('.pagination a').attr('data-remote', 'true');
 	 $('.previous_page').remove()
 <% end %>
