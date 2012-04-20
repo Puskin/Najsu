@@ -1,0 +1,1 @@
+$("#actionsModal .modal-body li.user_<%=@user.id%> #follow_form").html("<%= escape_javascript( render :partial => 'users/followForm', :locals => { :user => @user } ) %>");

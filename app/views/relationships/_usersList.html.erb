@@ -1,0 +1,10 @@
+<ul class="unstyled">
+	<% @users.each do |user| %>
+		<li class="user_<%=user.id%>">
+		<%= user.name %><%= user.email %>
+		<div id="follow_form" class="pull-right">
+			<%= render :partial => "users/followForm", :locals => { :user => user } %>
+		</div>
+		</li>
+	<% end %>
+</ul>

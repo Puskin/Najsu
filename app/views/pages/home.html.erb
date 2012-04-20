@@ -13,7 +13,7 @@
 				<% if current_user.facebook? %>
 					<%= link_to "Zaproś znajomych z Facebook!", invitations_path, :remote => true, :disable_with => "Ładowanie...", :class => "button button-facebook" %>
 				<% end %>
-	  		<%= link_to "Subskrybuj ludzi!", users_path, :class => "button button-orange" %> 
+	  		<%= link_to "Subskrybuj ludzi!", relationships_path, :remote => true, :class => "button button-orange" %> 
 			<% end %>		
 	</div>
 
