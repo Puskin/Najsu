@@ -91,9 +91,12 @@ $(document).ready(function(ev){
 
 
 function heightCheck() {
+	var scroll_top = $(document).scrollTop()
   var window_height = $(window).height();
 	var document_height = $(document).height();
 	if(window_height == document_height){		
+		$(".next_page").trigger('click');		
+	} else if(scroll_top==0 && window_height < document_height){
 		$(".next_page").trigger('click');		
 	}
 }
