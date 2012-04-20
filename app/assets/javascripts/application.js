@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 
-
 $(document).ready(function(ev){	
 
 	$(window).bind("resize", resizeWindow);
@@ -80,13 +79,24 @@ $(document).ready(function(ev){
 		var document_height = $(document).height()
 	
 		if(scroll_top + window_height == document_height){
-			$(".next_page").trigger('click');
+			setTimeout(function () { $(".next_page").trigger('click'); }, 0);		
 		}
 	});
 
-
+	init: heightCheck();
 
 });
+
+
+
+
+function heightCheck() {
+  var window_height = $(window).height();
+	var document_height = $(document).height();
+	if(window_height == document_height){		
+		$(".next_page").trigger('click');		
+	}
+}
 
 
 function lightboxButtons(ev) {

@@ -40,7 +40,7 @@ class PagesController < ApplicationController
       if params[:resource_id]
         video_id = params[:resource_id]
         video_title = params[:resource_title]
-        video_source = 1 #as youtube is 1 source by now
+        video_source = params[:resource_source]
         movie_record = Movie.unique?(video_id, video_source)
         if movie_record
           repost = current_user.reposts.find_by_resource_id_and_source(video_id, video_source)

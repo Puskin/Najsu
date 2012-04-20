@@ -1,17 +1,19 @@
 <% if params[:page] %>
-	$("#moviesList").append("<%= escape_javascript( render @movies ) %>");       
-	$("#moviesList").masonry( 'reload' );       
-	$("#paginaDomina").html("<%= escape_javascript( will_paginate @movies, :page_links => false, :next_label => 'Load more!' ) %>");       
-  $('.pagination a').attr('data-remote', 'true');
-  $('.previous_page').remove()
+	<% if params[:page].to_i <= @movies.total_pages %>
+		$("#moviesList").append("<%= escape_javascript( render @movies ) %>");       
+		$("#moviesList").masonry( 'reload' );       
+		$("#paginaDomina").html("<%= escape_javascript( will_paginate @movies, :page_links => false, :next_label => 'Load more!' ) %>");       
+	  $('.pagination a').attr('data-remote', 'true');
+	  $('.previous_page').remove()
+	<% end %>
 <% else %>
 	$("#moviesList").html("<%= escape_javascript( render @movies ) %>");       
 	$("#paginaDomina").html("<%= escape_javascript( will_paginate @movies, :page_links => false, :next_label => 'Load more!' ) %>");       
 	$("#moviesList").masonry( 'reload' );       
 		$('[rel="tooltip"]').tooltip();
-
 	 $('.pagination a').attr('data-remote', 'true');
 	 $('.previous_page').remove()
+	 heightCheck();
 <% end %>
 
 
