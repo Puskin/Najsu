@@ -23,4 +23,5 @@
 
 <br />
 
-<%= link_to 'New Movie', new_movie_path %>
+<%= link_to 'New Movie', new_movie_path %><hr/>
+<%= will_paginate @movies, :page_links => false, :next_label => 'Load more!' %>

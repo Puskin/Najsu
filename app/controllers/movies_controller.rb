@@ -5,9 +5,9 @@ class MoviesController < ApplicationController
     
     if params[:popular] == "fuckyea"
       movies = Movie.last_week
-      @movies = movies.popular
+      @movies = movies.popular.paginate(:page => params[:page])
     else
-      @movies = Movie.all    
+      @movies = Movie.order('created_at DESC').paginate(:page => params[:page])    
     end
 
     respond_to do |format|
