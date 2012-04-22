@@ -2,16 +2,10 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    
     if params[:popular] == "fuckyea"
-      @movies = Movie.last_week.paginate(:page => params[:page], :order => "likes_count DESC")
+      @movies = Movie.order('likes_count DESC').paginate(:page => params[:page])
     else
-      @movies = Movie.order('created_at DESC').paginate(:page => params[:page])    
-    end
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @movies }
+      @movies = Movie.all
     end
   end
 
