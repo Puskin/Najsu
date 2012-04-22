@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   def index
     
     if params[:popular] == "fuckyea"
-      @movies = Movie.last_week.paginate(:page => params[:page])
+      @movies = Movie.last_week.paginate(:page => params[:page], :order => "likes_count DESC")
     else
       @movies = Movie.order('created_at DESC').paginate(:page => params[:page])    
     end

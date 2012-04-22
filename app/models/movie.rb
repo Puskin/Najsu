@@ -15,7 +15,7 @@ class Movie < ActiveRecord::Base
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
 
   # Period scopes for various types 
-  scope :last_week, lambda { where("created_at > ?", 7.days.ago ) }
+  scope :last_week, where("created_at > ?", 7.days.ago )
 
   # Hype type scopes
   scope :popular, order("likes_count DESC")
