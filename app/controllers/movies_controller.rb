@@ -2,7 +2,13 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
+    
+    if params[:popular] == "fuckyea"
+      movies = Movie.last_week
+      @movies = movies.popular
+    else
+      @movies = Movie.all    
+    end
 
     respond_to do |format|
       format.html # index.html.erb
