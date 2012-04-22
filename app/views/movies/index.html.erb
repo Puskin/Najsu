@@ -13,7 +13,10 @@
 
 <% @movies.each do |movie| %>
   <tr>
-    <td><%= movie.resource_id %></td>
+    <td>
+      <%= image_tag("http://img.youtube.com/vi/#{movie.resource_id}/hqdefault.jpg", :size => "50x50") %>
+      <%= movie.resource_id %>
+    </td>
     <td><%= link_to 'Show', movie %></td>
     <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
     <td><%= link_to 'Destroy', movie, confirm: 'Are you sure?', method: :delete %></td>
