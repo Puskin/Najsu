@@ -311,6 +311,8 @@ margin-right: 3px; width: 150px;
 #side li i.icon-warning-sign { margin-right: 8px; float: left }
 
 
+#users_list li { padding: 3px 0 5px 0; border-bottom: 1px dotted lightgray }
+#follow_form form { margin: 0 }
 
 
 .alert.mini { margin: 0; padding: 0 4px; font-size: 11px; line-height: 17px }
@@ -335,13 +337,22 @@ margin-right: 3px; width: 150px;
     text-decoration: none;
     float: none;
 } 
-.pagination .next_page { 
+.pagination .next_page,
+.pagination .next_page:hover,
+.pagination .next_page.disabled { 
 	display: inline-block;
-	    border-style: solid;
-line-height: 34px;
-height: 34px;
-    padding: 0 14px;
-	border-color: #DDDDDD;
-	border-width: 1px }
+	border-radius: 4px 4px 4px 4px;
+	border-width: 0;
+	background: #3B6EA7;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 0px 20px;
+    text-transform: uppercase;
+}
+
+.pagination .next_page:hover { text-decoration: underline }
+.pagination .next_page.disabled,
+.pagination .next_page.disabled:hover { background: #DBDBDB; text-decoration: none }
 
 /* FOOTER -----------------------------------------------------------------------*/
