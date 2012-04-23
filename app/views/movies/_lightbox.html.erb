@@ -4,8 +4,16 @@
 
 <div class="lightbox">
 	<div class="content" id="lightbox_content">
-		<embed src="http://www.youtube.com/v/<%=movie.resource_id%>&autoplay=1&rel=0&autohide=1&cc_load_policy=0&controls=0&hd=1&egm=0" type="application/x-shockwave-flash" wmode="transparent" id="embed_video">
-		</embed>
+
+		<% if movie.source == 1 %>
+			<embed src="http://www.youtube.com/v/<%=movie.resource_id%>&autoplay=1&rel=0&autohide=1&cc_load_policy=0&controls=0&hd=1&egm=0" type="application/x-shockwave-flash" wmode="transparent" id="embed_video">
+			</embed>
+		<% elsif movie.source == 2 %>
+			<iframe src="http://player.vimeo.com/video/<%=movie.resource_id%>?autoplay=1" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		<% else %>
+			SHIT
+		<% end %>
+
 		<div class="comments">
 			<ul>
 				<%= render movie.comments %>

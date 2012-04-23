@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417202134) do
+ActiveRecord::Schema.define(:version => 20120423192817) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20120417202134) do
     t.integer  "likes_count",    :default => 0
     t.integer  "source"
     t.integer  "reposts_count",  :default => 0
+    t.string   "thumbnail"
   end
 
   create_table "relationships", :force => true do |t|
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20120417202134) do
     t.datetime "updated_at",  :null => false
     t.string   "resource_id"
     t.integer  "source"
+    t.string   "thumbnail"
   end
 
   create_table "users", :force => true do |t|

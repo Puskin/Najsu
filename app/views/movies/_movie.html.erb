@@ -1,7 +1,7 @@
-<div class="movie" id="clip_<%=movie.id%>">
+<div class="movie<%= ' vimeo' if movie.source == 2 %>" id="clip_<%=movie.id%>">
 	<%= link_to(movie_path(movie.id), :remote => true) do %>
 		<div class="play"></div>
-		<%= image_tag("http://img.youtube.com/vi/#{movie.resource_id}/hqdefault.jpg") %>
+		<%= image_tag(movie.thumbnail) %>
 	<% end %>
 	<ul class="comments">
 		<li class="author">

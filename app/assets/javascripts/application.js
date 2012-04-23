@@ -18,7 +18,10 @@ $(document).ready(function(ev){
 
 	$(window).bind("resize", resizeWindow);
 	$(document).keyup(function(e) {
-		if (e.keyCode == 27) { $('.overlay').fadeOut(); }   // esc
+		if (e.keyCode == 27) {
+			$('iframe').remove(); 
+			$('.overlay').fadeOut(); 
+		}   // esc
 	});
 
 	$('#moviesList').masonry({
@@ -104,6 +107,7 @@ function heightCheck() {
 
 function lightboxButtons(ev) {
 	$('#bye').click(function(ev){
+		$('iframe').remove();
 		$('.overlay').fadeOut();
 	});
 	/* not needed because of partial reload

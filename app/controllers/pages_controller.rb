@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  include MoviesHelper
+
   before_filter :signed_in_user, except: [:home, :submit, :timeline]
   layout :layout_switcher
 
@@ -52,8 +54,9 @@ class PagesController < ApplicationController
             redirect_to :action => "submit", notice: 'Movie added to library.'     
           end
         else
-          movie = Movie.create(:resource_id => video_id, :user_id => current_user.id, :title => video_title, :source => video_source)
-                  Repost.create(:movie_id => movie.id, :user_id => current_user.id, :resource_id => video_id, :source => video_source ) 
+          thumbnail = thumbnail_url(video_id, video_source)
+          movie = Movie.create(:resource_id => video_id, :user_id => current_user.id, :title => video_title, :source => video_source, :thumbnail => thumbnail)
+                  Repost.create(:movie_id => movie.id, :user_id => current_user.id, :resource_id => video_id, :source => video_source, :thumbnail => thumbnail) 
           movie.likes.create(:user_id => current_user.id)
           redirect_to :action => "submit", notice: 'Movie added to library.'    
         end

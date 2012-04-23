@@ -115,6 +115,8 @@ overflow: hidden;
 
 }
 #moviesList .movie img { width: 222px; margin-top: -22px }
+#moviesList .movie.vimeo img { width: 222px; margin-top: 0 }
+
 #moviesList .movie a .play { 
 	width: 222px; height: 123px; 
 	display: none; background: rgba(0, 0, 0, 0.6) url(iconPlay.png) center no-repeat; position: absolute; left: 0; top: 0 }
