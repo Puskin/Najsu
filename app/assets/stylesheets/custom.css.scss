@@ -70,7 +70,7 @@ html.clean body { background: none; color: #000; padding: 20px }
 body.app #content { padding-bottom: 0 }
 
 
-#categories { background: url(categories_arrow.png) center bottom no-repeat; height: 52px; margin: 12px 0 0 0  }
+#categories { background: url(categories_arrow.png) center bottom no-repeat; height: 52px; margin: 12px 0 0 0; position: relative; }
 #categories .switcher { height: 34px; text-align: center }
 #categories .switcher li { display: inline-block; margin: 0 3px; }
 #categories .switcher li a { display: block; width: 34px; height: 34px; background: url(categories.png) left top; text-indent: -9999px; outline: none }
@@ -90,6 +90,11 @@ body.app #content { padding-bottom: 0 }
 #categories .switcher li a#watched { background-position: -136px 0 }
 #categories .switcher li a#watched:hover,
 #categories .switcher li a#watched.active { background-position: -136px -34px }
+
+
+#categories .user { width: 250px; height: 52px; position: absolute; left: 0; top: 0; line-height: 43px; padding-left: 58px; color: gray }
+#categories .user .avatar,
+#categories .user .avatar .mask { width: 52px; height: 52px; background: url(avatarMask.png); position: absolute; left: 0; top: 0; }
 
 #moviesList { padding-top: 10px; margin: 0 auto; }
 #moviesList .movie { 

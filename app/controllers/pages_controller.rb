@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   include MoviesHelper
 
-  before_filter :signed_in_user, except: [:home, :submit, :timeline]
+  before_filter :signed_in_user, except: [:home, :submit, :timeline, :library]
   layout :layout_switcher
 
   def home
@@ -30,7 +30,10 @@ class PagesController < ApplicationController
       format.html
       format.js
     end
+  end
 
+  def library
+    @reposts = current_user.reposts
   end
 
   def timeline
