@@ -33,7 +33,7 @@ class PagesController < ApplicationController
   end
 
   def library
-    @reposts = current_user.reposts
+    @reposts = current_user.reposts.order('created_at DESC')
   end
 
   def timeline
