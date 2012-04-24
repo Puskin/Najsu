@@ -17,7 +17,7 @@
 		<li class="author">
 
 			<div class="title">
-				<%= "<p>#{truncate(repost.movie.title, :length => 70)}</p>".html_safe if repost.movie.title %>
+				<%= "<p>#{truncate(repost.movie.title, :length => 34)}</p>".html_safe if repost.movie.title %>
 				<div class="counters">
 					<div class="views_count" rel="tooltip" title="Obejrzeń"><%= repost.movie.views_count %></div> 
 					<div class="likes_count" rel="tooltip" title="Lajków"><%= repost.movie.likes_count %></div>
@@ -25,32 +25,8 @@
 					<div class="reposts_count" rel="tooltip" title="Repostów"><%= repost.movie.reposts_count %></div>
 				</div>
 			</div>
-
-			<div class="data">
-				<div class="content">
-					<% if repost.movie.reposts_count > 1 %>
-						<% repost.movie.reposts.take(5).each do |repost| %>
-							<%= link_to(image_tag(gravatar_url_for(repost.user), :class => "avatar", :title => repost.user.name, :rel => "tooltip"), user_path(repost.user)) %>
-						<% end %>					
-					<% else %>
-						<%= link_to(image_tag(gravatar_url_for(repost.movie.user), :class => "avatar"), user_path(repost.movie.user)) %>
-						<strong><%= repost.movie.user.name %></strong><br/>
-						<small><%= time_ago_in_words(repost.movie.created_at) %> ago.</small>
-					<% end %>
-				</div>
-				<div class="action">
-					<% if signed_in? && current_user?(repost.movie.user) %>	
-						<%= link_to "&times;".html_safe, repost.movie, :confirm => "Entire movie fo' sho?", :method => :delete, :class => "btn btn-mini pull-right", :remote => true %>
-					<% end %>
-				</div>
-			</div>
 			
 		</li>
-		<% if repost.movie.comments_count > 5 %>
-			<% movies_left = repost.movie.comments_count - 5 %>
-			<li class="more"><%= "Wczytaj jeszcze #{movies_left} komentów" %></li>
-		<% end %>
-		<%= render repost.movie.comments.last(5) %>
 	</ul>
 </div>
 
