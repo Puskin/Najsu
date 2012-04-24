@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
-  # GET /movies
-  # GET /movies.json
+ 
+  layout "frontend"
+
   def index
     if params[:popular] == "fuckyea"
       @movies = Movie.order('likes_count DESC').paginate(:page => params[:page])

@@ -1,4 +1,5 @@
 $('.overlay').css('display','table');
 $('#cinema').html("<%= escape_javascript( render :partial => 'movies/lightbox', :locals => { :movie => @movie} ) %>");
+location.hash='movie=<%="#{@movie.id}"%>';
 lightboxButtons();
 resizeWindow();

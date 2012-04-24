@@ -1,10 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Resource:</b>
-  <%= @movie.resource_id %>
-</p>
+<% content_for :cinema do %>
+	<%= render :partial => 'movies/lightbox', :locals => { :movie => @movie} %>
+<% end %>
 
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<script type="text/javascript">
+	$(window).load(function(ev){	
+		$('.overlay').css('display','table');	
+		lightboxButtons();
+		resizeWindow();
+	})
+</script>

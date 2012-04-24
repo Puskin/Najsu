@@ -14,6 +14,14 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(window).load(function(ev){	
+	var hash = location.hash;
+	if(hash.indexOf("movie") != -1) {
+		var movie_id = hash.substring(7);
+		document.location="/movies/"+movie_id
+	}
+});
+
 $(document).ready(function(ev){	
 
 	$(window).bind("resize", resizeWindow);
