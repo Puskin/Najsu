@@ -37,10 +37,10 @@ class PagesController < ApplicationController
     when "yours"
       @movies = current_user.reposts.order('created_at DESC')
     when "liked"
-      likes = current_user.likes.map(&:movie_id)
+      likes = current_user.likes.map(&:movie_id).uniq
       @movies = Repost.find_all_by_movie_id(likes)
     when "commented"
-      comments = current_user.comments.map(&:movie_id)
+      comments = current_user.comments.map(&:movie_id).uniq
       @movies = Repost.find_all_by_movie_id(comments)
     else
       @movies = current_user.reposts.order('created_at DESC')
