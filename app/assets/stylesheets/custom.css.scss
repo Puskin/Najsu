@@ -96,6 +96,12 @@ body.app #content { padding-bottom: 0 }
 #categories .user .avatar,
 #categories .user .avatar .mask { width: 52px; height: 52px; background: url(avatarMask.png); position: absolute; left: 0; top: 0; }
 
+
+#categories.library { height: 140px; background-position: center 92px; }
+#categories.library .avatar { width: 82px; height: 82px; margin: auto; position: relative; margin-top: -100px }
+#categories.library .avatar .mask { background: url(avatarMaskBig.png); position: absolute; left: 0; top: 0; width: 82px; height: 82px; }
+
+
 #moviesList { padding-top: 10px; margin: 0 auto; }
 #moviesList .movie { 
 	/*-webkit-box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1);

@@ -20,6 +20,7 @@ $(window).load(function(ev){
 		var movie_id = hash.substring(7);
 		document.location="/movies/"+movie_id
 	}
+	$("#slidabilty").animate({marginTop:'0px'}, 220);
 });
 
 $(document).ready(function(ev){	
