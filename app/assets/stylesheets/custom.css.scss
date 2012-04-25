@@ -94,12 +94,31 @@ body.app #content { padding-bottom: 0 }
 
 #categories .user { width: 250px; height: 52px; position: absolute; left: 0; top: 0; line-height: 43px; padding-left: 58px; color: gray }
 #categories .user .avatar,
-#categories .user .avatar .mask { width: 52px; height: 52px; background: url(avatarMask.png); position: absolute; left: 0; top: 0; }
+#categories .user .avatar .mask { width: 52px; height: 52px; background: url(avatarMask.png); position: absolute; left: 0; top: 0; pointer-events:none; z-index: 20 }
 
 
-#categories.library { height: 140px; background-position: center 92px; }
+
+
+#slidabilty { overflow: hidden; }
+#slidabilty img { -webkit-transform: rotate(0deg); position: absolute; z-index: -20; top: 0; left: 0 }
+#slidabilty:hover img,
+#slidabilty:hover img,
+#slidabilty:hover img {
+	-webkit-transform: rotate(360deg);
+	-webkit-transition: -webkit-transform 0.5s;
+	-moz-transform: rotate(360deg);
+	-moz-transition: -moz-transform 0.5s;
+	transform: rotate(360deg);
+	transition: transform 0.5s;
+	top: 0; left: 0;
+}
+#categories.library { height: 102px; }
 #categories.library .avatar { width: 82px; height: 82px; margin: auto; position: relative; margin-top: -100px }
 #categories.library .avatar .mask { background: url(avatarMaskBig.png); position: absolute; left: 0; top: 0; width: 82px; height: 82px; }
+
+.libary-navi { text-align: center; padding: 10px 0 }
+.libary-navi .btn-group { margin: 0 auto; text-align: center; width: inherit; display: inline-block; }
+.libary-navi .btn-group a { float: none; margin-left: -5px; outline: 0 }
 
 
 #moviesList { padding-top: 10px; margin: 0 auto; }

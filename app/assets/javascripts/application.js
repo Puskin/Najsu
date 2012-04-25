@@ -33,6 +33,11 @@ $(document).ready(function(ev){
 		}   // esc
 	});
 
+	$(".btn-group a").click(function(e){
+		$(".btn-group a").removeClass("active");
+		$(this).addClass("active");
+	});
+
 	$('#moviesList').masonry({
   	itemSelector: '.movie',
   	isFitWidth: true

@@ -33,7 +33,22 @@ class PagesController < ApplicationController
   end
 
   def library
-    @reposts = current_user.reposts.order('created_at DESC')
+    case params[:show]    
+    when "yours"
+      @movies = current_user.reposts.order('created_at DESC')
+    when "liked"
+      likes = current_user.likes.map(&:movie_id)
+      @movies = Repost.find_all_by_movie_id(likes)
+    when "commented"
+      comments = current_user.comments.map(&:movie_id)
+      @movies = Repost.find_all_by_movie_id(comments)
+    else
+      @movies = current_user.reposts.order('created_at DESC')
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def timeline
