@@ -1,7 +1,7 @@
 
 /* HTML ELEMENTS ----------------------------------------------------------------*/
 html { /*background: url(background.jpg)*/ }
-body { padding-top: 40px; /*background: url(moutain.png) center 40px no-repeat;*/ color: #000; background: #f7f7f7 }
+body { padding-top: 61px; color: #000; background: #f7f7f7 }
 
 html.clean,
 html.clean body { background: none; color: #000; padding: 20px }
@@ -13,19 +13,44 @@ html.clean body { background: none; color: #000; padding: 20px }
 /* Basic Content ----------------------------------------------------------------*/
 
 /* HEADER -----------------------------------------------------------------------*/
+
+.tooltip { z-index: 99999; }
+
 #header {  }
 #header .navbar-inner { 
+  border-bottom: 1px solid #e4e4e4; height: 60px;
+	background: #f0f0f0;
+	-webkit-box-shadow:  0px 0px 0px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow:  0px 0px 0px 0px rgba(0, 0, 0, 0.05);
+  box-shadow:  0px 0px 0px 0px rgba(0, 0, 0, 0.05); }
+#header .navbar-inner.shadow { 
+	-webkit-box-shadow:  0px 2px 0px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow:  0px 2px 0px 0px rgba(0, 0, 0, 0.05);
+  box-shadow:  0px 2px 0px 0px rgba(0, 0, 0, 0.05);
+}
+#header .navbar-inner a.brand { 
+	background: url(logo.jpg); height: 17px; width: 68px; text-indent: -9999px;
+	float: left; font-weight: 900; color: #6a6a6a; padding: 0; margin: 19px 0 0 0  }
 
-        -webkit-box-shadow:  0px 2px 0px 0px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow:  0px 2px 0px 0px rgba(0, 0, 0, 0.1);
-        box-shadow:  0px 2px 0px 0px rgba(0, 0, 0, 0.1);
-        
-	background: #3b6ea7 }
-#header .navbar-inner a.brand { float: left; font-weight: 900 }
-
-#header .nav { float: right }
-#header .nav li a { color: #fff }
+#header .nav { float: right; padding: 14px 0 0 0; margin: 0 }
+#header .nav li { margin-left: 5px; }
+#header .nav li a { 
+	line-height: 11px;
+	text-shadow: 0px 0px 0px;
+	filter: dropshadow(offx=0, offy=0);
+	color: #6d6d6d; padding: 7px 9px 8px 9px; font-size: 11px; 
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #d9d9d9;
+}
+#header .nav li a:hover { background: #cfcfcf }
+#header .nav li a.active { background: #6fcb89; color: #fff } 
+/*#header .nav li a.clean { background: none }*/
 #header .nav li a img { float: left; margin-right: 5px }
+
+#header .bar {  }
+#header .bezel { background: url(header.jpg) repeat-x top; height: 6px }
 
 /* CONTENT ----------------------------------------------------------------------*/
 
@@ -93,6 +118,7 @@ body.app #content { padding-bottom: 0 }
 
 
 #categories .user { width: 250px; height: 52px; position: absolute; left: 0; top: 0; line-height: 43px; padding-left: 58px; color: gray }
+#categories .user a { display: block; width: 52px; height: 52px; position: absolute; left: 0; top: 0; }
 #categories .user .avatar,
 #categories .user .avatar .mask { width: 52px; height: 52px; background: url(avatarMask.png); position: absolute; left: 0; top: 0; pointer-events:none; z-index: 20 }
 

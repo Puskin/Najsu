@@ -98,6 +98,12 @@ $(document).ready(function(ev){
 		if(scroll_top + window_height == document_height){
 			setTimeout(function () { $(".next_page").trigger('click'); }, 0);		
 		}
+
+		if(scroll_top > 15) {
+			$(".navbar-inner").addClass("shadow");
+		} else if (scroll_top < 15){
+			$(".navbar-inner").removeClass("shadow");
+		}		
 	});
 
 	init: heightCheck();

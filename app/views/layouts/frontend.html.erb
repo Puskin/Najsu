@@ -24,12 +24,16 @@
 
 	<div class="navbar navbar-fixed-top" id="header">
 	 <div class="navbar-inner">
-			<div class="container-fluid">
+			<div class="container-fluid bezel">
+			</div>
+
+			<div class="container-fluid bar">
 				<%= link_to "Najsu", root_path, :class => "brand" %>
 				
 	      <ul class="nav">
-	          <li><%= link_to "Home", root_path %></li>
- 	          <li><%= link_to "Timeline", timeline_path %></li>
+
+	          <li><%= link_to "Główna", root_path, :class => active?("home") %></li>
+		        <li><%= link_to "Timeline", timeline_path, :class => active?("timeline") %></li>
 
 	          <% unless signed_in? %>
 	            <li><%= link_to "Zaloguj się", signin_path %></li>
@@ -37,7 +41,8 @@
 	          <% end %>
 
             <% if signed_in? %>
-            	<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+            	<li><%= link_to "Zbiory", library_path, :class => active?("library") %></li>
+            	<li><%= link_to "Wyloguj się", signout_path, method: "delete", :class => "clean" %></li>
             	<!--
             	<li><%= link_to "#{image_tag(gravatar_url_for(current_user),:size => '20x20')}#{current_user.name}".html_safe, user_path(current_user) %></li>
             	-->
