@@ -29,6 +29,23 @@
 
 			<div class="container-fluid bar">
 				<%= link_to "Najsu", root_path, :class => "brand" %>
+
+				<div class="user" rel="tooltipBottom" title="atrapa póki co">
+					<div class="avatar">
+						<div class="mask"></div>
+						<%= image_tag(gravatar_url_for(current_user), :size => "38x38") %>
+					</div>
+					<div class="name">
+						<div class="arrow">
+						</div>
+						<div class="content">
+							<%= current_user.name %>
+						</div>
+					</div>
+					<div class="notifications">
+						3
+					</div>
+				</div>
 				
 	      <ul class="nav">
 

@@ -84,6 +84,8 @@ $(document).ready(function(ev){
 	});  /* TEMP SHIT */
 
 	$('[rel="tooltip"]').tooltip();
+	$('[rel="tooltipBottom"]').tooltip({placement: "bottom"});
+
 
 	$('.next_page').click(function(e){
 		$(".pagination").html("<div class='loader'></div>");

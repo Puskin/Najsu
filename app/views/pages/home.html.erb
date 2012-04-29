@@ -22,18 +22,6 @@
 <% if signed_in? %>
 <div id="categories" class="row-fluid">
 
-	<div class="user">
-		<%= link_to(library_path) do %>
-			<div class="avatar">
-				<div class="mask"></div>
-				<%= image_tag(gravatar_url_for(current_user),:size => '52x52') %>
-			</div>
-			<!--
-			<%= current_user.name %>
-			-->
-		<% end %>
-	</div>
-
 	<ul class="switcher unstyled">
 		<li id="switcherItem0"><%= link_to "Najnowsze", root_path(:feed => "newest"), :id => "newest", :rel => "tooltip", :title => "Ostatnio dodane", :remote => true %></li>
 		<li id="switcherItem1"><%= link_to "Popularne", root_path(:feed => "popular"), :id => "popular", :rel => "tooltip", :title => "Popularne", :remote => true %></li>
