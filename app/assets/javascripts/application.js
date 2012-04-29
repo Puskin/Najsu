@@ -131,6 +131,7 @@ function lightboxButtons(ev) {
 	$('#bye').click(function(ev){
 		$('iframe').remove();
 		$('.overlay').fadeOut();
+		document.location="#feed";
 	});
 	/* not needed because of partial reload
 	$('#cinema .actions input').click(function() {

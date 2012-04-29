@@ -291,10 +291,10 @@ margin-right: 3px; width: 150px;
 .overlay .actions li { display: block; float: left; margin-bottom: 10px }
 .overlay .actions li a,
 .overlay .actions li input { 
-	border: 0; margin: 0;
+	border: 0; margin: 0; outline: none; cursor: pointer;
 	display: block; width: 32px; height: 32px; background: url(iconLightboxActions.png); text-indent: -9999px }
 
-.overlay .actions li a#bye { background-position: -64px 0; height: 30px }
+.overlay .actions li a#bye { background-position: -64px 0; height: 30px;}
 .overlay .actions li a#bye:hover { background-position: -32px 0; }
 .overlay .actions li a.active#bye,
 .overlay .actions li a#bye:active { background-position: 0px 0px; }

@@ -1,4 +1,4 @@
-<li><a id="bye" href="#">Close</a></li>	
+<li><a id="bye">Close</a></li>	
 <% if signed_in? %>
 
 	<% cssClass = "active" if movie.liked?(current_user.id) %>
@@ -8,7 +8,7 @@
 	  "data-original-title" => "Movie likes (#{movie.likes_count})" %></li>
 	<% end %>
 
-	<li><%= link_to "Comments", "#", :id => "comments" %></li>
+	<li><a id="comments">Comments</a></li>
 
 <% else %>
 
