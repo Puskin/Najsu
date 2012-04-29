@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
 	has_many :comments
 	has_many :invitations
 	has_many :reposts
+	has_many :activities
 
 	#users following relations
 	def feed

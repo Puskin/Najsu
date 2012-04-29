@@ -57,7 +57,7 @@ class PagesController < ApplicationController
 
   def submit
     if signed_in?
-      if params[:resource_id]
+      if params[:resource_id] && params[:resource_title] && params[:resource_source]
         video_id = params[:resource_id]
         video_title = params[:resource_title]
         video_source = params[:resource_source]
@@ -67,15 +67,14 @@ class PagesController < ApplicationController
           if repost
             redirect_to :action => "submit", notice: 'Movie already in your library.'     
           else
-            Repost.create(:movie_id => movie_record.id, :user_id => current_user.id, :resource_id => video_id, :source => video_source ) 
+            thumbnail = thumbnail_url(video_id, video_source)
+            Repost.create(:movie_id => movie_record.id, :user_id => current_user.id, :resource_id => video_id, :source => video_source, :thumbnail => thumbnail ) 
             Like.find_or_create_by_user_id_and_movie_id(:user_id => current_user.id, :movie_id => movie_record.id)
             redirect_to :action => "submit", notice: 'Movie added to library.'     
           end
         else
           thumbnail = thumbnail_url(video_id, video_source)
           movie = Movie.create(:resource_id => video_id, :user_id => current_user.id, :title => video_title, :source => video_source, :thumbnail => thumbnail)
-                  Repost.create(:movie_id => movie.id, :user_id => current_user.id, :resource_id => video_id, :source => video_source, :thumbnail => thumbnail) 
-          movie.likes.create(:user_id => current_user.id)
           redirect_to :action => "submit", notice: 'Movie added to library.'    
         end
       end

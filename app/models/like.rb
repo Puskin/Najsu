@@ -3,6 +3,8 @@ class Like < ActiveRecord::Base
 	belongs_to :movie, :counter_cache => true
 	belongs_to :user
 
+	after_save :log_activity
+
 	def update
 		like = Like.conn(self.movie_id, self.user_id)
 		if like
@@ -24,5 +26,11 @@ class Like < ActiveRecord::Base
 	  end 
 
 	end
-  
+
+	private
+
+		def log_activity
+			Activity.log_data(self, 2)			
+		end
+
 end

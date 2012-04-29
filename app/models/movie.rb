@@ -1,6 +1,7 @@
 class Movie < ActiveRecord::Base
 
 	attr_accessible :resource_id, :user_id, :title, :source, :thumbnail
+  after_create :repost_and_like
 
   has_many :likes
   has_many :comments
@@ -57,6 +58,11 @@ class Movie < ActiveRecord::Base
       followed_user_ids = %(SELECT followed_id FROM relationships WHERE follower_id = :user_id)
       #where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", { user_id: user })
       where("user_id IN (#{followed_user_ids})", { user_id: user })
+    end
+
+    def repost_and_like
+      Repost.create(:movie_id => self.id, :user_id => self.user_id, :resource_id => self.resource_id, :source => self.source, :thumbnail => self.thumbnail) 
+      Like.create(:movie_id => self.id, :user_id => self.user_id)
     end
 
 end
