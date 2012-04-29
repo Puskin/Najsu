@@ -24,6 +24,7 @@ Tuduk::Application.routes.draw do
   match "/submit", to: 'pages#submit'
   match "/timeline", to: 'pages#timeline'
   match "/library", to: 'pages#library'
+  match "/activities", to: 'pages#activities'
 
   match '/auth/:provider/callback' => 'authentications#create'
 

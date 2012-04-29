@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
 
 	attr_accessible :resource_id, :user_id, :title, :source, :thumbnail
-  after_create :repost_and_like
+  after_save :repost_and_like
 
   has_many :likes
   has_many :comments

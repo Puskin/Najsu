@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   include MoviesHelper
 
-  before_filter :signed_in_user, except: [:home, :submit, :timeline, :library]
+  before_filter :signed_in_user, except: [:home, :submit, :timeline, :library, :activities]
   layout :layout_switcher
 
   def home
@@ -53,6 +53,10 @@ class PagesController < ApplicationController
 
   def timeline
     @movies = Movie.all.group_by { |m| m.created_at.at_beginning_of_day }
+  end
+
+  def activities
+    @activities = Activity.find_all_by_user_id(current_user.followed_users.map(&:id))    
   end
 
   def submit

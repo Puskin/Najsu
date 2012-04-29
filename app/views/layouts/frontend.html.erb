@@ -40,7 +40,7 @@
 							<div class="arrow"></div>
 							<div class="content"><%= current_user.name %></div>
 						</div>
-						<div class="notifications">6</div>
+						<div class="notifications"><%= link_to Activity.all.count, activities_path %></div>
 					</div>
 				<% end %>
 				

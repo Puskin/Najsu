@@ -1,0 +1,9 @@
+<ul class="unstyled">
+	<% @activities.each do |activity| %>
+	<br/>
+		<li>
+			<%= activity.user.name %><%= activity.data %>
+			<hr/>
+		</li>
+	<% end %>
+</ul>
