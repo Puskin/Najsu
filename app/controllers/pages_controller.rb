@@ -56,7 +56,10 @@ class PagesController < ApplicationController
   end
 
   def activities
-    @activities = Activity.find_all_by_user_id(current_user.followed_users.map(&:id))    
+    friends = Activity.find_all_by_user_id(current_user.followed_users.map(&:id))
+    user = Activity.find_all_by_recipient_id(current_user.id)
+    activities = friends + user
+    @activities = activities.uniq    
   end
 
   def submit

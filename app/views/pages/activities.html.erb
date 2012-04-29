@@ -2,6 +2,7 @@
 	<% @activities.each do |activity| %>
 	<br/>
 		<li>
+			<%= activity.id %> |
 			<%= activity.user.name %><%= activity.data %>
 			<hr/>
 		</li>
