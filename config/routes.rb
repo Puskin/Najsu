@@ -13,6 +13,7 @@ Tuduk::Application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy, :index]
+  resources :activities, only: [:index]
 
   root :to => 'pages#home'
 
@@ -24,7 +25,6 @@ Tuduk::Application.routes.draw do
   match "/submit", to: 'pages#submit'
   match "/timeline", to: 'pages#timeline'
   match "/library", to: 'pages#library'
-  match "/activities", to: 'pages#activities'
 
   match '/auth/:provider/callback' => 'authentications#create'
 

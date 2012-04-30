@@ -55,13 +55,6 @@ class PagesController < ApplicationController
     @movies = Movie.all.group_by { |m| m.created_at.at_beginning_of_day }
   end
 
-  def activities
-    friends = Activity.find_all_by_user_id(current_user.followed_users.map(&:id))
-    user = Activity.find_all_by_recipient_id(current_user.id)
-    activities = friends + user
-    @activities = activities.uniq    
-  end
-
   def submit
     if signed_in?
       if params[:resource_id] && params[:resource_title] && params[:resource_source]

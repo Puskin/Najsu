@@ -1,0 +1,10 @@
+<ul class="unstyled">
+	<% @activities.each do |activity| %>
+	<br/>
+		<li>
+			<%= activity.user.name %> <%= activity_action(activity.resource) %> <%= time_ago_in_words(activity.created_at) %> temu.
+			<br/><%= activity.data %>
+			<hr/>
+		</li>
+	<% end %>
+</ul>
