@@ -1,18 +1,22 @@
 <ul class="unstyled" id="activities">
- <% @users_activities.each do |user, activities| %>
+	<% last_activity_user = @activities.last.user_id %>
 
+	<% @activities.each do |activity| %>
+
+
+	<% unless activity.user_id == current_user.id && activity.recipient_id == current_user.id %> 
  	<li>
-		<% activities.each do |activity| %>
-			<% if activity == activities.first %>
-				<% unless activity.user_id == current_user.id && activity.recipient_id == current_user.id %> 
+ 				<% if last_activity_user != activity.user_id %>
 					<div class="avatar">
 						<div class="mask" rel='tooltipBottom' title ="<%= activity.user.name %>"></div>
 						<%= image_tag(gravatar_url_for(activity.user), :size => '64x64') %>
 					</div>
 				<% end %>
-			<% end %>
-		
-		 	<% unless activity.user_id == current_user.id && activity.recipient_id == current_user.id %> 
+
+				<!-- save current activity user -->
+				<% last_activity_user = activity.user_id %>
+
+
 				<div class="content">
 					<% if activity.resource != 3 %>
 						<%= image_tag(activity.data[:movie_thumbnail]) %>
@@ -26,9 +30,9 @@
 						"<i><%= activity.data[:comment_content] %></i>"
 					<% end %>
 				</div>
-			<% end %>
-		<% end %>
 	</li>
+	<% end %>
+
 
  <% end %>
 </ul>
