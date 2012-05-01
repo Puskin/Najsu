@@ -11,7 +11,7 @@ class Comment < ActiveRecord::Base
 	private
 
 		def log_activity
-			Activity.log_data(self, 3)
+			Activity.log_data(self, 2)
 		end
 
 end

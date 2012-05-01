@@ -1,10 +1,11 @@
 <ul class="unstyled">
-	<% @activities.each do |activity| %>
 	<br/>
+	<% @activities.each do |activity| %>
 		<li>
-			<%= activity.user.name %> <%= activity_action(activity.resource) %> <%= time_ago_in_words(activity.created_at) %> temu.
-			<br/><%= activity.data %>
-			<hr/>
+			<%= activity.user.name %> <%= activity_action(activity.resource) %> "<%= activity.data[:movie_title] %>" <%= time_ago_in_words(activity.created_at) %> temu.<br/>
+			<% if activity.resource == 2 %>
+				"<i><%= activity.data[:comment_content] %></i>"
+			<% end %><hr/ style="margin: 8px 0">
 		</li>
 	<% end %>
 </ul>

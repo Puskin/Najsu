@@ -30,7 +30,7 @@ class Like < ActiveRecord::Base
 	private
 
 		def log_activity
-			Activity.log_data(self, 2)			
+			Activity.log_data(self, 1)			
 		end
 
 end

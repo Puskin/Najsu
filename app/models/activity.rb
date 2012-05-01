@@ -3,17 +3,27 @@ class Activity < ActiveRecord::Base
 	serialize :data
 	belongs_to :user
 
+	#status codes for activities actions
+	LIKE		 = 1
+	COMMENT  = 2
+	FOLLOW 	 = 3
+
+	CREATE 	 = 1
+	EDIT 		 = 2
+	DESTROY  = 3
+
 	
 	private
 
 		def self.log_data(resource, resource_type)
 
-			unless resource_type == 4
+			unless resource_type == FOLLOW
 				#find movie related to resource
 				movie = Movie.find(resource.movie_id)
 				data = {
 					:movie_id => movie.id, 
 					:movie_title => movie.title, 
+					:movie_thumbnail => movie.thumbnail,
 					:movie_user_id => movie.user_id,
 					:movie_user_name => movie.user.name,
 					:resource_id => resource.id
@@ -21,7 +31,7 @@ class Activity < ActiveRecord::Base
 			end
 
 			case resource_type
-			when 3
+			when COMMENT
 				data[:comment_content] = resource.content
 			end
 		
@@ -29,7 +39,7 @@ class Activity < ActiveRecord::Base
 	      :user_id => resource.user_id, 
 	      :recipient_id => movie.user_id,
 	      :resource => resource_type,
-	      :action => 1,
+	      :action => CREATE,
 	      :data => data
 	    )
 		end
