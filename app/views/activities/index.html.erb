@@ -1,11 +1,16 @@
 <ul class="unstyled">
 	<br/>
 	<% @activities.each do |activity| %>
-		<li>
+		<% unless activity.user_id == current_user.id && activity.recipient_id == current_user.id %> 
+		<li style="float:left; width: 100%; display: block; border-bottom: 1px solid gray; padding: 10px 0">
+			<% if activity.resource != 3 %>
+				<%= image_tag(activity.data[:movie_thumbnail], :size => '50x20', :style => "float:left; margin-right: 10px") %>
+			<% end %>
 			<%= activity.user.name %> <%= activity_action(activity.resource) %> "<%= activity.data[:movie_title] %>" <%= time_ago_in_words(activity.created_at) %> temu.<br/>
 			<% if activity.resource == 2 %>
 				"<i><%= activity.data[:comment_content] %></i>"
-			<% end %><hr/ style="margin: 8px 0">
+			<% end %>
 		</li>
+		<% end %>
 	<% end %>
 </ul>
