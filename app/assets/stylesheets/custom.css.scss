@@ -435,7 +435,8 @@ margin-right: 3px; width: 150px;
 /* ACTIVITIES ----------------------------------------------------------------------*/
 
 #activities { background: url(activities.jpg) 30px top repeat-y; float: left; width: 100%; min-height: 1000px; padding: 20px 0 }
-#activities li { position: relative; min-height: 70px; margin-bottom: 10px }
+#activities li { position: relative; }
+#activities li.first { margin-top: 10px }
 #activities li .avatar,
 #activities li .avatar .mask { width: 65px; height: 65px; position: absolute; left: 0; top: 0 }
 
@@ -444,7 +445,7 @@ margin-right: 3px; width: 150px;
 
 #activities li .content { 
 	background: url(activitiesContent.png) left repeat-y;
-	padding: 10px; margin-left: 80px; min-height: 36px; color: #828282; letter-spacing: -0.1px;  }
+	padding: 10px; margin-left: 80px; min-height: 45px; color: #828282; letter-spacing: -0.1px;  }
 #activities li .content img { float: left; height: 35px; margin-right: 10px; }
 
 
