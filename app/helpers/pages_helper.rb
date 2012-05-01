@@ -1,9 +1,9 @@
 module PagesHelper
 
-	def active?(item)
-		if action_name == item
-			"active"
-		end					
+	def active?(controller="pages",item)
+		if controller_name==controller && action_name == item
+			"active"		
+		end
 	end
 
 end

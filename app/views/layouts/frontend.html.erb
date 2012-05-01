@@ -47,7 +47,8 @@
 	      <ul class="nav">
 
 	          <li><%= link_to "Główna", root_path, :class => active?("home") %></li>
-		        <li><%= link_to "Timeline", timeline_path, :class => active?("timeline") %></li>
+						<li><%= link_to "Ludzie", users_path, :class => active?("users", "index") %></li>
+		        <li><%= link_to "Aktywności", activities_path, :class => active?("activities", "index") %></li>
 
 	          <% unless signed_in? %>
 	            <li><%= link_to "Zaloguj się", signin_path %></li>
