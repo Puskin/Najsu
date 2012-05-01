@@ -1,29 +1,32 @@
 <ul class="unstyled" id="activities">
-	<% @activities.each do |activity| %>
-		<% unless activity.user_id == current_user.id && activity.recipient_id == current_user.id %> 
-		<li>
+ <% @users_activities.each do |user, activities| %>
 
-			<div class="avatar">
-				<div class="mask"></div>
-				<%= image_tag(gravatar_url_for(current_user),:size => '64x64') %>
-			</div>
+ 	<li>
+		<% activities.each do |activity| %>
+			<% if activity == activities.first %>
+				<div class="avatar">
+					<div class="mask" rel='tooltipBottom' title ="<%= activity.user.name %>"></div>
+					<%= image_tag(gravatar_url_for(activity.user), :size => '64x64') %>
+				</div>
+			<% end %>
+		
+		 	<% unless activity.user_id == current_user.id && activity.recipient_id == current_user.id %> 
+				<div class="content">
+					<% if activity.resource != 3 %>
+						<%= image_tag(activity.data[:movie_thumbnail]) %>
+					<% end %>
 
-			<div class="content">
-				<% if activity.resource != 3 %>
-					<%= image_tag(activity.data[:movie_thumbnail]) %>
-				<% end %>
+						<%= activity.user.name %> <%= activity_action(activity.resource) %> 
+						<%= "'#{activity.data[:movie_title]}'" if activity.resource != 3 %> 
+						<%= time_ago_in_words(activity.created_at) %> temu.<br/>
 
-					<%= activity.user.name %> <%= activity_action(activity.resource) %> 
-					<%= "'#{activity.data[:movie_title]}'" if activity.resource != 3 %> 
-					<%= time_ago_in_words(activity.created_at) %> temu.<br/>
-
-				<% if activity.resource == 2 %>
-					"<i><%= activity.data[:comment_content] %></i>"
-				<% end %>
-			</div>
-
-
-		</li>
+					<% if activity.resource == 2 %>
+						"<i><%= activity.data[:comment_content] %></i>"
+					<% end %>
+				</div>
+			<% end %>
 		<% end %>
-	<% end %>
+	</li>
+
+ <% end %>
 </ul>

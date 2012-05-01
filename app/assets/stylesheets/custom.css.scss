@@ -442,7 +442,9 @@ margin-right: 3px; width: 150px;
 #activities li .avatar .mask { background: url(activitiesMask.png); z-index: 20; }
 #activities li .avatar img { position: absolute; left: 1px; top: 1px; z-index: 10; }
 
-#activities li .content { padding: 10px; margin-left: 80px; background: #fff; min-height: 36px  }
+#activities li .content { 
+	background: url(activitiesContent.png) left repeat-y;
+	padding: 10px; margin-left: 80px; min-height: 36px; color: #828282; letter-spacing: -0.1px;  }
 #activities li .content img { float: left; height: 35px; margin-right: 10px; }
 
 
