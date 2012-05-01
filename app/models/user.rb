@@ -27,10 +27,26 @@ class User < ActiveRecord::Base
 	has_many :reposts
 	has_many :activities
 
+
 	#users following relations
 	def feed
 	  Movie.from_users_followed_by(self)
   end
+
+  def activities_feed
+  	Activity.find(
+    	:all, 
+    	:conditions => ["user_id in (?) OR recipient_id = ?", self.followed_map, self.id], 
+    	:order => 'created_at DESC'
+    )
+  end
+
+  def followed_map
+  	self.followed_users.map(&:id)
+  end
+
+
+
 
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)

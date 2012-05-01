@@ -40,7 +40,9 @@
 							<div class="arrow"></div>
 							<div class="content"><%= current_user.name %></div>
 						</div>
-						<div class="notifications"><%= link_to Activity.all.count, activities_path %></div>
+						<div class="notifications_counter">
+							<%= link_to current_user.activities_feed.count, activities_path, :class => "notifications" %>
+						</div>
 					</div>
 				<% end %>
 				
