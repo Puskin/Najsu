@@ -40,6 +40,15 @@
 					<% end %>
 
 						<%= activity.user.name %> <%= activity_action(activity.resource) %> 
+						
+						<% if activity.resource == 3 %>
+							<% if activity.recipient_id == current_user.id %>
+								Ciebie 
+							<% else %>
+								<%= activity.data[:followed_user_name] %>
+							<% end %>
+						<% end %>
+						
 						<%= "'#{activity.data[:movie_title]}'" if activity.resource != 3 %> 
 						<%= time_ago_in_words(activity.created_at) %> temu.<br/>
 

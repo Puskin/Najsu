@@ -41,7 +41,9 @@
 							<div class="content"><%= current_user.name %></div>
 						</div>
 						<div class="notifications_counter">
-							<%= link_to current_user.activities_feed.count, activities_path, :class => "notifications" %>
+							<% counter = current_user.activities_counter %>						
+							<% counter_css = "active" if counter > 0 %>							
+							<%= link_to counter, activities_path, :class => counter_css %>
 						</div>
 					</div>
 				<% end %>

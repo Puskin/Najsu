@@ -63,13 +63,13 @@ html.clean body { background: none; color: #000; padding: 20px }
 #header .user .name * { float: left }
 #header .user .name .arrow { width: 5px; height: 38px; background: url(headerArrow.jpg) center left }
 #header .user .name .content,
-#header .user .notifications { 
+#header .user .notifications_counter a { 
 	-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
 	padding: 0 7px; height: 26px; line-height: 25px; margin-top: 6px;
 	font-size: 11px; color: #727272; background: #d9d9d9 }
-#header .user .notifications { text-decoration: none; color: #fff }
-#header .user .notifications { background: #d94335; color: #fff; padding: 0 8px; cursor: pointer }
-#header .user .notifications:hover { background: #eb3220 }
+#header .user .notifications_counter a { text-decoration: none; color: #727272 }
+#header .user .notifications_counter a.active { background: #d94335; color: #fff; padding: 0 8px; cursor: pointer }
+#header .user .notifications_counter a.active:hover { background: #eb3220 }
 
 
 

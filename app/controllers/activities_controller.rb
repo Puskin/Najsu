@@ -4,6 +4,7 @@ class ActivitiesController < ApplicationController
 
 	def index    
     @activities = current_user.activities_feed
+    current_user.activities_visit_update
   end
 
 

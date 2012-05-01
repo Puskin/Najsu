@@ -9,7 +9,7 @@ module ActivitiesHelper
 		when 2
 			"skomentował film"
 		when 3
-			"zaczął Cię obserwować"
+			"zaczął obserwować"
 		end
 	end
 

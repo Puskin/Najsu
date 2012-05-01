@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
-	attr_accessible :user_id, :recipient_id, :resource, :action, :data, :own
+	attr_accessible :user_id, :recipient_id, :resource, :action, :data, :owner_id
 	serialize :data
 	belongs_to :user
 
@@ -35,18 +35,19 @@ class Activity < ActiveRecord::Base
 			case resource_type
 			when COMMENT
 				data[:comment_content] = resource.content
-			when RELATION				 
+			when RELATION				 				
 				user_id = resource.follower_id
-				recipient_id = resource.followed_id
+				recipient_id = resource.followed_id				
 				data = {
-					:relationship_id => resource.id
+					:relationship_id => resource.id,
+					:followed_user_name => resource.followed.name
 				}
 			end
 
 			if user_id == recipient_id 
-				own_activity = true 
+				owner_id = user_id 
 			else
-				own_activity = false
+				owner_id = 0
 			end
 		
 			self.create(
@@ -55,7 +56,7 @@ class Activity < ActiveRecord::Base
 	      :resource => resource_type,
 	      :action => CREATE,
 	      :data => data,
-	      :own => own_activity
+	      :owner_id => owner_id
 	    )
 		end
 

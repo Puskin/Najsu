@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
 	
-	attr_accessible :name, :email, :password, :password_confirmation
+	attr_accessible :name, :email, :password, :password_confirmation, :activities_visit
 	has_secure_password
-	before_save :create_remember_token
-
+	before_create :create_remember_token #changed from before_save to avoid logout on user model update
+	after_create :activities_visit_update
 
 	validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -33,10 +33,20 @@ class User < ActiveRecord::Base
 	  Movie.from_users_followed_by(self)
   end
 
+  #counts only new activities for user
+  def activities_counter 
+  	Activity.find(
+    	:all, 
+    	:conditions => ["(user_id in (?) OR recipient_id = ?) AND owner_id != ? AND created_at > ?", self.followed_map, self.id, self.id, self.activities_visit], 
+    	:order => 'created_at DESC'
+    ).count
+  end
+
+  #gets all the activities to show on feed view
   def activities_feed
   	Activity.find(
     	:all, 
-    	:conditions => ["user_id in (?) OR recipient_id = ? AND own = ?", self.followed_map, self.id, false], 
+    	:conditions => ["(user_id in (?) OR recipient_id = ?) AND owner_id != ?", self.followed_map, self.id, self.id], 
     	:order => 'created_at DESC'
     )
   end
@@ -86,6 +96,12 @@ class User < ActiveRecord::Base
   		:token 		=> omniauth['credentials']['token']
   	)
 	end
+
+  def activities_visit_update
+  	self.activities_visit = Time.now
+  	self.save :validate => false
+  end
+
 
 	private
 
