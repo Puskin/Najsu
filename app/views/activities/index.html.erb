@@ -1,3 +1,5 @@
+<% if @activities.count > 0 %>
+
 <ul class="unstyled" id="activities">
 	<% last_activity_user = @activities.last.user_id %>
 	<% last_activity_date = @activities.last.created_at %>
@@ -14,7 +16,6 @@
 
 	<% last_activity_date = activity.created_at %>	
 
-	<% unless activity.user_id == current_user.id && activity.recipient_id == current_user.id %> 
  	<li <%= 'class=first' if last_activity_user != activity.user_id || @activities.first == activity %>>
  				
  				<% if @activities.first == activity %>
@@ -47,8 +48,9 @@
 					<% end %>
 				</div>
 	</li>
-	<% end %>
 
 
  <% end %>
 </ul>
+
+<% end %>

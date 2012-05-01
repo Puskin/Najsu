@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   def activities_feed
   	Activity.find(
     	:all, 
-    	:conditions => ["user_id in (?) OR recipient_id = ?", self.followed_map, self.id], 
+    	:conditions => ["user_id in (?) OR recipient_id = ? AND own = ?", self.followed_map, self.id, false], 
     	:order => 'created_at DESC'
     )
   end
