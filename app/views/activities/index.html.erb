@@ -15,7 +15,7 @@
 	<% last_activity_date = activity.created_at %>	
 
 	<% unless activity.user_id == current_user.id && activity.recipient_id == current_user.id %> 
- 	<li <%= 'class=first' if last_activity_user != activity.user_id %>>
+ 	<li <%= 'class=first' if last_activity_user != activity.user_id || @activities.first == activity %>>
  				
  				<% if @activities.first == activity %>
  					<div class="avatar">
