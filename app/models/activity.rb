@@ -6,7 +6,7 @@ class Activity < ActiveRecord::Base
 	#status codes for activities actions
 	LIKE		 = 1
 	COMMENT  = 2
-	FOLLOW 	 = 3
+	RELATION = 3
 
 	CREATE 	 = 1
 	EDIT 		 = 2
@@ -17,9 +17,11 @@ class Activity < ActiveRecord::Base
 
 		def self.log_data(resource, resource_type)
 
-			unless resource_type == FOLLOW
+			unless resource_type == RELATION
 				#find movie related to resource
 				movie = Movie.find(resource.movie_id)
+				user_id = resource.user_id
+				recipient_id = movie.user_id
 				data = {
 					:movie_id => movie.id, 
 					:movie_title => movie.title, 
@@ -33,11 +35,17 @@ class Activity < ActiveRecord::Base
 			case resource_type
 			when COMMENT
 				data[:comment_content] = resource.content
+			when RELATION				 
+				user_id = resource.follower_id
+				recipient_id = resource.followed_id
+				data = {
+					:relationship_id => resource.id
+				}
 			end
 		
 			self.create(
-	      :user_id => resource.user_id, 
-	      :recipient_id => movie.user_id,
+	      :user_id => user_id, 
+	      :recipient_id => recipient_id,
 	      :resource => resource_type,
 	      :action => CREATE,
 	      :data => data

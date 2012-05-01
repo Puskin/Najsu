@@ -6,4 +6,13 @@ class Relationship < ActiveRecord::Base
 
   validates :follower_id, presence: true
   validates :followed_id, presence: true
+
+  after_create :log_activity
+
+	private
+
+		def log_activity
+			Activity.log_data(self, 3)
+		end
+
 end

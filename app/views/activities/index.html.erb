@@ -6,7 +6,11 @@
 			<% if activity.resource != 3 %>
 				<%= image_tag(activity.data[:movie_thumbnail], :size => '50x20', :style => "float:left; margin-right: 10px") %>
 			<% end %>
-			<%= activity.user.name %> <%= activity_action(activity.resource) %> "<%= activity.data[:movie_title] %>" <%= time_ago_in_words(activity.created_at) %> temu.<br/>
+
+				<%= activity.user.name %> <%= activity_action(activity.resource) %> 
+				<%= "'#{activity.data[:movie_title]}'" if activity.resource != 3 %> 
+				<%= time_ago_in_words(activity.created_at) %> temu.<br/>
+				
 			<% if activity.resource == 2 %>
 				"<i><%= activity.data[:comment_content] %></i>"
 			<% end %>

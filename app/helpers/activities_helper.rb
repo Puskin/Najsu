@@ -8,6 +8,8 @@ module ActivitiesHelper
 			"polubił film"
 		when 2
 			"skomentował film"
+		when 3
+			"zaczął Cię obserwować"
 		end
 	end
 
