@@ -7,8 +7,8 @@ module PagesHelper
 	end
 
 	def featuredCss
-		colors = [' lightBlue',' darkBlue',' purple',' orange', ' green']
-		colors[rand(5)]		
+		colors = [' lightBlue',' darkBlue',' purple', ' green']
+		colors[rand(4)]		
 	end
 
 end
