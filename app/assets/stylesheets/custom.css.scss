@@ -85,33 +85,34 @@ html.clean body { background: none; color: #000; padding: 20px }
 #timeline div.first { position: absolute; left: 0; padding: 0 10px; margin: 0; border: 0  }
 
 #featured { 
-	-webkit-border-bottom-right-radius: 4px;
-	-webkit-border-bottom-left-radius: 4px;
-	-moz-border-radius-bottomright: 4px;
-	-moz-border-radius-bottomleft: 4px;
-	border-bottom-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-	background: #fffbb4; border-bottom: 2px solid #e1db6e;
-}
-#featured .span12 { padding: 7px 0 }
-#featured .span12 p { margin: 0 0 0 10px; font-size: 13px; color: #544f48; float: left; line-height: 27px; }
-#featured .span12 a { margin: 0 10px 0 0 }
-#featured .span12 a.close { margin-top: 2px }
-#featured .span12 a.button { 
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	padding: 5px 8px;
-	float: right;
-	font-size: 11px;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #fff;
+	margin: 20px 0 10px 0; background: #5ebbdd; height: 56px; line-height: 56px;
 }
-#featured .span12 a.button:hover { text-decoration: none }
-.button.button-facebook { background-color: #315c9a; }
-.button.button-orange { background-color: #dc8413 }
-.button.button-green { background-color: #5bb95c }
+body.app #featured { margin: 10px 0; display: none }
+
+#featured.lightBlue { background: #5ebbdd }
+#featured.darkBlue { background: #5686c4 }
+#featured.purple { background: #c483c3 }
+#featured.orange { background: #e5931e }
+#featured.green { background: #40af5f }
+
+#featured .span12 .unWrap { margin: auto; width: 843px; }
+#featured .span12 .unWrap * { 
+	outline: none;
+	text-indent: -9999px; background-image: url(featured.png); background-repeat: no-repeat; 
+	height: 56px; line-height: 56px; display: block; float: left; margin: 0 8px 0 0; }
+
+#featured .span12 a.close { margin-top: 2px }
+
+#featured .span12 p#discoverMovies { width: 497px; background-position: left 12px }
+#featured .span12 p#or { width: 27px; background-position: -710px 12px  }
+#featured .span12 a.button-facebook { background-position: -507px 0; width: 193px; margin-top: 12px; height: 32px; }
+#featured .span12 a.button-facebook:hover { background-position: -507px bottom }
+#featured .span12 a.button-signup { background-position: -744px 0; width: 89px; margin-top: 12px; height: 32px; margin-right: 0 }
+#featured .span12 a.button-signup:hover { background-position: -744px bottom }
+
 
 #content { padding-bottom: 20px }
 body.app #content { padding-bottom: 0 }

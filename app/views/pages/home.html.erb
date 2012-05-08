@@ -1,13 +1,19 @@
-<div class="row-fluid" id="featured">
+<div class="row-fluid<%=featuredCss%>" id="featured">
 
 	<div class="span12">
-			<p>Odkrywaj, oglądaj i dziel najciekawsze filmy w Twoim otoczeniu!</p>
-			<a class="close pull-right">&times;</a>
 
-  		<% unless current_user %>
-  			<%= link_to "Zaloguj z Facebook", "auth/facebook", :class => "button button-facebook facebook_popup", :disable_with => "Sekunda..." %>
-  			<%= link_to "Załóż konto", signup_path, :class => "button button-green" %>
-  		<% end %>
+			<div class="unWrap">			
+				<p id="discoverMovies">Odkrywaj, najlepsze filmy na Świecie i w Twoim otoczeniu!</p>
+	  		<% unless current_user %>
+	  			<%= link_to "Zaloguj z Facebook", "auth/facebook", :class => "button-facebook facebook_popup" %>
+	  			<p id="or">lub</p>
+	  			<%= link_to "Załóż konto", signup_path, :class => "button-signup" %>
+	  		<% end %>
+	  	</div>
+
+			<!--
+			<a class="close pull-right">&times;</a>
+			-->
 
   		<% if signed_in? %>
 				<% if current_user.facebook? %>
@@ -15,8 +21,8 @@
 				<% end %>
 	  		<%= link_to "Subskrybuj ludzi!", relationships_path, :remote => true, :class => "button button-orange" %> 
 			<% end %>		
-	</div>
 
+	</div>
 </div>
 
 <% if signed_in? %>
