@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= page_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30915752-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+	</script>
+</head>
+<body <%="class='app'" if signed_in? %>>
+
+	<div class="navbar navbar-fixed-top" id="header">
+	 <div class="navbar-inner">
+			<div class="container-fluid bezel">
+			</div>
+
+			<div class="container-fluid bar">
+				<%= link_to "Najsu", root_path, :class => "brand" %>
+
+				<% if signed_in? %>
+					<div class="user">
+						<div class="avatar">
+							<div class="mask"></div>
+							<%= image_tag(gravatar_url_for(current_user), :size => "38x38") %>
+						</div>
+						<div class="name">
+							<div class="arrow"></div>
+							<div class="content"><%= current_user.name %></div>
+						</div>
+						<div class="notifications_counter">
+							<% counter = current_user.activities_counter %>						
+							<% counter_css = "active" if counter > 0 %>							
+							<%= link_to counter, activities_path, :class => counter_css %>
+						</div>
+					</div>
+				<% end %>
+				
+	      <ul class="nav">
+
+	          <li><%= link_to "Główna", root_path, :class => active?("home") %></li>
+						<li><%= link_to "Ludzie", users_path, :class => active?("users", "index") %></li>
+		        <li><%= link_to "Aktywności", activities_path, :class => active?("activities", "index") %></li>
+
+	          <% unless signed_in? %>
+	            <li><%= link_to "Zaloguj się", signin_path %></li>
+	            <li><%= link_to "Rejestracja", signup_path %></li>
+	          <% end %>
+
+            <% if signed_in? %>
+            	<li><%= link_to "Zbiory", library_path, :class => active?("library") %></li>
+            	<li><%= link_to "Wyloguj się", signout_path, method: "delete", :class => "clean" %></li>
+            	<!--
+            	<li><%= link_to "#{image_tag(gravatar_url_for(current_user),:size => '20x20')}#{current_user.name}".html_safe, user_path(current_user) %></li>
+            	-->
+	          <% end %>
+	      </ul>
+
+	    </div>
+	  </div>
+	</div>
+
+	<div class="container-fluid" id="content">
+
+		<div class="row-fluid">
+			<div class="span12">
+				<% flash.each do |key, value| %>
+		      <div class="alert alert-<%= key %>"><%= value %></div>
+		    <% end %>
+				<%= yield %>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="container-fluid">
+		<%= render "layouts/footer" %>
+	</div>
+
+	<% if Rails.env.development? %>
+		<div class="container-fluid">
+      <%= debug(params) %>
+    </div>
+  <% end %>
+
+ 	<%= render "layouts/modal" %>
+
+  <div class="overlay" id="cinema">
+  	<%= yield :cinema %>
+  </div>
+	
+</body>
+</html>

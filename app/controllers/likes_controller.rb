@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
 
   before_filter :signed_in_user
-  layout "frontend"
+  layout "application"
 
   def create
   	like = Like.new(params[:like])

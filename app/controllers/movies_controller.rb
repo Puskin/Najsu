@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
  
-  layout "frontend"
+  layout "application"
 
   def index
     if params[:popular] == "fuckyea"

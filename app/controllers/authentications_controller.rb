@@ -1,6 +1,6 @@
 class AuthenticationsController < ApplicationController
 
-  layout "frontend"
+  layout "application"
   
   def create
     omniauth = request.env['omniauth.auth']

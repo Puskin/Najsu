@@ -1,35 +1,22 @@
 <% provide(:title, "Log in") %>
 
+<div class="featured">
+  <a href="auth/facebook" class="facebook">zaloguj przez Facebook</a>
+  <p>lub</p>
+  <a href="signup" class="signup">załóż konto</a>
+</div>
+
+
 <fieldset>
+  <h2>Zaloguj zwyczajnie:</h2>
   <%= form_for(:session, :url => sessions_path, :html => { :class => "form-horizontal pull-left"} ) do |f| %>
-
-    <div class="control-group">
-      <%= f.label :email, :class => "control-label" %>
-      <div class="controls">
-      <%= f.text_field :email %>
-      </div>
+    <div class="group text">
+      <%= f.text_field :email, :placeholder => "e-mail" %>
+      <%= f.password_field :password, :placeholder => "hasło" %>
     </div>
-
-    <div class="control-group">
-      <%= f.label :password, :class => "control-label"  %>
-      <div class="controls">
-      <%= f.password_field :password %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.submit "Sign in", :class => "btn btn-primary pull-right" %>
-    </div>
-
-    <div class="control-group">
-      <p class="pull-right">New user? <%= link_to "Sign up now!", signup_path %></p>
-    </div>
-  
+    <%= f.submit "zaloguj się", :class => "button" %>
   <% end %>
+
 </fieldset>
-
-
-
-<%= link_to "Log in with Facebook", "auth/facebook", :class => "facebook_popup btn btn-primary"%>
 
 

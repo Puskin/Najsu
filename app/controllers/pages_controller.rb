@@ -91,7 +91,7 @@ class PagesController < ApplicationController
   		if action_name == "submit"
   			"clean"
       else
-        "frontend"
+        "application"
   		end
   	end
 

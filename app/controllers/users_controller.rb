@@ -1,7 +1,9 @@
+# coding: utf-8
+
 class UsersController < ApplicationController
   before_filter :signed_in_user, except: [:new, :create]
   before_filter :correct_user,   only: [:edit, :update, :destroy]
-  layout "frontend"
+  layout "frontend", only: [:create, :new]
 
 
   def index
@@ -51,7 +53,7 @@ class UsersController < ApplicationController
   private
 
     def signed_in_user
-      redirect_to signin_path, notice: "Please sign in" unless signed_in?
+      redirect_to signin_path, notice: "Zaloguj się najpierw" unless signed_in?
     end
 
     def correct_user
