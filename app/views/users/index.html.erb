@@ -1,17 +1,24 @@
-<% provide(:title, 'Lista użytkowników') %>
-<br/><br/>
-<table class="table table-bordered">
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Actions</th>
-  </tr>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= render :partial => "users/followForm", :locals => { :user => user } %></td>
-  </tr>
-<% end %>
-</table>
+
+<div class="container">
+  <div class="row" id="people">
+    <div class="span6">
+      <h2>Szukaj znajomych:</h2>
+
+      <%= form_tag users_path, :method => 'get', :remote => true, :id => "searchPeople" do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+
+      <% provide(:title, 'Lista użytkowników') %>
+      <ul class="unstyled" id="usersList">
+        <%= render @users %>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+

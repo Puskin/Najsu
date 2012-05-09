@@ -28,6 +28,13 @@ class User < ActiveRecord::Base
 	has_many :activities
 
 
+
+  def self.search(search)
+    where('name LIKE ? OR email LIKE ?', "%#{search}%", "%#{search}%")    
+  end
+
+
+
 	#users following relations
 	def feed
 	  Movie.from_users_followed_by(self)

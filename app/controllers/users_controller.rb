@@ -7,8 +7,23 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.all
+    if query = params[:search]
+      @users = User.search(query)      
+    else
+      users_count = User.all.count
+      arr = []
+      10.times do 
+        arr << rand(users_count)
+      end
+      @users = User.find_all_by_id(arr.uniq)
+    end
+    respond_to do |format|
+      format.html 
+      format.js
+    end
   end
+
+  
 
   def show
     @user = User.find(params[:id])

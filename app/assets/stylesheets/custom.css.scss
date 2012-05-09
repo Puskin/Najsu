@@ -19,13 +19,11 @@ html.clean body { background: none; color: #000; padding: 20px }
 /* Basic Content ----------------------------------------------------------------*/
 
 .frontend .container .row div { width: 413px; margin: auto }
-
 .frontend .container .row div .alert { float: left; width: 362px; margin-bottom: 20px }
 
 .frontend .container .row div .logo { 
 	text-indent: -9999px; width: 413px; float: left; height: 45px; 
 	background: url(logoBig.png) left top no-repeat; margin-bottom: 60px }
-
 .frontend .container .row div .featured { 
 	width: 413px; float: left; padding: 0 0 60px 0; border-bottom: 3px solid #e5e5e5;
 	margin-bottom: 60px; 
@@ -57,7 +55,6 @@ html.clean body { background: none; color: #000; padding: 20px }
 .frontend .container .row div fieldset .group.text input#user_email,
 .frontend .container .row div fieldset .group.text input#user_password_confirmation { float: right } 
 .frontend .container .row div fieldset .button { float: right; background: #6bc888; padding: 10px; font-size: 16px; color: #fff; font-weight: bold; border: 0  }
-
 
 
 /* HEADER -----------------------------------------------------------------------*/
@@ -432,8 +429,20 @@ margin-right: 3px; width: 150px;
 #side li i.icon-warning-sign { margin-right: 8px; float: left }
 
 
-#users_list li { padding: 3px 0 5px 0; border-bottom: 1px dotted lightgray }
+
+
+
 #follow_form form { margin: 0 }
+
+#people .span6 { margin: auto; float: none; padding: 60px 0 0 0 }
+#people .span6 form#searchPeople input { padding: 10px; }
+#people .span6 form#searchPeople input#search { width: 367px }
+
+
+#people #usersList { float: left; width: 100% }
+#people #usersList li { border-bottom: 1px dotted gray; padding: 4px 0; display: block; width: 100%; float: left }
+#people #usersList li p { margin: 0 }
+#people #usersList li form { float: right; margin: 0 }
 
 
 .alert.mini { margin: 0; padding: 0 4px; font-size: 11px; line-height: 17px }

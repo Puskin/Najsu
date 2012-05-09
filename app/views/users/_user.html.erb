@@ -1,0 +1,4 @@
+<li>
+  <p class="pull-left"><%= user.name %>,    <%= user.email %></p>
+  <%= render :partial => "users/followForm", :locals => { :user => user }, :class => "pull-right" %>
+</li>
