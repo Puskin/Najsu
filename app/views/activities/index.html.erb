@@ -1,45 +1,68 @@
-<% if @activities.count > 0 %>
-
 <ul class="unstyled" id="activities">
-	<% last_activity_user = @activities.last.user_id %>
-	<% last_activity_date = @activities.last.created_at %>
+
+	<% 
+		before_activity = @activities.first
+		activities_counter = 1
+	%>
+
 
 	<% @activities.each do |activity| %>
-	
-			<% unless activity.created_at.strftime("%Y%m%d") == last_activity_date.strftime("%Y%m%d") %>
-				<% unless @activities.first == activity %>
-					<li class="date">
-						<p><%= activity.created_at.strftime("%e %B") %></p>
-					</li>				
-				<% end %>
+
+		<% if @activities.first == activity %>
+
+			<%
+				first_activity = true
+				same_user = false
+				same_activity = false
+			%>
+
+		<% else %>
+
+			<% 
+				first_activity = false
+				current_activity = activity
+
+				if current_activity.user == before_activity.user
+					same_user = true
+					if current_activity.resource == before_activity.resource
+						same_activity = true
+						activities_counter += 1
+					else
+						same_activity = false
+					end
+				else
+					same_user = false
+					activities_counter = 1
+				end
+			%>
+
+		<% end %>
+
+
+		<% unless activity.created_at.strftime("%Y%m%d") == before_activity.created_at.strftime("%Y%m%d") %>
+			<% unless first_activity %>
+				<li class="date">
+					<p><%= activity.created_at.strftime("%e %B") %></p>
+				</li>				
 			<% end %>
+		<% end %>
 
-	<% last_activity_date = activity.created_at %>	
 
- 	<li <%= 'class=first' if last_activity_user != activity.user_id || @activities.first == activity %>>
+ 		<li <%= 'class=first' if first_activity || !same_user %>>
  				
- 				<% if @activities.first == activity %>
+ 				<% if !same_user or first_activity %>
  					<div class="avatar">
 						<div class="mask" rel='tooltipBottom' title ="<%= activity.user.name %>"></div>
 						<%= image_tag(gravatar_url_for(activity.user), :size => '64x64') %>
-					</div>				
- 				<% elsif last_activity_user != activity.user_id %>
-					<div class="avatar">
-						<div class="mask" rel='tooltipBottom' title ="<%= activity.user.name %>"></div>
-						<%= image_tag(gravatar_url_for(activity.user), :size => '64x64') %>
-					</div>
+					</div>			 			
 				<% end %>
-
-				<!-- save current activity user -->
-				<% last_activity_user = activity.user_id %>
-
 
 				<div class="content">
 					<% if activity.resource != 3 %>
 						<%= image_tag(activity.data[:movie_thumbnail]) %>
 					<% end %>
 
-						<%= activity.user.name %> <%= activity_action(activity.resource) %> 
+						<%= activity.user.name %> <%= activity_action(activity.resource) %>
 						
 						<% if activity.resource == 3 %>
 							<% if activity.recipient_id == current_user.id %>
@@ -56,10 +79,12 @@
 						"<i><%= activity.data[:comment_content] %></i>"
 					<% end %>
 				</div>
-	</li>
+
+		</li>
 
 
- <% end %>
+		<% before_activity = activity %>
+
+ 	<% end %>
+
 </ul>
-
-<% end %>
