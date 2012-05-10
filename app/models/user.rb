@@ -40,39 +40,28 @@ class User < ActiveRecord::Base
 	  Movie.from_users_followed_by(self)
   end
 
-  #counts only new activities for user
-  def activities_counter 
-  	Activity.find(
-    	:all, 
-    	:conditions => ["recipient_id = ? AND owner_id != ? AND created_at > ?", self.id, self.id, self.activities_visit], 
-    	:order => 'created_at DESC'
-    ).count
-  end
-
-  #showing personal activities But not own
   def activities_personal
     Activity.find(
       :all, 
-      :conditions => ["(recipient_id = ? OR owner_id != ?) AND user_id !=?", self.id, self.id, self.id], 
+      :conditions => ["user_id != ? AND recipient_id = ?", self.id, self.id], 
       :order => 'created_at DESC'
     )
   end
 
-  #gets the latest few activities for mini feed
-  def activities_latest
-    Activity.find(
-      :all, 
-      :conditions => ["(user_id in (?) OR recipient_id = ?) AND owner_id != ?", self.followed_map, self.id, self.id], 
-      :order => 'created_at DESC',
-      :limit => 30      
-    )
+  #counts only new activities for user
+  def activities_counter 
+  	Activity.find(
+    	:all, 
+    	:conditions => ["user_id != ? AND recipient_id = ? AND created_at > ?", self.id, self.id, self.activities_visit], 
+    	:order => 'created_at DESC'
+    ).count
   end
 
   #gets all the activities to show on feed view
   def activities_feed
   	Activity.find(
     	:all, 
-    	:conditions => ["(user_id in (?) OR recipient_id = ?) AND owner_id != ?", self.followed_map, self.id, self.id], 
+    	:conditions => ["user_id in (?) AND user_id != ?", self.followed_map, self.id], 
     	:order => 'created_at DESC'      
     )
   end
