@@ -1,3 +1,7 @@
+var window_height = $(window).height();
+$('#activities_baloon').css("height", window_height-120);
+$('#counter_activities').css("height", window_height-148);
+
 $('#activities_baloon').slideDown("fast");
 $('#counter_activities').html("<%= escape_javascript( render :partial => 'activities/listing', :locals => { :activities => @activities }) %>");
 $('#notifications_counter').html("<%= escape_javascript ( render 'layouts/headerCounter' ) %>");							

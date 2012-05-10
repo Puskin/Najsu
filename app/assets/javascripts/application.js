@@ -33,6 +33,12 @@ $(document).ready(function(ev){
 		}   // esc
 	});
 
+	window.onresize = function(event) {
+		var window_height = $(window).height();
+		$('#activities_baloon').css("height", window_height-120);
+		$('#counter_activities').css("height", window_height-148);
+	};
+
 	$(".btn-group a").click(function(e){
 		$(".btn-group a").removeClass("active");
 		$(this).addClass("active");
@@ -41,7 +47,7 @@ $(document).ready(function(ev){
 	$("#mobile_activities_close").click(function(e){
 		$("#activities_baloon").slideUp("fast");
 	});
-	
+
 
 	$('#moviesList').masonry({
   	itemSelector: '.movie',

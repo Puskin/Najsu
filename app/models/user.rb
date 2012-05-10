@@ -44,9 +44,17 @@ class User < ActiveRecord::Base
   def activities_counter 
   	Activity.find(
     	:all, 
-    	:conditions => ["(user_id in (?) OR recipient_id = ?) AND owner_id != ? AND created_at > ?", self.followed_map, self.id, self.id, self.activities_visit], 
+    	:conditions => ["recipient_id = ? AND owner_id != ? AND created_at > ?", self.id, self.id, self.activities_visit], 
     	:order => 'created_at DESC'
     ).count
+  end
+
+  def activities_personal
+    Activity.find(
+      :all, 
+      :conditions => ["recipient_id = ? AND owner_id != ?", self.id, self.id], 
+      :order => 'created_at DESC'
+    )
   end
 
   #gets the latest few activities for mini feed
@@ -55,7 +63,7 @@ class User < ActiveRecord::Base
       :all, 
       :conditions => ["(user_id in (?) OR recipient_id = ?) AND owner_id != ?", self.followed_map, self.id, self.id], 
       :order => 'created_at DESC',
-      :limit => 10      
+      :limit => 30      
     )
   end
 

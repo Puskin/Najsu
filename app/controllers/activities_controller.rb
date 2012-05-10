@@ -9,7 +9,7 @@ class ActivitiesController < ApplicationController
 	def index    
     respond_to do |format|
       format.html { @activities = current_user.activities_feed }
-      format.js { @activities = current_user.activities_latest }
+      format.js { @activities = current_user.activities_personal }
     end
     current_user.activities_visit_update
   end
