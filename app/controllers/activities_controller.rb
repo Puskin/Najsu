@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
       format.html { @activities = current_user.activities_feed }
       format.js { @activities = current_user.activities_personal.last(25) }
     end
+    @new_activities = current_user.activities_counter
     current_user.activities_visit_update
   end
 

@@ -2,6 +2,7 @@
 	<% 
 		before_activity = activities.first
 		activities_counter = 1
+		new_activities_count = 1
 	%>
 
 
@@ -47,7 +48,7 @@
 		<% end %>
 
 
- 		<li <%= 'class=first' if first_activity || !same_user %>>
+ 		<li class="<%= 'first ' if first_activity || !same_user %><%= 'new' if new_activities_count <= @new_activities %>">
  				
  				<% if !same_user or first_activity %>
  					<div class="avatar">
@@ -81,7 +82,7 @@
 
 		</li>
 
-
+		<% new_activities_count += 1 %>
 		<% before_activity = activity %>
 
  	<% end %>

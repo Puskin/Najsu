@@ -536,15 +536,17 @@ margin-right: 3px; width: 150px;
 #activities_baloon ul { list-style-type: none; width: 450px; overflow: scroll; overflow-x: hidden; height: 223px; }
 #activities_baloon ul * { float: auto }
 #activities_baloon li.first { margin-top: 10px; padding-top: 10px; border-top: 1px solid #DBDBDB }
-#activities_baloon li { position: relative; padding-left: 50px; margin-bottom: 5px; }
+#activities_baloon li { position: relative; padding-left: 50px; margin-bottom: 5px; width: 385px; }
 #activities_baloon li:first-child { margin-top: 0px; border: 0; margin-top: 0; padding-top: 0 }
 #activities_baloon li .avatar { position: absolute!important; left: 0px; top: 10px }
 #activities_baloon li:first-child .avatar { top: 0 }
-#activities_baloon li .content { font-size: 11px; line-height: 12px; padding: 5px; overflow: hidden; }
+#activities_baloon li .content { font-size: 11px; line-height: 12px; padding: 5px; overflow: hidden; margin-right: 5px }
 #activities_baloon li:first-child .content { padding-top: 0 }
 #activities_baloon li .content img { float: left; height: 20px; margin-right: 10px; }
-#activities_baloon li:nth-child(even) .content { background: #f5f5f5; margin-right: 5px }
+#activities_baloon li:nth-child(even) .content { background: #f5f5f5;  }
 #activities_baloon #counter_activities { margin: 0 }
+
+#activities_baloon li.new .content { background: #fcf5c9 }
 
 #activities_baloon h5 { height: 12px; line-height: 12px; margin-bottom: 14px; }
 
