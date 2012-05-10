@@ -39,8 +39,9 @@ $(document).ready(function(ev){
 	});
 
 	$("#mobile_activities_close").click(function(e){
-		$("#activities_baloon").fadeOut("fast");
+		$("#activities_baloon").slideUp("fast");
 	});
+	
 
 	$('#moviesList').masonry({
   	itemSelector: '.movie',

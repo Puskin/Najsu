@@ -509,19 +509,31 @@ margin-right: 3px; width: 150px;
 
 #activities_baloon { 
 	display: none;
-	position: absolute; width: 450px; left: -88px; top: 60px; 
-	background: #fff; overflow: scroll; overflow-x: hidden; height: 200px; 
+	position: absolute; left: -88px; top: 72px; 
+	background: #fff; 
+	border: 1px solid #dbdbdb;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 10px 10px 0px 10px;
+  -webkit-box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.07);
+  box-shadow:  0px 0px 2px 0px rgba(0, 0, 0, 0.07);       
 }
-#activities_baloon ul { list-style-type: none; }
-#activities_baloon ul * { float: auto }
-#activities_baloon li { position: relative; padding-left: 50px }
-#activities_baloon li .avatar { position: absolute!important; left: 0px; top: 0 }
-#activities_baloon li .content { font-size: 11px; }
-#activities_baloon li .content img { float: left; height: 35px; margin-right: 10px; }
+#activities_baloon .arrow { position: absolute; top: -9px; left: 191px; background: url(arrowCounter.png); height: 9px; width: 15px; }
 
-#activities_baloon .actions { height: 20px; background: #D9D9D9; width: 100%; margin-bottom: 5px; }
-#activities_baloon .actions a { color: #727272; margin-left: 5px }
-#mobile_activities_close { float: right!important; margin-right: 10px; }
+#activities_baloon ul { list-style-type: none; width: 450px; overflow: scroll; overflow-x: hidden; height: 223px; }
+#activities_baloon ul * { float: auto }
+#activities_baloon li.first { margin-top: 20px }
+#activities_baloon li { position: relative; padding-left: 50px; margin-bottom: 5px; }
+#activities_baloon li:first-child { margin-top: 0px; }
+#activities_baloon li .avatar { position: absolute!important; left: 0px; top: 0 }
+#activities_baloon li .content { font-size: 11px; line-height: 12px; margin-bottom: 5px; }
+#activities_baloon li .content img { float: left; height: 20px; margin-right: 10px; }
+#activities_baloon #counter_activities { margin: 0 }
+
+#activities_baloon .actions { width: 100%; border-top: 1px solid #E9E9E9 }
+#activities_baloon .actions a { color: #727272; color: #d94335; line-height: 25px; height: 28px; font-size: 11px; font-weight: bold; }
+#mobile_activities_close { float: right!important; }
 
 
 

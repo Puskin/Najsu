@@ -1,4 +1,4 @@
-$('#activities_baloon').show();
+$('#activities_baloon').slideDown("fast");
 $('#counter_activities').html("<%= escape_javascript( render :partial => 'activities/listing', :locals => { :activities => @activities }) %>");
 $('#notifications_counter').html("<%= escape_javascript ( render 'layouts/headerCounter' ) %>");							
 
