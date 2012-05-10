@@ -49,10 +49,11 @@ class User < ActiveRecord::Base
     ).count
   end
 
+  #showing personal activities But not own
   def activities_personal
     Activity.find(
       :all, 
-      :conditions => ["recipient_id = ? AND owner_id != ?", self.id, self.id], 
+      :conditions => ["(recipient_id = ? OR owner_id != ?) AND user_id !=?", self.id, self.id, self.id], 
       :order => 'created_at DESC'
     )
   end
