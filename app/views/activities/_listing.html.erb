@@ -1,0 +1,88 @@
+
+	<% 
+		before_activity = activities.first
+		activities_counter = 1
+	%>
+
+
+	<% activities.each do |activity| %>
+
+		<% if activities.first == activity %>
+
+			<%
+				first_activity = true
+				same_user = false
+				same_activity = false
+			%>
+
+		<% else %>
+
+			<% 
+				first_activity = false
+				current_activity = activity
+
+				if current_activity.user == before_activity.user
+					same_user = true
+					if current_activity.resource == before_activity.resource
+						same_activity = true
+						activities_counter += 1
+					else
+						same_activity = false
+					end
+				else
+					same_user = false
+					activities_counter = 1
+				end
+			%>
+
+		<% end %>
+
+
+		<% unless activity.created_at.strftime("%Y%m%d") == before_activity.created_at.strftime("%Y%m%d") %>
+			<% unless first_activity %>
+				<li class="date">
+					<p><%= activity.created_at.strftime("%e %B") %></p>
+				</li>				
+			<% end %>
+		<% end %>
+
+
+ 		<li <%= 'class=first' if first_activity || !same_user %>>
+ 				
+ 				<% if !same_user or first_activity %>
+ 					<div class="avatar">
+						<div class="mask" rel='tooltipBottom' title ="<%= activity.user.name %>"></div>
+						<%= image_tag(gravatar_url_for(activity.user), :size => '64x64') %>
+					</div>			 			
+				<% end %>
+
+				<div class="content">
+					<% if activity.resource != 3 %>
+						<%= image_tag(activity.data[:movie_thumbnail]) %>
+					<% end %>
+
+						<%= activity.user.name %> <%= activity_action(activity.resource) %>
+						
+						<% if activity.resource == 3 %>
+							<% if activity.recipient_id == current_user.id %>
+								Ciebie 
+							<% else %>
+								<%= activity.data[:followed_user_name] %>
+							<% end %>
+						<% end %>
+						
+						<%= "'#{activity.data[:movie_title]}'" if activity.resource != 3 %> 
+						<%= time_ago_in_words(activity.created_at) %> temu.
+
+					<% if activity.resource == 2 %>
+						"<%= activity.data[:comment_content] %>"
+					<% end %>
+				</div>
+
+		</li>
+
+
+		<% before_activity = activity %>
+
+ 	<% end %>
+

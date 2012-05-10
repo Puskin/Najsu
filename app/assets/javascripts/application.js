@@ -38,6 +38,10 @@ $(document).ready(function(ev){
 		$(this).addClass("active");
 	});
 
+	$("#mobile_activities_close").click(function(e){
+		$("#activities_baloon").fadeOut("fast");
+	});
+
 	$('#moviesList').masonry({
   	itemSelector: '.movie',
   	isFitWidth: true

@@ -6,9 +6,11 @@ class ActivitiesController < ApplicationController
 	before_filter :signed_in_user
 	layout "application"
 
-
 	def index    
-    @activities = current_user.activities_feed
+    respond_to do |format|
+      format.html { @activities = current_user.activities_feed }
+      format.js { @activities = current_user.activities_latest }
+    end
     current_user.activities_visit_update
   end
 

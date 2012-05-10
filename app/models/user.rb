@@ -49,12 +49,22 @@ class User < ActiveRecord::Base
     ).count
   end
 
+  #gets the latest few activities for mini feed
+  def activities_latest
+    Activity.find(
+      :all, 
+      :conditions => ["(user_id in (?) OR recipient_id = ?) AND owner_id != ?", self.followed_map, self.id, self.id], 
+      :order => 'created_at DESC',
+      :limit => 10      
+    )
+  end
+
   #gets all the activities to show on feed view
   def activities_feed
   	Activity.find(
     	:all, 
     	:conditions => ["(user_id in (?) OR recipient_id = ?) AND owner_id != ?", self.followed_map, self.id, self.id], 
-    	:order => 'created_at DESC'
+    	:order => 'created_at DESC'      
     )
   end
 

@@ -40,10 +40,16 @@
 							<div class="arrow"></div>
 							<div class="content"><%= current_user.name %></div>
 						</div>
-						<div class="notifications_counter">
-							<% counter = current_user.activities_counter %>						
-							<% counter_css = "active" if counter > 0 %>							
-							<%= link_to counter, activities_path, :class => counter_css %>
+						<div id="notifications_counter">
+							<%= render "layouts/headerCounter" %>							
+						</div>
+						<div id="activities_baloon">
+							<div class="actions">
+								<a href="activities">Zobacz wszystkie</a>
+								<a href="#feed" id="mobile_activities_close">&times;</a>
+							</div>
+							<ul class="unstyled" id="counter_activities">
+							</ul>						
 						</div>
 					</div>
 				<% end %>
@@ -62,9 +68,6 @@
             <% if signed_in? %>
             	<li><%= link_to "Zbiory", library_path, :class => active?("library") %></li>
             	<li><%= link_to "Wyloguj się", signout_path, method: "delete", :class => "clean" %></li>
-            	<!--
-            	<li><%= link_to "#{image_tag(gravatar_url_for(current_user),:size => '20x20')}#{current_user.name}".html_safe, user_path(current_user) %></li>
-            	-->
 	          <% end %>
 	      </ul>
 

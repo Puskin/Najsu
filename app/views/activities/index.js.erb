@@ -1,0 +1,4 @@
+$('#activities_baloon').show();
+$('#counter_activities').html("<%= escape_javascript( render :partial => 'activities/listing', :locals => { :activities => @activities }) %>");
+$('#notifications_counter').html("<%= escape_javascript ( render 'layouts/headerCounter' ) %>");							
+

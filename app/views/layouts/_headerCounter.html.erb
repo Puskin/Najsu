@@ -1,0 +1,3 @@
+<% counter = current_user.activities_counter %>						
+<% counter_css = "active" if counter > 0 %>							
+<%= link_to counter, activities_path, :class => counter_css, :remote => true %>
