@@ -20,10 +20,11 @@
 				<div class="content">
 					<% if movie.reposts_count > 1 %>
 						<% movie.reposts.take(5).each do |repost| %>
-							<%= link_to(image_tag(gravatar_url_for(repost.user), :class => "avatar", :title => repost.user.name, :rel => "tooltip"), user_path(repost.user)) %>
+							<%= link_to(image_tag(gravatar_url_for(repost.user), :class => "avatar", :title => repost.user.name, 
+							:rel => "tooltip"), user_path(repost.user), :class => "avatar") %>
 						<% end %>					
 					<% else %>
-						<%= link_to(image_tag(gravatar_url_for(movie.user), :class => "avatar"), user_path(movie.user)) %>
+						<%= link_to(image_tag(gravatar_url_for(movie.user), :class => "avatar"), user_path(movie.user), :class => "avatar") %>
 						<strong><%= movie.user.name %></strong><br/>
 						<small><%= time_ago_in_words(movie.created_at) %> ago.</small>
 					<% end %>

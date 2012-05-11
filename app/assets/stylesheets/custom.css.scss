@@ -258,6 +258,15 @@ overflow: hidden;
 #moviesList .movie .comments li .author_avatar a { float: right; position: static; } 
 
 #moviesList .movie .comments li a { margin: 0; }
+#moviesList .movie .comments li a.avatar,
+#moviesList .movie .comments li.author .data a.avatar,
+#moviesList .movie form#new_comment img.avatar {
+	margin-right: 5px;  
+	width: 25px; height: 25px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
 
 #moviesList .movie .comments li.author { 
 
