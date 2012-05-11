@@ -49,6 +49,17 @@ $(document).ready(function(ev){
 	});
 
 
+
+	// hide mini feed if clicked outside
+	$('html').click(function() {
+ 		$("#activities_baloon").slideUp("fast");
+ 	});
+ 	// dont hide when clicking in mini feed
+	$('#activities_baloon').click(function(event){
+     event.stopPropagation();
+	});
+
+
 	$('#moviesList').masonry({
   	itemSelector: '.movie',
   	isFitWidth: true
