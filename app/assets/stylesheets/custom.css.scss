@@ -10,6 +10,7 @@ body {
 	font-size: 12px;
 } /*old bg f7f7f7 */
 body.frontend { background: #fff; padding-top: 105px; }
+body a, body a:hover { color: #d94335 }
 
 html.clean,
 html.clean body { background: none; color: #000; padding: 20px }
@@ -83,6 +84,7 @@ html.clean body { background: none; color: #000; padding: 20px }
 
 #header .nav { float: right; padding: 14px 0 0 0; margin: 0 }
 #header .nav li { margin-left: 5px; }
+#header .nav li.divider { height: 26px; width: 1px; background: #D9D9D9; margin: 0 15px 0 20px; }
 #header .nav li a { 
 	line-height: 11px;
 	text-shadow: 0px 0px 0px;
@@ -97,22 +99,30 @@ html.clean body { background: none; color: #000; padding: 20px }
 #header .nav li a.active { background: #6fcb89; color: #fff } 
 /*#header .nav li a.clean { background: none }*/
 #header .nav li a img { float: left; margin-right: 5px }
+#header .nav li#bookmarklet { margin: 0 15px 0 0 }
+#header .nav li#bookmarklet a { 
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+	background: #d94335; color: #fff }
+#header .nav li#bookmarklet a:hover { background: #ea4f32 }
+
 
 #header .bezel { background: url(header.jpg) repeat-x top; height: 6px }
 
 #header .user { float: left; padding: 8px 0; margin-left: 20px; position: relative; }
-#header .user * { float: left }
-#header .user .avatar { height: 38px; width: 38px; position: relative; margin-right: 7px }
+#header .user .avatar { height: 38px; width: 38px; position: relative; margin-right: 7px; float: left }
 #header .user .avatar .mask { width: 38px; height: 38px; background: url(avatarMask.png); position: absolute; left: 0; top: 0; pointer-events:none; z-index: 20 }
-#header .user .name { height: 38px; margin-right: 5px; cursor: pointer }
+#header .user .name { height: 38px; margin-right: 5px; cursor: pointer; float: left }
 #header .user .name:hover .content { background: #cfcfcf }
 #header .user .name * { float: left }
-#header .user .name .arrow { width: 5px; height: 38px; background: url(headerArrow.jpg) center left }
+#header .user .name .arrow { width: 5px; height: 38px; background: url(headerArrow.jpg) center left; float: left }
 #header .user .name .content,
 #header .user #notifications_counter a { 
 	-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
 	padding: 0 7px; height: 26px; line-height: 25px; margin-top: 6px;
-	font-size: 11px; color: #727272; background: #d9d9d9 }
+	font-size: 11px; color: #727272; background: #d9d9d9; float: left }
+#header .user #notifications_counter { float: left }
 #header .user #notifications_counter a { text-decoration: none; color: #727272 }
 #header .user #notifications_counter a.active { background: #d94335; color: #fff; padding: 0 8px; cursor: pointer }
 #header .user #notifications_counter a.active:hover { background: #eb3220 }
@@ -187,7 +197,7 @@ body.app #content { padding-bottom: 0 }
 
 
 
-
+#bookmarklet_page { margin: auto; float: none; padding: 50px 0 0 0 }
 
 
 
@@ -321,6 +331,8 @@ border-bottom-left-radius: 3px;
 #moviesList .movie .comments li.more { font-weight: bold; padding: 5px 0; min-height: 13px; text-align: center; width: 208px; }
 
 
+#moviesList.library .counters { margin-bottom: 0!important }
+
 .movie #comment_content { height: 20px; width: 148px }
 .movie form { 
 	padding: 5px 0 0 0; border-top: 1px solid #DBDBDB;
@@ -393,6 +405,7 @@ margin-right: 3px; width: 136px;
 	text-align: center;
 	text-shadow: 1px 1px 0 #3B3B3B;
 	vertical-align: 2px;
+	cursor: move;
 }
 .bookmarklet:hover { color: #fff; text-decoration: none }
 
@@ -518,7 +531,7 @@ margin-right: 3px; width: 136px;
 #activities li .avatar img { position: absolute; left: 1px; top: 1px; z-index: 10; }
 
 #activities li.first .content { 
-	border: 1px solid #dbdbdb; border-bottom: 0; padding-top: 5px; 
+	border: 1px solid #dbdbdb;
 	-webkit-border-top-left-radius: 4px;
 	-webkit-border-top-right-radius: 4px;
 	-moz-border-radius-topleft: 4px;
@@ -526,12 +539,22 @@ margin-right: 3px; width: 136px;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 }
+#activities li.first .arrow { 
+	width: 6px; height: 14px; background: url(activitiesArrow.png);
+	position: absolute; top: 16px; left: 75px;
+}
 #activities li .content { 
-	padding-left: 5px; border: 1px solid #dbdbdb; border-top: 0; border-bottom: 0;
-	background: #fff; overflow: hidden;
-	margin-left: 80px; min-height: 40px; color: #828282; }
+	padding-left: 5px; border: 1px solid #dbdbdb; border-top: 0;
+	background: #fff; overflow: hidden; padding: 10px;
+	margin-left: 80px; color: #aaaaaa; line-height: 16px; 
+}
+#activities li .content .author { font-weight: bold }
+#activities li .content .movie_title { color: #696969 }
+#activities li .content .user_quote { font-style: italic; }
+
 #activities li .content img { float: left; height: 35px; margin-right: 10px; }
 
+#activities_baloon * { float: none }
 #activities_baloon { 
 	display: none;
 	position: absolute; left: -88px; top: 72px; 
@@ -545,11 +568,12 @@ margin-right: 3px; width: 136px;
   box-shadow: 0px 1px 0 2px rgba(0, 0, 0, 0.1);       
 }
 #activities_baloon .arrow { position: absolute; top: -9px; left: 191px; background: url(arrowCounter.png); height: 9px; width: 15px; }
+#activities_baloon li .arrow { display: none }
 
 #activities_baloon ul { list-style-type: none; width: 450px; overflow: scroll; overflow-x: hidden; height: 223px; }
 #activities_baloon ul * { float: auto }
 #activities_baloon li.first { margin-top: 10px; padding-top: 10px; border-top: 1px solid #DBDBDB }
-#activities_baloon li { position: relative; padding-left: 50px; margin-bottom: 5px; width: 385px; }
+#activities_baloon li { position: relative; padding-left: 50px; margin-bottom: 5px; width: 385px; color: #AAAAAA }
 #activities_baloon li:first-child { margin-top: 0px; border: 0; margin-top: 0; padding-top: 0 }
 #activities_baloon li .avatar { position: absolute!important; left: 0px; top: 10px }
 #activities_baloon li:first-child .avatar { top: 0 }
@@ -557,7 +581,9 @@ margin-right: 3px; width: 136px;
 #activities_baloon li:first-child .content { padding-top: 0 }
 #activities_baloon li .content img { float: left; height: 20px; margin-right: 10px; }
 #activities_baloon li:nth-child(even) .content { background: #f5f5f5;  }
-#activities_baloon #counter_activities { margin: 0 }
+#activities_baloon #counter_activities { margin: 0 } 
+#activities_baloon #counter_activities p { font-size: 11px; display: inline-block; margin: 0; line-height: 12px; }
+#activities_baloon .movie_title { color: #696969 }
 
 #activities_baloon li.new .content { background: #fcf5c9 }
 

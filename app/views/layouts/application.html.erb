@@ -56,6 +56,7 @@
 				<% end %>
 				
 	      <ul class="nav">
+						<li id="bookmarklet"><%= link_to "Zakładka", bookmarklet_path, :class => active?("bookmarklet") %></li>
 
 	          <li><%= link_to "Główna", root_path, :class => active?("home") %></li>
 						<li><%= link_to "Ludzie", users_path, :class => active?("users", "index") %></li>
@@ -92,12 +93,6 @@
 	<div class="container-fluid">
 		<%= render "layouts/footer" %>
 	</div>
-
-	<% if Rails.env.development? %>
-		<div class="container-fluid">
-      <%= debug(params) %>
-    </div>
-  <% end %>
 
  	<%= render "layouts/modal" %>
 

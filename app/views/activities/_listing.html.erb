@@ -47,8 +47,11 @@
 			<% end %>
 		<% end %>
 
+		<% first = true if first_activity || !same_user %> 
 
- 		<li class="<%= 'first ' if first_activity || !same_user %><%= 'new' if new_activities_count <= @new_activities %>">
+ 		<li class="<%= 'first ' if first %><%= 'new' if new_activities_count <= @new_activities %>">
+
+ 				<% if first %><div class="arrow"></div><% end %>
  				
  				<% if !same_user or first_activity %>
  					<div class="avatar">
@@ -62,7 +65,8 @@
 						<%= image_tag(activity.data[:movie_thumbnail]) %>
 					<% end %>
 
-						<%= activity.user.name %> <%= activity_action(activity.resource) %>
+						<%= link_to activity.user.name, user_path(activity.user_id), :class => "author" %> 
+						<%= activity_action(activity.resource) %>
 						
 						<% if activity.resource == 3 %>
 							<% if activity.recipient_id == current_user.id %>
@@ -72,11 +76,11 @@
 							<% end %>
 						<% end %>
 						
-						<%= "'#{activity.data[:movie_title]}'" if activity.resource != 3 %> 
+						<%= link_to("#{activity.data[:movie_title]}", movie_path(activity.data[:movie_id]), :class => "movie_title") if activity.resource != 3 %> 
 						<%= time_ago_in_words(activity.created_at) %> temu.
 
 					<% if activity.resource == 2 %>
-						"<%= activity.data[:comment_content] %>"
+						<p class="user_quote">"<%= activity.data[:comment_content] %>"</p>
 					<% end %>
 				</div>
 

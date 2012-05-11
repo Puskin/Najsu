@@ -1,1 +1,2 @@
 $("#moviesList").html("<%= escape_javascript( render :partial => 'movies/movieRepost' ) %>");       
+$("#moviesList").masonry( 'reload' );       

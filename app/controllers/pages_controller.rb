@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
 
   include MoviesHelper
-
-  before_filter :signed_in_user, except: [:home, :submit, :timeline, :library, :activities]
   layout :layout_switcher
 
   def home
@@ -37,11 +35,11 @@ class PagesController < ApplicationController
     when "yours"
       @movies = current_user.reposts.order('created_at DESC')
     when "liked"
-      likes = current_user.likes.map(&:movie_id).uniq
-      @movies = Repost.find_all_by_movie_id(likes)
+      likes = current_user.likes.map(&:movie_id)
+      @movies = Repost.find_all_by_movie_id(likes.uniq, :order => 'created_at DESC')
     when "commented"
-      comments = current_user.comments.map(&:movie_id).uniq
-      @movies = Repost.find_all_by_movie_id(comments)
+      comments = current_user.comments.map(&:movie_id)
+      @movies = Repost.find_all_by_movie_id(comments.uniq, :order => 'created_at DESC')
     else
       @movies = current_user.reposts.order('created_at DESC')
     end
@@ -51,8 +49,7 @@ class PagesController < ApplicationController
     end
   end
 
-  def timeline
-    @movies = Movie.all.group_by { |m| m.created_at.at_beginning_of_day }
+  def bookmarklet    
   end
 
   def submit
