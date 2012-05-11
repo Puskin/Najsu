@@ -1,4 +1,5 @@
 
+
 /* HTML ELEMENTS ----------------------------------------------------------------*/
 * { outline: 0 }
 
@@ -16,6 +17,8 @@ html.clean body { background: none; color: #000; padding: 20px }
 .popover { z-index: 3000; }
 
 .loader { background: url(loader.gif); width: 32px; height: 32px; margin: auto; margin-top: 20px  }
+
+.container-fluid.movies { padding-left: 0; padding-right: 0 }
 
 /* Basic Content ----------------------------------------------------------------*/
 
@@ -217,8 +220,9 @@ body.app #content { padding-bottom: 0 }
 box-shadow: inset 0px 3px 0px 0px rgba(155, 155, 155, 1); */
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
-	border-radius: 4px;
-	width: 222px; background: #fff; border: 2px solid #dbdbdb; padding: 5px;
+	border-radius: 4px; 
+	overflow: hidden;
+	width: 208px; background: #fff; border: 2px solid #dbdbdb; padding: 5px;
 	display: block; float: left; margin: 0 5px 10px 5px }
 #moviesList .movie a { 
 	-webkit-border-top-left-radius: 2px;
@@ -229,22 +233,22 @@ border-top-left-radius: 2px;
 border-top-right-radius: 2px;
 overflow: hidden;
 	/*border-top: 1px solid rgba(155, 155, 155, 0.2);*/	
-	width: 222px; float: left; display: block; height: 123px; 
+	width: 208px; float: left; display: block; height: 115px; 
 	overflow: hidden; position: relative;
 
 }
-#moviesList .movie img { width: 222px; margin-top: -22px }
-#moviesList .movie.vimeo img { width: 222px; margin-top: 0 }
+#moviesList .movie img { width: 208px; margin-top: -21px }
+#moviesList .movie.vimeo img { width: 208px; margin-top: 0 }
 
 #moviesList .movie a .play { 
-	width: 222px; height: 123px; 
+	width: 208px; height: 115px; 
 	display: none; background: rgba(0, 0, 0, 0.6) url(iconPlay.png) center no-repeat; position: absolute; left: 0; top: 0 }
 #moviesList .movie a:hover .play { display: block; }
 
-#moviesList .movie .comments { width: 222px; float: left; margin: 0; color: #484848 }
+#moviesList .movie .comments { width: 208px; float: left; margin: 0; color: #484848 }
 #moviesList .movie .comments li {
 	list-style-type: none; float: left; min-height: 25px;
-	width: 192px; line-height: 12px; position: relative;
+	width: 178px; line-height: 12px; position: relative;
 	border: 0; padding: 5px 0px 5px 30px; font-size: 11px; color: #484848;
 	border-bottom: 1px solid #e9e9e9; overflow: hidden; }
 #moviesList .movie .comments li a,
@@ -257,7 +261,7 @@ overflow: hidden;
 
 #moviesList .movie .comments li.author { 
 
-	width: 222px;
+	width: 208px;
 	padding: 0 0 5px 0; border-bottom: 1px solid #DBDBDB;
  }
 #moviesList .movie .comments li.author .title { width: 100%; float: left }
@@ -274,7 +278,7 @@ border-bottom-left-radius: 3px;
 	margin: 0;
 	line-height: 14px; font-size: 11px; color: #5f5f5f; }
 #moviesList .movie .comments li.author .data { 
-	float: left; width: 222px }
+	float: left; width: 208px }
 #moviesList .movie .comments li small { color: gray }
 #moviesList .movie .comments li.author .data strong { /*color: #3B6EA7*/ }
 #moviesList .movie .comments li.author .data a { position: static; }
@@ -286,7 +290,7 @@ border-bottom-left-radius: 3px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px; text-align: center;
 	border-radius: 3px; border: 2px solid #DBDBDB;
-	padding: 5px 0; width: 218px; float: left; margin: 5px 0 }
+	padding: 5px 0; width: 204px; float: left; margin: 5px 0 }
 #moviesList .movie .comments li.author .title .counters div { 
 	width: auto; background: url(iconMovie.png) top left no-repeat; color: #828282; display: inline-block;
 	padding-left: 10px; height: 11px; line-height: 10px; margin: 0 10px 0 0;  }
@@ -305,7 +309,7 @@ border-bottom-left-radius: 3px;
 
 #moviesList .movie .comments li:last-child { border: 0!important; padding-bottom: 0!important }
 
-#moviesList .movie .comments li.more { font-weight: bold; padding: 5px 0; min-height: 13px; text-align: center; width: 222px; }
+#moviesList .movie .comments li.more { font-weight: bold; padding: 5px 0; min-height: 13px; text-align: center; width: 208px; }
 
 
 .movie #comment_content { height: 20px; width: 148px }
@@ -327,7 +331,7 @@ border-radius: 0px;
 	-webkit-border-radius: 0px;
 -moz-border-radius: 0px;
 border-radius: 0px;
-margin-right: 3px; width: 150px;
+margin-right: 3px; width: 136px;
 	height: 15px; line-height: 15px;
 	border-color: lightgray }
 

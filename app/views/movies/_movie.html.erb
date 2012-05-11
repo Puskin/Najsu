@@ -7,7 +7,7 @@
 		<li class="author">
 
 			<div class="title">
-				<%= "<p>#{truncate(movie.title, :length => 70)}</p>".html_safe if movie.title %>
+				<%= "<p>#{truncate(movie.title, :length => 60)}</p>".html_safe if movie.title %>
 				<div class="counters">
 					<div class="views_count" rel="tooltip" title="Obejrzeń"><%= movie.views_count %></div> 
 					<div class="likes_count" rel="tooltip" title="Lajków"><%= movie.likes_count %></div>
