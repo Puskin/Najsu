@@ -551,6 +551,8 @@ margin-right: 3px; width: 136px;
 #activities li .content .author { font-weight: bold }
 #activities li .content .movie_title { color: #696969 }
 #activities li .content .user_quote { font-style: italic; }
+#activities li .content p { margin: 0 }
+
 
 #activities li .content img { float: left; height: 35px; margin-right: 10px; }
 
@@ -585,7 +587,7 @@ margin-right: 3px; width: 136px;
 #activities_baloon #counter_activities p { font-size: 11px; display: inline-block; margin: 0; line-height: 12px; }
 #activities_baloon .movie_title { color: #696969 }
 
-#activities_baloon li.new .content { background: #fcf5c9 }
+#activities_baloon li.new .content { background: #fcf5c9; padding-top: 5px; }
 
 #activities_baloon h5 { height: 12px; line-height: 12px; margin-bottom: 14px; }
 

@@ -3,6 +3,11 @@ class Activity < ActiveRecord::Base
 	serialize :data
 	belongs_to :user
 
+
+	scope :feed,   		proc {|user| where("user_id in (?) AND user_id != ?", user.followed_users.map(&:id), user.id) }
+	scope :personal,	proc {|user| where("user_id != ? AND recipient_id = ?", user.id, user.id) }
+	
+
 	#status codes for activities actions
 	LIKE		 = 1
 	COMMENT  = 2
