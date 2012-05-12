@@ -246,11 +246,11 @@ body.app #content { padding-bottom: 0 }
  }
 #bookmarklet_page .content .main ul.steps { float: right; width: 538px; margin-top: 10px }
 #bookmarklet_page .content .main ul.steps li { 
-	color: rgba(0,0,0,0.6);
-	padding: 7px; line-height: 16px; font-size: 12px;
+	float: right; width: 523px; padding: 7px; 
 	-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin: 0 0 5px 0;
 	background: #f4e485; text-align: right 
 }
+#bookmarklet_page .content .main ul.steps li p { margin: 0; float: right;	width: 180px; line-height: 16px; color: rgba(0,0,0,0.6); font-size: 12px  }
 
 #slidabilty { overflow: hidden; }
 #slidabilty img { -webkit-transform: rotate(0deg); position: absolute; z-index: -20; top: 0; left: 0 }
