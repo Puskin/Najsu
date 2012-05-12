@@ -197,9 +197,60 @@ body.app #content { padding-bottom: 0 }
 
 
 
-#bookmarklet_page { margin: auto; float: none; padding: 50px 0 0 0 }
+#bookmarklet_page { margin: auto; float: none; padding: 20px 0 0 0; width: 600px }
+#bookmarklet_page .intro { 
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+	-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; margin-bottom: 30px;
+	background: #5fbcde; padding: 15px 0; text-align: center; font-weight: normal; font-size: 16px; color: #fff 
+}
 
+#bookmarklet_page .scriptlet { height: 193px; width: 600px; position: relative; }
+#bookmarklet_page .scriptlet .browser { 
+	z-index: 1;
+	background: url(bookBrowser.jpg); top: -30px; right: -200px;
+	width: 504px; height: 463px; position: absolute; }
+#bookmarklet_page .scriptlet .arrow { 
+	background: url(bookArrow.png); float: left; margin-top: 92px; position: relative;
+	height: 35px; width: 216px; z-index: 10; }
 
+#bookmarklet_page .scriptlet .bookmarklet {  
+	-webkit-border-radius: 25px; -moz-border-radius: 25px; border-radius: 25px; color: #fff;
+	background: #d94335; padding: 10px 22px; font-weight: bold; font-size: 16px; 
+	cursor: move; text-decoration: none; margin: 88px 0 0 0; float: left
+}
+#bookmarklet_page .scriptlet .bookmarklet:hover { text-decoration: none }
+
+#bookmarklet_page .content { 
+	-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; margin-bottom: 30px;
+	width: 598px; background: #fff; z-index: 20; position: relative;
+	border: 1px solid #d8d8d8 }
+#bookmarklet_page .content .header { 
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;		
+	padding: 17px 18px; background: #f6f6f6; color: #d94335; font-size: 14px; font-weight: bold  }
+#bookmarklet_page .content .main,
+#bookmarklet_page .content .notice { padding: 30px; position: relative; z-index: 5; }
+#bookmarklet_page .content .notice p { 
+	-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin: 0;
+	background: #d94335; color: #fff; font-size: 12px; text-align: center; line-height: 32px; }
+
+#bookmarklet_page .content .main { min-height: 250px }
+#bookmarklet_page .content .main .browsers { 
+	z-index: 3;
+	width: 527px; height: 423px; position: absolute; 
+	background: url(bookVideo.png); left: -175px; top: -65px
+ }
+#bookmarklet_page .content .main ul.steps { float: right; width: 538px; margin-top: 10px }
+#bookmarklet_page .content .main ul.steps li { 
+	color: rgba(0,0,0,0.6);
+	padding: 7px; line-height: 16px; font-size: 12px;
+	-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin: 0 0 5px 0;
+	background: #f4e485; text-align: right 
+}
 
 #slidabilty { overflow: hidden; }
 #slidabilty img { -webkit-transform: rotate(0deg); position: absolute; z-index: -20; top: 0; left: 0 }
@@ -391,23 +442,6 @@ margin-right: 3px; width: 136px;
 
 .overlay .lightbox { vertical-align: middle; display: table-cell; }
 .overlay .lightbox .content { margin: auto; text-align: center; z-index: 1000  }
-
-.bookmarklet {
-	background-color: #000;
-	border: 1px solid #626262;
-	border-radius: 8px 8px 8px 8px;
-	color: #FFFFFF;
-	display: inline-block;
-	font-family: 'Lucida Grande',Verdana,sans-serif;
-	font-size: 11px;
-	font-weight: bold;
-	padding: 0 7px 1px;
-	text-align: center;
-	text-shadow: 1px 1px 0 #3B3B3B;
-	vertical-align: 2px;
-	cursor: move;
-}
-.bookmarklet:hover { color: #fff; text-decoration: none }
 
 
 #embed_video { width: 853px; height: 480px; }
