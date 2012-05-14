@@ -1,7 +1,9 @@
+# coding: utf-8
 class PagesController < ApplicationController
 
   include MoviesHelper
-  layout :layout_switcher
+  before_filter :signed_in_user, only: [:submit, :bookmarklet, :library]
+  layout "clean", only: [:submit]
 
   def home
     @comment = Comment.new
@@ -62,34 +64,20 @@ class PagesController < ApplicationController
         if movie_record
           repost = current_user.reposts.find_by_resource_id_and_source(video_id, video_source)
           if repost
-            redirect_to :action => "submit", notice: 'Movie already in your library.'     
+            redirect_to :action => "submit", notice: 'Film już istnieje w zbiorach.'     
           else
             thumbnail = thumbnail_url(video_id, video_source)
             Repost.create(:movie_id => movie_record.id, :user_id => current_user.id, :resource_id => video_id, :source => video_source, :thumbnail => thumbnail ) 
             Like.find_or_create_by_user_id_and_movie_id(:user_id => current_user.id, :movie_id => movie_record.id)
-            redirect_to :action => "submit", notice: 'Movie added to library.'     
+            redirect_to :action => "submit", notice: 'Film dodany do zbiorów.'     
           end
         else
           thumbnail = thumbnail_url(video_id, video_source)
           movie = Movie.create(:resource_id => video_id, :user_id => current_user.id, :title => video_title, :source => video_source, :thumbnail => thumbnail)
-          redirect_to :action => "submit", notice: 'Movie added to library.'    
+          redirect_to :action => "submit", notice: 'Film dodany do zbiorów.'    
         end
       end
     end
   end
-
-  private
-
-  	def signed_in_user
-      redirect_to root_path if signed_in?
-  	end
-
-  	def layout_switcher
-  		if action_name == "submit"
-  			"clean"
-      else
-        "application"
-  		end
-  	end
 
 end

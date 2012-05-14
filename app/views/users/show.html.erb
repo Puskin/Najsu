@@ -29,3 +29,28 @@
 <% @user.followers.each do |follower| %>
 	<%= follower.name %>
 <% end %><br/>
+
+
+
+<div id="categories" class="row-fluid library">
+	<div class="avatar">
+		<div class="mask"></div>
+		<%= image_tag(gravatar_url_for(@user),:size => '82x82') %>
+	</div>
+</div>
+
+<div class="row-fluid libary-navi">
+	<div class="btn-group">
+		<%= link_to "Twoje", library_path(:show => "yours"), :id => "yours", :class => "btn active", :remote => true %>
+		<%= link_to "Lubiane", library_path(:show => "liked"), :id => "liked", :class => "btn", :remote => true %>
+		<%= link_to "Komenty", library_path(:show => "commented"), :id => "commented", :class => "btn", :remote => true %>
+	</div>
+</div>
+
+
+<div class="row-fluid">
+
+	<div id="moviesList" class="library">
+		<%= render :partial => "movies/movieRepost" %>
+	</div>
+</div>

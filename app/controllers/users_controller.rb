@@ -1,8 +1,12 @@
 # coding: utf-8
 
 class UsersController < ApplicationController
+  
   before_filter :signed_in_user, except: [:new, :create]
-  before_filter :correct_user,   only: [:edit, :update, :destroy]
+  before_filter :signed_in_redirect, only: [:new, :create]
+
+  before_filter :correct_user, only: [:edit, :update, :destroy]
+
   layout "frontend", only: [:create, :new]
 
 
@@ -24,9 +28,24 @@ class UsersController < ApplicationController
   end
 
   
-
   def show
     @user = User.find(params[:id])
+    case params[:show]    
+    when "yours"
+      @movies = @user.reposts.order('created_at DESC')
+    when "liked"
+      likes = @user.likes.map(&:movie_id)
+      @movies = Repost.find_all_by_movie_id(likes.uniq, :order => 'created_at DESC')
+    when "commented"
+      comments = @user.comments.map(&:movie_id)
+      @movies = Repost.find_all_by_movie_id(comments.uniq, :order => 'created_at DESC')
+    else
+      @movies = @user.reposts.order('created_at DESC')
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
@@ -66,10 +85,6 @@ class UsersController < ApplicationController
 
 
   private
-
-    def signed_in_user
-      redirect_to signin_path, notice: "Zaloguj się najpierw" unless signed_in?
-    end
 
     def correct_user
       @user = User.find(params[:id])

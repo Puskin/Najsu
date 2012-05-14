@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class ApplicationController < ActionController::Base
 	
   protect_from_forgery
@@ -15,5 +17,15 @@ class ApplicationController < ActionController::Base
 	    end
 	   end
   end
+
+  private
+
+    def signed_in_user
+      redirect_to signin_path, notice: "Zaloguj się lub załóż konto" unless signed_in?
+    end  
+
+    def signed_in_redirect
+      redirect_to root_path if signed_in?
+    end
 
 end

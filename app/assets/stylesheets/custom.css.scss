@@ -114,7 +114,7 @@ html.clean body { background: none; color: #000; padding: 20px }
 #header .user .avatar { height: 38px; width: 38px; position: relative; margin-right: 7px; float: left }
 #header .user .avatar .mask { width: 38px; height: 38px; background: url(avatarMask.png); position: absolute; left: 0; top: 0; pointer-events:none; z-index: 20 }
 #header .user .name { height: 38px; margin-right: 5px; cursor: pointer; float: left }
-#header .user .name:hover .content { background: #cfcfcf }
+#header .user .name:hover .content { background: #cfcfcf; text-decoration: none; color: #D94335 }
 #header .user .name * { float: left }
 #header .user .name .arrow { width: 5px; height: 38px; background: url(headerArrow.jpg) center left; float: left }
 #header .user .name .content,

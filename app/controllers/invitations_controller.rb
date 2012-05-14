@@ -1,22 +1,14 @@
 class InvitationsController < ApplicationController
 
+  before_filter :signed_in_user
+  #zmienic new na create w fbuser.html i sprawdzić jak się zachowuje z facebook
+
   def index
     fbuser = current_user.fbgraph
     @fb_friends = fbuser.friends
     respond_to do |format|
       format.html
       format.js
-    end
-  end
-
-  # GET /invitations/1
-  # GET /invitations/1.json
-  def show
-    @invitation = Invitation.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @invitation }
     end
   end
 
@@ -27,7 +19,7 @@ class InvitationsController < ApplicationController
     
     fbuser.feed!(
       :message => 'Polecam najsu, zobacz!',
-      :link => 'https://najsu.herokuapp.com',
+      :link => 'https://najsu.pl',
       :name => 'Najsu',
       :description => 'Odkrywaj filmiki dziel ze znajomymi!'
     )

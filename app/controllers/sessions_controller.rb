@@ -2,6 +2,7 @@
 
 class SessionsController < ApplicationController
 
+	before_filter :signed_in_redirect, only: [:new, :create]
   layout "frontend"
 
 	def new
@@ -13,7 +14,7 @@ class SessionsController < ApplicationController
 			sign_in user
       redirect_to root_path
 	  else
-      flash.now[:error] = 'Błędna kombinacja e-mail / hasło' # Not quite right!
+      flash.now[:error] = 'Błędna kombinacja e-mail / hasło'
     	render 'new'
     end
 	end

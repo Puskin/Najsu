@@ -1,5 +1,7 @@
 class RelationshipsController < ApplicationController
 
+  before_filter :signed_in_user
+
   def index
     @users = User.all
     respond_to do |format|

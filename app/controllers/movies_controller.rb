@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
  
-  layout "application"
+  before_filter :signed_in_user, except: [:show]
 
   def index
     if params[:popular] == "fuckyea"

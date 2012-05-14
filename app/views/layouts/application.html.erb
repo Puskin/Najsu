@@ -38,7 +38,7 @@
 						</div>
 						<div class="name">
 							<div class="arrow"></div>
-							<div class="content"><%= current_user.name %></div>
+							<%= link_to current_user.name, user_path(current_user), :class => "content" %>
 						</div>
 						<div id="notifications_counter">
 							<%= render "layouts/headerCounter" %>							

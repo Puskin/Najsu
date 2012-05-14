@@ -1,7 +1,6 @@
 class LikesController < ApplicationController
 
   before_filter :signed_in_user
-  layout "application"
 
   def create
   	like = Like.new(params[:like])
@@ -13,10 +12,4 @@ class LikesController < ApplicationController
     end
   end
   
-  private
-    
-    def signed_in_user
-      redirect_to signin_path, notice: "Please sign in" unless signed_in?
-    end
-
 end
