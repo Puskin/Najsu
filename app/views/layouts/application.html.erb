@@ -22,63 +22,10 @@
 </head>
 <body <%="class='app'" if signed_in? %>>
 
-	<div class="navbar navbar-fixed-top" id="header">
-	 <div class="navbar-inner">
-			<div class="container-fluid bezel">
-			</div>
+	<%= render "layouts/header" %>
 
-			<div class="container-fluid bar">
-				<%= link_to "Najsu", root_path, :class => "brand" %>
-
-				<% if signed_in? %>
-					<div class="user">
-						<div class="avatar">
-							<div class="mask"></div>
-							<%= image_tag(gravatar_url_for(current_user), :size => "38x38") %>
-						</div>
-						<div class="name">
-							<div class="arrow"></div>
-							<%= link_to current_user.name, user_path(current_user), :class => "content" %>
-						</div>
-						<div id="notifications_counter">
-							<%= render "layouts/headerCounter" %>							
-						</div>
-						<div id="activities_baloon">
-							<div class="arrow"></div>							
-							<ul class="unstyled" id="counter_activities">
-							</ul>						
-							<div class="actions">
-								<a href="activities">Wszystkie aktywności</a>
-								<a href="#feed" id="mobile_activities_close">Zamknij panel</a>
-							</div>
-						</div>
-					</div>
-				<% end %>
-				
-	      <ul class="nav">
-						<li id="bookmarklet"><%= link_to "Zakładka", bookmarklet_path, :class => active?("bookmarklet") %></li>
-
-	          <li><%= link_to "Główna", root_path, :class => active?("home") %></li>
-						<li><%= link_to "Ludzie", users_path, :class => active?("users", "index") %></li>
-		        <li><%= link_to "Aktywności", activities_path, :class => active?("activities", "index") %></li>
-
-	          <% unless signed_in? %>
-	            <li><%= link_to "Zaloguj się", signin_path %></li>
-	            <li><%= link_to "Rejestracja", signup_path %></li>
-	          <% end %>
-
-            <% if signed_in? %>
-            	<li><%= link_to "Zbiory", library_path, :class => active?("library") %></li>
-            	<li><%= link_to "Wyloguj się", signout_path, method: "delete", :class => "clean" %></li>
-	          <% end %>
-	      </ul>
-
-	    </div>
-	  </div>
-	</div>
-
+	<!--  content -->
 	<div class="container-fluid<%= ' movies'if action_name == 'home' %>" id="content">
-
 		<div class="row-fluid">
 			<div class="span12">
 				<% flash.each do |key, value| %>
@@ -87,9 +34,9 @@
 				<%= yield %>
 			</div>
 		</div>
-
 	</div>
 
+	<!-- footer -->
 	<div class="container-fluid">
 		<%= render "layouts/footer" %>
 	</div>
@@ -99,6 +46,6 @@
   <div class="overlay" id="cinema">
   	<%= yield :cinema %>
   </div>
-	
+  	
 </body>
 </html>
