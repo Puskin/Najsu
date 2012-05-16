@@ -7,9 +7,9 @@
 
 <div class="row-fluid libary-navi">
 	<div class="btn-group">
-		<%= link_to "Twoje", library_path(:show => "yours"), :id => "yours", :class => "btn active", :remote => true %>
+		<%= link_to "Twoje filmy", library_path(:show => "yours"), :id => "yours", :class => "btn active", :remote => true %>
 		<%= link_to "Lubiane", library_path(:show => "liked"), :id => "liked", :class => "btn", :remote => true %>
-		<%= link_to "Komenty", library_path(:show => "commented"), :id => "commented", :class => "btn", :remote => true %>
+		<%= link_to "Dyskutowane", library_path(:show => "commented"), :id => "commented", :class => "btn", :remote => true %>
 	</div>
 </div>
 
@@ -17,6 +17,6 @@
 <div class="row-fluid">
 
 	<div id="moviesList" class="library">
-		<%= render :partial => "movies/movieRepost" %>
+		<%= render :partial => "movies/repost", :collection => @reposts %>
 	</div>
 </div>

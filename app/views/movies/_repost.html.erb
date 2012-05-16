@@ -1,0 +1,24 @@
+<% if repost.movie %>
+
+	<div class="movie<%= ' vimeo' if repost.movie.source == 2 %>" id="clip_<%=repost.movie.id%>">
+		<%= link_to(movie_path(repost.movie.id), :remote => true) do %>
+		<div class="play"></div>
+		<%= image_tag(repost.movie.thumbnail) %>
+		<% end %>
+
+		<ul class="comments">
+			<li class="author">
+				<div class="title">
+				<%= "<p>#{truncate(repost.movie.title, :length => 34)}</p>".html_safe if repost.movie.title %>
+				<div class="counters">
+				<div class="views_count" rel="tooltip" title="Obejrzeń"><%= repost.movie.views_count %></div> 
+				<div class="likes_count" rel="tooltip" title="Lajków"><%= repost.movie.likes_count %></div>
+				<div class="comments_count" rel="tooltip" title="Komentarzy"><%= repost.movie.comments_count %></div>
+				<div class="reposts_count" rel="tooltip" title="Repostów"><%= repost.movie.reposts_count %></div>
+				</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+<% end %>

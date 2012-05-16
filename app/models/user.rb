@@ -30,7 +30,11 @@ class User < ActiveRecord::Base
 
 
   def self.search(search)
-    where('name ILIKE ? OR email ILIKE ?', "%#{search}%", "%#{search}%")    
+    if Rails.env == "production"
+      where('name ILIKE ? OR email ILIKE ?', "%#{search}%", "%#{search}%")    
+    else
+      where('name LIKE ? OR email LIKE ?', "%#{search}%", "%#{search}%")    
+    end
   end
 
 

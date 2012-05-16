@@ -1,4 +1,6 @@
-<li>
-  <p class="pull-left"><%= user.name %>,    <%= user.email %></p>
-  <%= render :partial => "users/followForm", :locals => { :user => user }, :class => "pull-right" %>
+<li id="user_<%=user.id%>">
+  <p class="pull-left"><%= link_to(user.name, user_path(user)) %>, <%= user.email %></p>
+  <div id="follow_form">
+  	<%= render :partial => "users/followForm", :locals => { :user => user }, :class => "pull-right" %>
+  </div>
 </li>
