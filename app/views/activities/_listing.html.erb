@@ -8,6 +8,8 @@
 
 	<% activities.each do |activity| %>
 
+		<% hash = activity_decode(activity) %>
+
 		<% if activities.first == activity %>
 
 			<%
@@ -61,27 +63,17 @@
 				<% end %>
 
 				<div class="content">
-					<% if activity.resource != 3 %>
-						<%= image_tag(activity.data[:movie_thumbnail]) %>
-					<% end %>
+						<%= image_tag(hash["movie_thumbnail"]) if hash["movie_thumbnail"] != "" %>
 
 						<%= link_to activity.user.name, user_path(activity.user_id), :class => "author" %> 
-						<%= activity_action(activity.resource) %>
+						<%= hash["content"] %>
 						
-						<% if activity.resource == 3 %>
-							<% if activity.recipient_id == current_user.id %>
-								Ciebie 
-							<% else %>
-								<%= activity.data[:followed_user_name] %>
-							<% end %>
-						<% end %>
-						
-						<%= link_to("#{activity.data[:movie_title]}", movie_path(activity.data[:movie_id]), :class => "movie_title") if activity.resource != 3 %> 
+						<%= link_to("#{hash['movie_title']}", movie_path(activity.data[:movie_id]), :class => "movie_title") if activity.resource != 3 %> 
 						<%= time_ago_in_words(activity.created_at) %> temu.
 
-					<% if activity.resource == 2 %>
-						<p class="user_quote">"<%= activity.data[:comment_content] %>"</p>
-					<% end %>
+						<% if activity.resource == 2 %>
+							<p class="user_quote">"<%= activity.data[:comment_content] %>"</p>
+						<% end %>
 				</div>
 
 		</li>
