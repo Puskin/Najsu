@@ -2,7 +2,7 @@
 class PagesController < ApplicationController
 
   include MoviesHelper
-  before_filter :signed_in_user, only: [:submit, :bookmarklet, :library]
+  before_filter :signed_in_user, only: [:bookmarklet, :library]
   layout "clean", only: [:submit]
 
   def home
