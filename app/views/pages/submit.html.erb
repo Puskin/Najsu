@@ -1,7 +1,7 @@
 <% if signed_in? %>
 	
 	<% if params[:resource_id] %>
-		<p style="padding: 0 0 0 30px">Loading...</p>
+		<p style="padding: 0 0 0 30px">Ładowanie...</p>
 	<% end %>
 
 	<% if params[:notice] %>
@@ -13,8 +13,8 @@
 
 <% else %>
 
-	You're not loged in.<br/>
-	<%= link_to "Log in here!", signin_path, :target => "_blank", :id => "close" %>
+	Nie jesteś zalogowany.<br/>
+	<%= link_to "Zaloguj się tutaj!", signin_path, :target => "_blank", :id => "close" %>
 	<script type="text/javascript">
 		$('#close').click(function() {
 			setTimeout("window.close()", 100);	
