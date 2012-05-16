@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(:version => 20120501162825) do
     t.text     "data"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
-    t.integer  "owner_id",                        :default => 0
   end
 
   create_table "authentications", :force => true do |t|

@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
-	attr_accessible :user_id, :recipient_id, :resource, :action, :data, :owner_id
+	attr_accessible :user_id, :recipient_id, :resource, :action, :data
 	serialize :data
 	belongs_to :user
 
@@ -49,19 +49,12 @@ class Activity < ActiveRecord::Base
 				}
 			end
 
-			if user_id == recipient_id 
-				owner_id = user_id 
-			else
-				owner_id = 0
-			end
-		
 			self.create(
 	      :user_id => user_id, 
 	      :recipient_id => recipient_id,
 	      :resource => resource_type,
 	      :action => CREATE,
-	      :data => data,
-	      :owner_id => owner_id
+	      :data => data	    
 	    )
 		end
 
