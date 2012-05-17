@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row" id="people">
-    <% if current_user.facebook? %>
+    <% if current_user.facebook? && 1==2 %>
       <div class="span6">
         <%= link_to "Zaproś znajomych z Facebook", invitations_path, :remote => true, :class => "facebook" %>
       </div>
