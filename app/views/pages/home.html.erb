@@ -48,7 +48,7 @@
 			<%= render @movies %>
 		</div>
 		<div id="paginaDomina">
-			<%= will_paginate @movies, :page_links => false, :next_label => 'Load more!' %>
+			<%= will_paginate @movies, :page_links => false, :next_label => 'Więcej!' %>
 		</div>	
 		<%= javascript_tag " $('.pagination a').attr('data-remote', 'true'); $('.previous_page').remove()" %>
 </div>					
