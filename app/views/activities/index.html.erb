@@ -1,4 +1,8 @@
-<ul class="unstyled" id="activities">
-	<%= render :partial => "activities/listing", :locals => { :activities => @activities } %>
-</ul>
+<% if @activities.empty? %>
+	<p class="page_info"><a href="users">Dodaj lub zaproś znajomych,</a> by widzieć ich aktywności!</p>
+<% else %>
+	<ul class="unstyled" id="activities">
+		<%= render :partial => "activities/listing", :locals => { :activities => @activities } %>
+	</ul>
+<% end %>
 
