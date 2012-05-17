@@ -11,7 +11,7 @@
 
       <%= form_tag users_path, :method => 'get', :remote => true, :id => "searchPeople" do %>
         <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
+        <%= submit_tag "Search", :name => nil, :class => "btn" %>
       <% end %>
 
       <% provide(:title, 'Lista użytkowników') %>
