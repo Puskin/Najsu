@@ -4,7 +4,7 @@ Tuduk::Application.routes.draw do
   resources :authentications
   resources :comments
   resources :likes
-  resources :movies
+  resources :movies, only: [:show]
   resources :users
   resources :users do
     member do

@@ -30,7 +30,7 @@
 					<% end %>
 				</div>
 				<div class="action">
-					<% if signed_in? && current_user?(movie.user) %>	
+					<% if signed_in? && current_user?(movie.user) && 1 == 2 %>	
 						<%= link_to "&times;".html_safe, movie, :confirm => "Entire movie fo' sho?", :method => :delete, :class => "btn btn-mini pull-right", :remote => true %>
 					<% end %>
 				</div>

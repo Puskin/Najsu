@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
  
   before_filter :signed_in_user, except: [:show]
+  before_filter :correct_user, only: [:destroy]
+
 
   def index
     if params[:popular] == "fuckyea"
@@ -20,8 +22,6 @@ class MoviesController < ApplicationController
     end
   end
 
-  # GET /movies/new
-  # GET /movies/new.json
   def new
     @movie = Movie.new
 
@@ -29,11 +29,6 @@ class MoviesController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @movie }
     end
-  end
-
-  # GET /movies/1/edit
-  def edit
-    @movie = Movie.find(params[:id])
   end
 
   # POST /movies
@@ -79,4 +74,14 @@ class MoviesController < ApplicationController
       format.js
     end
   end
+
+  private
+
+    def correct_user
+      movie = Movie.find(params[:id])
+      user = movie.user
+      redirect_to(root_path) unless current_user?(user)
+    end
+
+
 end
