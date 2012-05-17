@@ -35,15 +35,15 @@ class PagesController < ApplicationController
   def library
     case params[:show]    
     when "yours"
-      @reposts = current_user.reposts.order('created_at DESC')
+      @reposts = current_user.reposts.order('created_at DESC').first(30)
     when "liked"
       likes = current_user.likes.map(&:movie_id)
-      @reposts = Repost.find_all_by_movie_id(likes.uniq, :order => 'created_at DESC')
+      @reposts = Repost.find_all_by_movie_id(likes.uniq, :order => 'created_at DESC').first(30)
     when "commented"
       comments = current_user.comments.map(&:movie_id)
-      @reposts = Repost.find_all_by_movie_id(comments.uniq, :order => 'created_at DESC')
+      @reposts = Repost.find_all_by_movie_id(comments.uniq, :order => 'created_at DESC').first(30)
     else
-      @reposts = current_user.reposts.order('created_at DESC')
+      @reposts = current_user.reposts.order('created_at DESC').first(30)
     end
     respond_to do |format|
       format.html

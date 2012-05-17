@@ -8,20 +8,16 @@ class AuthenticationsController < ApplicationController
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
       sign_in authentication.user
-      #redirect_to root_path
-      #flash.now[:success] = 'Zalogowano pomyślnie, witaj ponownie.'
-      @newuser = false
+      @newuser = false #zalogowany autentykowany wczesniej user
     elsif current_user
       current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'], :token => omniauth['credentials']['token'])
-      @newuser = false
+      @newuser = false #autentykacja zalogowanego zwyczajnie usera
     else
       user = User.new
       user.apply_omniauth(omniauth)
       user.save!(:validate => false)
       sign_in user
-      @newuser = true
-      #redirect_to root_path
-      #flash.now[:success] = 'Z powodzeniem zalogowano przez Facebook, witaj w Najsu!'
+      @newuser = true #utworzenie i autentykacja nowego usera    
     end
   end
 
