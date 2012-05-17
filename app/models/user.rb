@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	
 	attr_accessible :name, :email, :password, :password_confirmation
+	has_secure_password
 	before_save :create_remember_token #changed from before_save to avoid logout on user model update GOT BACK TO BEFORE SAVE (leaving comment for now)
 	
   after_create :build_settings, :activities_visit_update
