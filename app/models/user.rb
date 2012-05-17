@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
 	
-	attr_accessible :name, :email, :password, :password_confirmation, :activities_visit
-	has_secure_password
-	before_create :create_remember_token #changed from before_save to avoid logout on user model update
-	after_create :activities_visit_update
+	attr_accessible :name, :email, :password, :password_confirmation
+	before_save :create_remember_token #changed from before_save to avoid logout on user model update GOT BACK TO BEFORE SAVE (leaving comment for now)
+	
+  after_create :build_settings, :activities_visit_update
 
 	validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
 	has_many :reposts
 	has_many :activities
 
+  has_one :setting
 
 
   def self.search(search)
@@ -46,7 +47,7 @@ class User < ActiveRecord::Base
 
   #counts only new activities for user
   def activities_counter 
-  	Activity.personal(self).where("created_at > ?",self.activities_visit).order('created_at DESC').count
+  	Activity.personal(self).where("created_at > ?",self.setting.activities_visit).order('created_at DESC').count
   end
 
 
@@ -93,8 +94,8 @@ class User < ActiveRecord::Base
 	end
 
   def activities_visit_update
-  	self.activities_visit = Time.now
-  	self.save :validate => false
+  	self.setting.activities_visit = Time.now
+    self.setting.save
   end
 
 
@@ -102,6 +103,10 @@ class User < ActiveRecord::Base
 
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
-    end							   
+    end			
+
+    def build_settings
+      self.create_setting
+    end    				   
 
 end
