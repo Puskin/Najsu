@@ -2,6 +2,13 @@
 	<%= render :partial => "movies/lightboxActions", :locals => { :movie => movie } %>
 </ul>
 
+<div id="lightbox_comments">
+	<ul>
+		<%= render movie.comments %>
+	</ul>
+		<% if signed_in? %>	<%= render :partial => "comments/form", :locals => { :movie => movie } %> <% end %>
+</div>
+
 <div class="lightbox">
 	<div class="content" id="lightbox_content">
 
@@ -13,13 +20,6 @@
 		<% else %>
 			SHIT
 		<% end %>
-
-		<div class="comments">
-			<ul>
-				<%= render movie.comments %>
-			</ul>
-			<% if signed_in? %>	<%= render :partial => "comments/form", :locals => { :movie => movie } %> <% end %>
-		</div>
 	</div>
 </div>
 

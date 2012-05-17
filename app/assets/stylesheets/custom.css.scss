@@ -469,10 +469,12 @@ p.page_info a { color: #fff; text-decoration: underline }
 #embed_video.biggest { width: 1280px; height: 720px; }
 */
 
-.overlay .lightbox .content .comments { display: none; }
 
 .overlay .lightbox .content.sidepanel { width: 960px; margin: auto }
 .overlay .lightbox .content.sidepanel #embed_video { width: 660px; height: 372px }
+
+/*
+.overlay .lightbox .content .comments { display: none; }
 .overlay .lightbox .content.sidepanel .comments { height: 372px; width: 300px; background: #fff }
 .overlay .lightbox .content.sidepanel embed,
 .overlay .lightbox .content.sidepanel .comments { float: left; display: block; }
@@ -489,9 +491,31 @@ p.page_info a { color: #fff; text-decoration: underline }
 	width: 30px; height: 30px; float: left }
 .overlay .lightbox .content.sidepanel .comments ul li a.close { display: none }
 .overlay .lightbox .content.sidepanel .comments ul li:hover a.close { display: block; }
-.overlay .lightbox .content.sidepanel #new_comment { margin: 0; padding: 0 }
-.overlay .lightbox .content.sidepanel #new_comment #comment_content { height: 20px; padding: 0; line-height: 20px; font-size: 11px }
-.overlay .lightbox .content.sidepanel #new_comment img.avatar { width: 25px; height: 25px; float: left; margin-right: 3px }
+*/
+
+
+/* new comments implementation */
+#lightbox_comments { display: none; }
+#lightbox_comments.active { display: block; }
+
+#lightbox_comments { opacity: 0.3; position: fixed; top: 40px; right: 80px; width: 300px; height: 375px; background: #fff }
+#lightbox_comments:hover { opacity: 1; }
+#lightbox_comments ul { height: 345px; width: 300px; overflow: scroll;	overflow-x: hidden; list-style-type: none; margin: 0 }
+#lightbox_comments ul li { 
+	text-align: left; font-size: 11px; line-height: 14px;
+	width: 275px; padding: 5px; color: #000; margin: 0; float: left; border-bottom: 1px solid lightgray }
+#lightbox_comments ul li .avatar { 
+	margin: 0 4px 0 0;
+	width: 30px; height: 30px; float: left }
+#lightbox_comments ul li a.close { display: none }
+#lightbox_comments ul li:hover a.close { display: block; }
+
+#lightbox_comments #new_comment { margin: 0; padding: 0 }
+#lightbox_comments #new_comment #comment_content { height: 20px; padding: 0; line-height: 20px; font-size: 11px }
+#lightbox_comments #new_comment img.avatar { width: 25px; height: 25px; float: left; margin-right: 3px }
+
+
+
 
 #main .row { padding: 20px }
 /* Shared forms */

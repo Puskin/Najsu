@@ -162,6 +162,8 @@ function lightboxButtons(ev) {
 	});
 	*/
 	
+
+	/* OLD COMMENTS IMPLEMENTATION 
 	$('#cinema .actions #comments').click(function() {
 		var sidepanel = $('#lightbox_content').hasClass('sidepanel');
 		if (sidepanel == true) {
@@ -177,6 +179,26 @@ function lightboxButtons(ev) {
 	if (sidepanel == true) {
 		$('#cinema .actions #comments').addClass('active');
 	}
+	*/
+
+	$('#cinema .actions #comments').click(function() {
+		var sidepanel = $('#lightbox_comments').hasClass('active');
+		if (sidepanel == true) {
+			$(this).removeClass('active');
+			$('#lightbox_comments').removeClass('active');
+		}
+		else {
+			$(this).addClass('active');
+			$('#lightbox_comments').addClass('active');
+		}
+	});
+	var sidepanel = $('#lightbox_comments').hasClass('active');
+	if (sidepanel == true) {
+		$('#cinema .actions #comments').addClass('active');
+	}
+
+
+
 
 	$('.popover').remove();
 	$('#like').popover({placement: 'left'});
