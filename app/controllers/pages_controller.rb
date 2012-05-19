@@ -58,7 +58,7 @@ class PagesController < ApplicationController
 
   def submit
     if signed_in?
-      if params[:resource_id] && params[:resource_title] && params[:resource_source]
+      if params[:resource_id] && params[:resource_title] && params[:resource_source] && params[:resource_source] != "undefined"
         video_id = params[:resource_id]
         video_title = params[:resource_title]
         video_source = params[:resource_source]
