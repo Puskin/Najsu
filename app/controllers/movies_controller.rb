@@ -1,8 +1,8 @@
 class MoviesController < ApplicationController
  
-  before_filter :signed_in_user, except: [:show]
+  before_filter :signed_in_user, except: [:show, :index]
   before_filter :correct_user, only: [:destroy]
-  before_filter :authenticate, only: [:new, :index]
+  before_filter :authenticate, only: [:new]
 
   layout "clean", only: [:show]
 
