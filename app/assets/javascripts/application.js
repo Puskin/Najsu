@@ -188,10 +188,12 @@ function lightboxButtons(ev) {
 		if (sidepanel == true) {
 			$(this).removeClass('active');
 			$('#lightbox_comments').removeClass('active');
+			$('#lightbox_comments').fadeOut('fast');
 		}
 		else {
 			$(this).addClass('active');
 			$('#lightbox_comments').addClass('active');
+			$('#lightbox_comments').fadeIn('normal');
 			var window_height = $(window).height();
 			$('#lightbox_comments').css("height", window_height-120);			
 			$('#lightbox_comments ul').css("height", window_height-150);			
