@@ -38,9 +38,11 @@ class PagesController < ApplicationController
       @reposts = current_user.reposts.order('created_at DESC').first(30)
     when "liked"
       likes = current_user.likes.map(&:movie_id)
-      @reposts = Repost.find_all_by_movie_id(likes.uniq, :order => 'created_at DESC').first(30)
+      @reposts = current_user.reposts.find_all_by_movie_id(likes.uniq,:order => 'created_at DESC').first(30)
+      #@reposts = Repost.find_all_by_movie_id_and_user_id(likes.uniq, current_user.id, :order => 'created_at DESC').first(30)
     when "commented"
       comments = current_user.comments.map(&:movie_id)
+      #zrobić sobie scope'a do wyświetlania repostów komentowanych przez danego usera
       @reposts = Repost.find_all_by_movie_id(comments.uniq, :order => 'created_at DESC').first(30)
     else
       @reposts = current_user.reposts.order('created_at DESC').first(30)
