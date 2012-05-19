@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
 
   def index    
-    @movies = Movie.order('id ASC').first(2)  #limited to two for import testing purpose
+    @movies = Movie.order('id ASC')
     respond_to do |format|
       format.xml
       format.json { render json: @movies }
@@ -31,7 +31,7 @@ class MoviesController < ApplicationController
     movies.each do |movie|
       mv = Movie.new
       mv.resource_id = movie["resource_id"]
-      mv.user_id     = movie["user_id"]
+      mv.user_id     = 1
       mv.title       = movie["title"]
       mv.source      = movie["source"]
       mv.thumbnail   = movie["thumbnail"]
