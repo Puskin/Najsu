@@ -6,12 +6,11 @@ class MoviesController < ApplicationController
   layout "clean", only: [:show]
 
 
-  def index
-    if params[:popular] == "fuckyea"
-      @movies = Movie.order('likes_count DESC').paginate(:page => params[:page])
-    else
-      @movies = Movie.all
-    end
+  def index    
+    @movies = Movie.all  
+    respond_to do |format|
+      format.xml
+    end  
   end
 
   def show
