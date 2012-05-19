@@ -1,7 +1,11 @@
-<% content_for :cinema do %>
-	<%= render :partial => 'movies/lightbox', :locals => { :movie => @movie} %>
+<% content_for :head do %>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
 <% end %>
 
+<div class="overlay" id="cinema">
+	<%= render :partial => 'movies/lightbox', :locals => { :movie => @movie, :page => "static" } %>
+</div>
 
 <script type="text/javascript">
 	$(window).load(function(ev){	

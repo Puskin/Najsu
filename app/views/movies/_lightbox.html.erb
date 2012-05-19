@@ -1,5 +1,9 @@
 <ul class="actions unstyled" id="movieActions">
-	<%= render :partial => "movies/lightboxActions", :locals => { :movie => movie } %>
+	<% if defined? page %>
+		<%= render :partial => "movies/lightboxActions", :locals => { :movie => movie, :page => page } %>
+	<% else %>
+		<%= render :partial => "movies/lightboxActions", :locals => { :movie => movie } %>
+	<% end %>
 </ul>
 
 <div id="lightbox_comments">

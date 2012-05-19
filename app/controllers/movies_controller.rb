@@ -3,6 +3,8 @@ class MoviesController < ApplicationController
   before_filter :signed_in_user, except: [:show]
   before_filter :correct_user, only: [:destroy]
 
+  layout "clean", only: [:show]
+
 
   def index
     if params[:popular] == "fuckyea"

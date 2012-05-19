@@ -1,4 +1,10 @@
-<li><a id="bye">Close</a></li>	
+<% if defined? page %>
+	<li><a id="bye" href="/">Close</a></li>	
+<% else %>
+	<li><a id="bye">Close</a></li>	
+<% end %>
+
+
 <% if signed_in? %>
 
 	<% cssClass = "active" if movie.liked?(current_user.id) %>
