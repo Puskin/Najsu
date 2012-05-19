@@ -1,3 +1,5 @@
+<% provide(:title, 'Szukaj znajomych') %>
+
 <div class="container">
   <div class="row" id="people">
     <% if current_user.facebook? && 1==2 %>
@@ -14,8 +16,9 @@
         <%= submit_tag "Szukaj", :name => nil, :class => "btn" %>
       <% end %>
 
-      <% provide(:title, 'Lista użytkowników') %>
+      
       <ul class="unstyled" id="usersList">
+        <h3>Propozycje</h3>
         <%= render @users %>
       </ul>
 
