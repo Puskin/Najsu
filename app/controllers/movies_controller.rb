@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
 
   def index    
-    @movies = Movie.order('id ASC')  
+    @movies = Movie.order('id ASC').first(2)  #limited to two for import testing purpose
     respond_to do |format|
       format.xml
       format.json { render json: @movies }
