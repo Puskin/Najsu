@@ -2,12 +2,13 @@ class MoviesController < ApplicationController
  
   before_filter :signed_in_user, except: [:show]
   before_filter :correct_user, only: [:destroy]
+  before_filter :authenticate, only: [:index]
 
   layout "clean", only: [:show]
 
 
   def index    
-    @movies = Movie.all  
+    @movies = Movie.order('id ASC')  
     respond_to do |format|
       format.xml
     end  
@@ -75,6 +76,17 @@ class MoviesController < ApplicationController
       format.js
     end
   end
+
+
+
+
+  protected
+
+    def authenticate
+      authenticate_or_request_with_http_basic do |username, password|
+        username == "najsu" && password == "2l3uh*&!@^)!(@#4uo23i4&!@^%#"
+      end
+    end
 
   private
 
