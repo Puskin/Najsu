@@ -537,13 +537,31 @@ p.page_info a { color: #fff; text-decoration: underline }
 
 #follow_form form { margin: 0 }
 
+#people { padding-top: 10px; }
 #people .span6 { margin: auto; float: none; min-height: 70px; }
-#people .span6 form#searchPeople input { padding: 10px; }
-#people .span6 form#searchPeople input#search { width: 367px }
+#people .span6 form#searchPeople { 
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	float: left; width: 438px; padding: 10px; background: #fff;
+	margin-bottom: 5px;
+}
+#people .span6 form#searchPeople * { float: left }
+#people .span6 form#searchPeople input { padding: 10px; margin: 0 }
+#people .span6 form#searchPeople input#search { width: 350px; padding: 9px 10px; }
+#people .span6 form#searchPeople input.btn { float: right }
+#people h2 { font-size: 18px; margin-bottom: 10px; }
 
-
-#people #usersList { float: left; width: 100% }
-#people #usersList li { border-bottom: 1px dotted gray; padding: 4px 0; display: block; width: 100%; float: left }
+#people #usersList { 
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #fff;
+	float: left; width: 438px; padding: 10px;  
+}
+#people #usersList li { border-bottom: 1px dotted rgba(0,0,0,0.2); padding: 4px 0; display: block; width: 100%; float: left }
+#people #usersList li:first-child { padding-top: 0 }
+#people #usersList li:last-child { border: 0; padding-bottom: 0 }
 #people #usersList li p { margin: 0 }
 #people #usersList li form { float: right; margin: 0 }
 
@@ -558,6 +576,16 @@ p.page_info a { color: #fff; text-decoration: underline }
 	margin-top: 20px;
 }
 
+#people .span6 form#searchPeople,
+#people #usersList  { border: 1px solid #DBDBDB }
+#people #usersList .friends strong { margin-bottom: 5px; float: left }
+#people #usersList .friends { width: 214px; float: left; margin-bottom: 0px; }
+#people #usersList .friends.first { margin-right: 10px }
+
+
+#people h2.username img { float: left; margin-right: 10px; margin-left: 1px }
+#user_show_form,
+#people h2.username form { float: right; margin: 0 }
 
 .alert.mini { margin: 0; padding: 0 4px; font-size: 11px; line-height: 17px }
 

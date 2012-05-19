@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def index
     if query = params[:search]
-      @users = User.search(query)      
+      @users = User.search(query) if query != ""      
     else
       users_count = User.all.count
       arr = []
@@ -30,22 +30,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    case params[:show]    
-    when "yours"
-      @movies = @user.reposts.order('created_at DESC')
-    when "liked"
-      likes = @user.likes.map(&:movie_id)
-      @movies = Repost.find_all_by_movie_id(likes.uniq, :order => 'created_at DESC')
-    when "commented"
-      comments = @user.comments.map(&:movie_id)
-      @movies = Repost.find_all_by_movie_id(comments.uniq, :order => 'created_at DESC')
-    else
-      @movies = @user.reposts.order('created_at DESC')
-    end
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def new

@@ -1,1 +1,3 @@
 $("li#user_<%=@user.id%> #follow_form").html("<%= escape_javascript( render :partial => 'users/followForm', :locals => { :user => @user } ) %>");
+$('#user_show_form').html("<%= escape_javascript( render :partial => 'users/followForm', :locals => { :user => @user } ) %>");
+
