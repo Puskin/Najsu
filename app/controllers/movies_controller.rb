@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
  
   before_filter :signed_in_user, except: [:show]
   before_filter :correct_user, only: [:destroy]
-  before_filter :authenticate, only: [:index]
+  before_filter :authenticate, only: [:new, :index]
 
   layout "clean", only: [:show]
 
@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
     @movies = Movie.order('id ASC')  
     respond_to do |format|
       format.xml
+      format.json { render json: @movies }
     end  
   end
 
@@ -25,12 +26,18 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @movie }
+    require "open-uri"
+    movies = ActiveSupport::JSON.decode(open("http://www.najsu.pl/movies.json"))
+    movies.each do |movie|
+      mv = Movie.new
+      mv.resource_id = movie["resource_id"]
+      mv.user_id     = movie["user_id"]
+      mv.title       = movie["title"]
+      mv.source      = movie["source"]
+      mv.thumbnail   = movie["thumbnail"]
+      mv.save
     end
+    redirect_to root_path, notice: 'Zaimportowano filmy.'     
   end
 
   # POST /movies
@@ -76,7 +83,6 @@ class MoviesController < ApplicationController
       format.js
     end
   end
-
 
 
 
