@@ -1,2 +1,3 @@
 $("#moviesList #clip_<%=@comment.movie_id%> #comment_<%=@comment.id%>").fadeOut(350, function() { $(this).remove(); });
+$("#lightbox_comments #comment_<%=@comment.id%>").fadeOut(350, function() { $(this).remove(); });
 $("#moviesList").masonry( 'reload' );

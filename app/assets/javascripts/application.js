@@ -37,6 +37,8 @@ $(document).ready(function(ev){
 		var window_height = $(window).height();
 		$('#activities_baloon').css("height", window_height-120);
 		$('#counter_activities').css("height", window_height-148);
+		$('#lightbox_comments').css("height", window_height-120);			
+		$('#lightbox_comments ul').css("height", window_height-150);		
 	};
 
 	$(".btn-group a").click(function(e){
@@ -190,6 +192,9 @@ function lightboxButtons(ev) {
 		else {
 			$(this).addClass('active');
 			$('#lightbox_comments').addClass('active');
+			var window_height = $(window).height();
+			$('#lightbox_comments').css("height", window_height-120);			
+			$('#lightbox_comments ul').css("height", window_height-150);			
 		}
 	});
 	var sidepanel = $('#lightbox_comments').hasClass('active');

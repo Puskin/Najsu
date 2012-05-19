@@ -498,7 +498,10 @@ p.page_info a { color: #fff; text-decoration: underline }
 #lightbox_comments { display: none; }
 #lightbox_comments.active { display: block; }
 
-#lightbox_comments { opacity: 0.3; position: fixed; top: 40px; right: 80px; width: 300px; height: 375px; background: #fff }
+#lightbox_comments { 
+  border-radius: 4px 4px 4px 4px; padding: 10px;
+  opacity: 0.3; position: fixed; top: 40px; right: 80px; width: 300px; height: 375px; background: #fff 
+}
 #lightbox_comments:hover { opacity: 1; }
 #lightbox_comments ul { height: 345px; width: 300px; overflow: scroll;	overflow-x: hidden; list-style-type: none; margin: 0 }
 #lightbox_comments ul li { 
