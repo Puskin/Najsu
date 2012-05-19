@@ -14,14 +14,14 @@
 
 			<div id="usersList">
 				<ul class="unstyled friends first">
-					<strong>Obserwowani:</strong>
+					<strong>Obserwowani (<%=@user.followed_users.count%>):</strong>
 					<% @user.followed_users.each do |followed| %>
 						<li><%= link_to(followed.name, user_path(followed.id)) %></li>
 					<% end %>
 				</ul>
 
 				<ul class="unstyled friends">
-					<strong>Obserwujący:</strong>
+					<strong>Obserwujący (<%=@user.followers.count%>):</strong>
 					<% @user.followers.each do |follower| %>
 						<li><%= link_to(follower.name, user_path(follower.id)) %></li>
 					<% end %>
