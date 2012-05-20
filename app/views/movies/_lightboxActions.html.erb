@@ -11,7 +11,7 @@
 	<%= form_for(movie.likes.build, :remote => true) do |f| %>
 		<%= f.hidden_field :movie_id, :value => movie.id %>
 	  <li><%= f.submit "Like", :id => "like", :class => cssClass, :rel => "popover", "data-content" => users_liked(movie), 
-	  "data-original-title" => "Movie likes (#{movie.likes_count})" %></li>
+	  "data-original-title" => "Lubią to (#{movie.likes_count})" %></li>
 	<% end %>
 
 	<li><a id="comments">Comments</a></li>
