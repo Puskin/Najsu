@@ -1,7 +1,7 @@
 module SettingsHelper
 
   def store_settings
-    cookies[:user_settings] = current_user.setting.to_json
+    cookies.permanent[:user_settings] = current_user.setting.to_json
   end
 
   def current_settings

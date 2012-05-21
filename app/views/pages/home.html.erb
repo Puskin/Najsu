@@ -44,9 +44,6 @@
 		<div id="information">
 			<%= render :partial => 'pages/homeNotice' %>
 		</div>
-
-		<%= current_settings.updated_at if signed_in? %>
-
 		<div id="moviesList">
 			<%= render @movies %>
 		</div>
