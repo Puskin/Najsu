@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 	
   protect_from_forgery
   include SessionsHelper
+  include SettingsHelper
 
   before_filter :ensure_domain
 

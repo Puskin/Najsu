@@ -15,7 +15,9 @@ class ActivitiesController < ApplicationController
       format.js { @activities = Activity.personal(current_user).order('created_at DESC').first(show_count) }
     end
     @new_activities = current_user.activities_counter
+    
     current_user.activities_visit_update
+    store_settings
   end
 
 end
