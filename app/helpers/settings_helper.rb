@@ -6,10 +6,10 @@ module SettingsHelper
 
   def current_settings
   	stored_settings = cookies[:user_settings]
-		@current_settings ||= Setting.new.from_json(stored_settings)		 
+		@current_settings = Setting.new.from_json(stored_settings)		 
   end
 
-  def clean_settings
+  def destroy_settings
   	cookies.delete(:user_settings)
   end
 
