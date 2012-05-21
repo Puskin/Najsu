@@ -2,7 +2,7 @@
 class PagesController < ApplicationController
 
   include MoviesHelper
-  before_filter :signed_in_user, only: [:bookmarklet, :library]
+  before_filter :signed_in_user, only: [:library]
   layout "clean", only: [:submit]
 
   def home
@@ -54,6 +54,10 @@ class PagesController < ApplicationController
   end
 
   def bookmarklet    
+    respond_to do |format|
+      format.js
+      format.html { redirect_to signin_path, notice: "Zaloguj się lub załóż konto" unless signed_in? }
+    end
   end
 
   def submit
