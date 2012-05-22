@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
 
 
 	def facebook?
-		true if !self.authentications.empty? else false
+		false if self.authentications.empty? else true
 	end
 
   def facebook #get only basic data for some app ussage
