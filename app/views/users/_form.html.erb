@@ -9,14 +9,28 @@
           <%= @user.name %>
         </h2>   
 
-        <div id="usersList">
-        <div>
+
+        <div id="usersList"> 
+
+          <% if @facebook_user %>
+
+            <h3>Avatar z Facebook</h3>
+            <% facebook_avatar = open("#{@facebook_data.picture("large")}") %>
+            <%= image_tag(facebook_avatar) %>
+            <%= link_to("Używaj w najsu", :setup => "avatar") %>
+
+            <% unless current_settings.facebook_avatar.nil? %>
+              Aktualny avatar:
+              <%= image_tag(current_settings.facebook_avatar) %>   
+            <% end %>
+
+          <% end %>
+
+        <div>        
       </div>
 
     </div>
   </div>
-
-
 
 
 <% else %>

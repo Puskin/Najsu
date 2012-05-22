@@ -36,20 +36,33 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
   def edit
+    require 'open-uri'
     @user = User.find(params[:id])
+
+    if current_user.facebook?
+      @facebook_user = true
+      @facebook_data = current_user.facebook
+    else
+      @facebook_user = false
+    end
+
     case params[:setup]
     when "avatar"
       if @user.remember_token == "QTnRYxvylSjndPL5T40fNw"
-        current_user.setting.facebook_avatar = open("#{current_user.facebook.picture('large')}")
-        current_user.setting.save
-        store_settings        
-        redirect_to edit_user_path(current_user), :flash => { :success => "Aktualizacja avatara udana" }
+        if @facebook_user
+          current_user.setting.facebook_avatar = open("#{@facebook_data.picture('square')}")
+          current_user.setting.save
+          store_settings        
+          redirect_to edit_user_path(current_user), :flash => { :success => "Aktualizacja avatara udana" }
+        end
       else
         redirect_to edit_user_path(current_user), :flash => { :error => "Brak uprawnień" }
       end
     end
   end
+
 
   def create
     @user = User.new(params[:user])
