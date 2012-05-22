@@ -1,31 +1,42 @@
-<%= form_for(@user, :html => { :class => "form-horizontal pull-left"}) do |f| %>
-  <fieldset>
-    <%= render 'shared/error_messages' %>
+<% if signed_in? %>
 
-    <div class="group text">
+  <div class="container">
+    <div id="people" class="row">
+
+      <div class="span6">
+        <h2 class="username">
+          <%= image_tag(gravatar_url_for(@user), :size => "35x35" ) %>
+          <%= @user.name %>
+        </h2>   
+
+        <div id="usersList">
+        <div>
+      </div>
+
+    </div>
+  </div>
 
 
+
+
+<% else %>
+
+  <%= form_for(@user, :html => { :class => "form-horizontal pull-left"}) do |f| %>
+    <fieldset>
+      <%= render 'shared/error_messages' %>
+
+      <div class="group text">
         <%= f.text_field :name, :placeholder => "nick" %>
-
-
         <%= f.text_field :email, :placeholder => "e-mail" %>
       </div>
-    <div class="group text">
-
+      <div class="group text">
         <%= f.password_field :password, :placeholder => "hasło" %>
-
-
         <%= f.password_field :password_confirmation, :placeholder => "potwierdzenie hasła" %>
-            </div>
+      </div>
+        <%= f.submit "zarejestruj się", :class => "button", :disable_with => "Ładowanie" %>
 
-
-
-      <%= f.submit "zarejestruj się", :class => "button", :disable_with => "Ładowanie" %>
-
-
-  </fieldset>
-<% end %>
-
+    </fieldset>
+  <% end %>
   <h2><a href="/signin">Mam już konto!</a></h2>
 
-
+<% end %>

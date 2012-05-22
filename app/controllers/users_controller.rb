@@ -38,6 +38,18 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    case params[:setup]
+    when "avatar"
+      if @user.remember_token == "QTnRYxvylSjndPL5T40fNw"
+        #mniej więcej, poprawić i ogarnąć
+        #id = current_user.fbgraph.id
+        #current_user.setting.facebook_avatar = open("http://graph.facebook.com/#{id}/picture?type=large")
+        #store_settings
+        redirect_to edit_user_path(current_user), :flash => { :success => "Aktualizacja avatara udana" }
+      else
+        redirect_to edit_user_path(current_user), :flash => { :error => "Brak uprawnień" }
+      end
+    end
   end
 
   def create

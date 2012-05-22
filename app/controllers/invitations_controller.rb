@@ -16,6 +16,7 @@ class InvitationsController < ApplicationController
     @friend_uid = params[:uid]
     auth = current_user.authentications.find_by_provider("facebook")
     fbuser = FbGraph::User.new(@friend_uid, :access_token => auth.token)
+    #moze byc latwo napisane jako current_user.fbgraph.feed!
     
     fbuser.feed!(
       :message => 'Polecam najsu, zobacz!',
