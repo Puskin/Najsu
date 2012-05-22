@@ -70,19 +70,21 @@ class User < ActiveRecord::Base
 
 
 
-  #facebook integration stuff
 	def facebook?
-		if self.authentications.find_by_provider("facebook")
-			true
-		else
-			false
-		end
+		true if !self.authentications.empty? else false
 	end
 
-	def fbgraph
+  def facebook #get only basic data for some app ussage
+    @facebook ||= FbGraph::User.fetch(self.authentications.find_by_provider('facebook').uid)
+  end
+
+	def fbgraph #get more data via auth token
 		auth = self.authentications.find_by_provider("facebook")
 		fbuser = FbGraph::User.fetch(auth.uid, :access_token => auth.token)
 	end
+
+
+
 
 	def apply_omniauth(omniauth)
   	self.email = omniauth['info']['email']
