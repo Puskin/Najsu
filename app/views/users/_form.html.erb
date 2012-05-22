@@ -15,13 +15,12 @@
           <% if @facebook_user %>
 
             <h3>Avatar z Facebook</h3>
-            <% facebook_avatar = open("#{@facebook_data.picture("large")}") %>
+            <% facebook_avatar = "http://graph.facebook.com/#{@facebook_data.identifier}/picture?type=large" %>
             <%= image_tag(facebook_avatar) %>
             <%= link_to("Używaj w najsu", :setup => "avatar") %>
 
-            <% unless current_settings.facebook_avatar.nil? %>
-              Aktualny avatar:
-              <%= image_tag(current_settings.facebook_avatar) %>   
+            <% if current_settings.facebook_avatar == 1 %>
+              Aktualny avatar: <%= image_tag(current_settings.facebook_avatar) %>   
             <% end %>
 
           <% end %>

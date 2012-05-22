@@ -42,7 +42,6 @@ class UsersController < ApplicationController
 
 
       #============================================================================IMPORTANT
-      require 'open-uri'
       @user = User.find(params[:id])
 
       if current_user.facebook?
@@ -55,7 +54,7 @@ class UsersController < ApplicationController
       case params[:setup]
       when "avatar"
         if @facebook_user
-          current_user.setting.facebook_avatar = open("#{@facebook_data.picture('square')}")
+          current_user.setting.facebook_avatar = 1
           current_user.setting.save
           store_settings        
           redirect_to edit_user_path(current_user), :flash => { :success => "Aktualizacja avatara udana" }
