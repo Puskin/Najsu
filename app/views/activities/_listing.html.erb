@@ -58,7 +58,7 @@
  				<% if !same_user or first_activity %>
  					<div class="avatar">
 						<div class="mask" rel='tooltipBottom' title ="<%= activity.user.name %>"></div>
-						<%= image_tag(gravatar_url_for(activity.user), :size => '64x64') %>
+						<%= image_tag(avatar_url_for(activity.user), :size => '64x64') %>
 					</div>			 			
 				<% end %>
 

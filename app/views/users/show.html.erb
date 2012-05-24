@@ -5,7 +5,7 @@
 
 		<div class="span6">
 			<h2 class="username">
-				<%= image_tag(gravatar_url_for(@user), :size => "35x35" ) %>
+				<%= image_tag(avatar_url_for(@user), :size => "35x35" ) %>
 				<%= @user.name %>
 				<div id="user_show_form">
 					<%= render :partial => "users/followForm", :locals => { :user => @user } %>
