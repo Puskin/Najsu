@@ -39,7 +39,7 @@
 		</li>
 		<% if movie.comments_count > 5 %>
 			<% movies_left = movie.comments_count - 5 %>
-			<li class="more"><%= "Wczytaj jeszcze #{movies_left} komentów" %></li>
+			<li class="more"><%= link_to("Pokaż jeszcze #{movies_left} komentarzy", movie_path(movie.id), :remote => true) %></li>
 		<% end %>
 		<%= render movie.comments.last(5) %>
 	</ul>

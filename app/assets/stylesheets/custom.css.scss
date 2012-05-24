@@ -383,6 +383,7 @@ border-bottom-left-radius: 3px;
 #moviesList .movie .comments li:last-child { border: 0!important; padding-bottom: 0!important }
 
 #moviesList .movie .comments li.more { font-weight: bold; padding: 5px 0; min-height: 13px; text-align: center; width: 208px; }
+#moviesList .movie .comments li.more a { color: #484848; font-weight: normal }
 
 
 #moviesList.library .counters { margin-bottom: 0!important }
