@@ -54,7 +54,7 @@ class UsersController < ApplicationController
       case params[:setup]
       when "avatar"
         if @facebook_user
-          current_user.setting.facebook_avatar = 1
+          current_user.setting.facebook_avatar = @facebook_data.identifier
           current_user.setting.save
           store_settings        
           redirect_to edit_user_path(current_user), :flash => { :success => "Aktualizacja avatara udana" }

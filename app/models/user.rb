@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	
-	attr_accessible :name, :email, :password, :password_confirmation
+	attr_accessible :name, :email, :password, :password_confirmation, :fb_uid
 	has_secure_password
 	before_save :create_remember_token #changed from before_save to avoid logout on user model update GOT BACK TO BEFORE SAVE (leaving comment for now)
 	
@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
 
 
 	def facebook?
-		if self.authentications == []
+		if self.fb_uid == nil or self.fb_uid.empty? == true
       false
     else
       true
@@ -91,8 +91,9 @@ class User < ActiveRecord::Base
 
 
 	def apply_omniauth(omniauth)
-  	self.email = omniauth['info']['email']
-  	self.name  = omniauth['info']['name']
+  	self.email   = omniauth['info']['email']
+  	self.name    = omniauth['info']['name']
+    self.fb_uid  = omniauth['uid']
   	authentications.build(
   		:provider => omniauth['provider'], 
   		:uid 			=> omniauth['uid'],
