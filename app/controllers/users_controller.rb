@@ -38,34 +38,6 @@ class UsersController < ApplicationController
 
 
   def edit
-    if @user.remember_token == "QTnRYxvylSjndPL5T40fNw"
-
-
-      #============================================================================IMPORTANT
-      @user = User.find(params[:id])
-
-      if current_user.facebook?
-        @facebook_user = true
-        @facebook_data = current_user.facebook
-      else
-        @facebook_user = false
-      end
-
-      case params[:setup]
-      when "avatar"
-        if @facebook_user
-          current_user.setting.facebook_avatar = @facebook_data.identifier
-          current_user.setting.save
-          store_settings        
-          redirect_to edit_user_path(current_user), :flash => { :success => "Aktualizacja avatara udana" }
-        end
-      end
-      #============================================================================IMPORTANT END
-
-
-    else
-      redirect_to edit_user_path(current_user), :flash => { :error => "Brak uprawnień" }
-    end    
   end
 
 
