@@ -1,5 +1,5 @@
 <li id="comment_<%= comment.id %>">
-	<%= link_to(image_tag(gravatar_url_for(comment.user), :class => "avatar"), user_path(comment.user), :class => "avatar") %>
+	<%= link_to(image_tag(avatar_url_for(comment.user), :class => "avatar"), user_path(comment.user), :class => "avatar") %>
 	<strong><%= comment.user.name %></strong> <%= comment.content %> <small><%= time_ago_in_words(comment.created_at) %> ago.</small>
 	<% if current_user?(comment.user) %>
 		<%= link_to "&times;".html_safe, comment, :confirm => "Fo' sho?", :method => :delete, :class => "close", :remote => true %>
