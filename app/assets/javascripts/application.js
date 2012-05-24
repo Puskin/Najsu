@@ -210,6 +210,7 @@ function lightboxButtons(ev) {
 
 	$('.popover').remove();
 	$('#like').popover({placement: 'left'});
+	$('[rel="tooltipLeft"]').tooltip({placement: "left"});
 }           
 
 function resizeWindow( e ) {
