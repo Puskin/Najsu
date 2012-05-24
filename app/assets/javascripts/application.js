@@ -109,6 +109,7 @@ $(document).ready(function(ev){
 
 	$('[rel="tooltip"]').tooltip();
 	$('[rel="tooltipBottom"]').tooltip({placement: "bottom"});
+	$('[rel="tooltipLeft"]').tooltip({placement: "left"});
 
 
 	$('.next_page').click(function(e){

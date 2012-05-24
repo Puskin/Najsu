@@ -458,6 +458,11 @@ p.page_info a { color: #fff; text-decoration: underline }
 .overlay .actions li .active#comments,
 .overlay .actions li #comments:active { background-position: 0px -94px; }
 
+.overlay .actions li.avatar { position: fixed; bottom: 10px; right: 25px }
+.overlay .actions li.avatar .mask { position: absolute; top: 0; left: 0; background: url(avatarMaskCinema.png); height: 32px; width: 32px; pointer-events: none  }
+.overlay .actions li.avatar a { background: none }
+.overlay .actions li.avatar a img { float: left }
+
 .overlay .lightbox { vertical-align: middle; display: table-cell; }
 .overlay .lightbox .content { margin: auto; text-align: center; z-index: 1000  }
 
