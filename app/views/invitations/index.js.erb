@@ -1,2 +1,2 @@
 $('#actionsModal').modal('show');
-$("#actionsModal .modal-body").html("<ul class='unstyled'><%= escape_javascript( render :partial => 'invitations/fbuser', :collection => @fb_friends, :as => :friend) %></ul>");
+$('#actionsModal').html("<%= escape_javascript( render :partial => 'invitations/fbfriends', :locals => { :fb_friends => @fb_friends } %>");

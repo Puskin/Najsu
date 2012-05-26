@@ -23,7 +23,7 @@ class InvitationsController < ApplicationController
       :description => 'Odkrywaj filmiki dziel ze znajomymi!'
     )
 
-    invitation = current_user.invitations.create(:uid => @friend_uid)
+    #invitation = current_user.invitations.create(:uid => @friend_uid)
 
     respond_to do |format|
       format.html 

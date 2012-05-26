@@ -1,0 +1,29 @@
+<div class="modal-header">
+	<a class="close" data-dismiss="modal">×</a>
+	<h3>Header</h3>
+</div>
+
+<div class="modal-body">
+	<ul class='unstyled'>
+		<% fb_friends.each do |friend| %>
+			<li id="row_<%=friend.identifier %>">
+				<%= image_tag("http://graph.facebook.com/#{friend.identifier}/picture", :size => "20x20") %>
+				<%= friend.name %>
+				<% if current_user.invitations.find_by_uid(friend.identifier) %>
+					<div class='alert alert-success pull-right mini'>Zaproszenie wysłane!</div>
+				<% else %>
+					<%= link_to "Invite", new_invitation_path(:uid => friend.identifier), :disable_with => "Ładowanie...",
+					:remote => true, :class => "btn btn-mini pull-right", :id => "button_#{friend.identifier}" %>
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+</div>
+
+<div class="modal-footer">
+	<a href="#" class="btn" data-dismiss="modal">Close</a>
+</div>
+
+
+
+
