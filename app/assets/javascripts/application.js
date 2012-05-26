@@ -266,7 +266,7 @@ function facebook_live_search(){
 			var contents = $("p",this).html().toUpperCase();
 			var $row = $(this);
 			// check the string against that cell
-			var value = (!contents.match('^' + string)) ? $row.attr('class','hidden') : $row.removeAttr('class','hidden');
+			var value = (!contents.match(string)) ? $row.attr('class','hidden') : $row.removeAttr('class','hidden');
 		});
 	});
 }
