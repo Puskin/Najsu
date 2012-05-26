@@ -12,7 +12,7 @@
 				<% if current_user.invitations.find_by_uid(friend.identifier) %>
 					<div class='alert alert-success pull-right mini'>Zaproszenie wysłane!</div>
 				<% else %>
-					<%= link_to "Invite", new_invitation_path(:uid => friend.identifier), :disable_with => "Ładowanie...",
+					<%= link_to "Zaproś", new_invitation_path(:uid => friend.identifier), :disable_with => "Ładowanie...",
 					:remote => true, :class => "btn btn-mini pull-right", :id => "button_#{friend.identifier}" %>
 				<% end %>
 			</li>
