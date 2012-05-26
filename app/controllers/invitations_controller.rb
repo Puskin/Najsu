@@ -25,11 +25,16 @@ class InvitationsController < ApplicationController
 
     #invitation = current_user.invitations.create(:uid => @friend_uid)
 
-    respond_to do |format|
-      format.html 
+    respond_to do |format| 
       format.js { @status = true }
     end
+
+    rescue FbGraph::Unauthorized
+      respond_to do |format| 
+        format.js { @status = false }
+      end    
   end
+  
 
   # GET /invitations/1/edit
   def edit

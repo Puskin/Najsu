@@ -1,3 +1,7 @@
 $("#button_<%=@friend_uid%>").remove();
-$("#row_<%=@friend_uid%>").append("<div class='alert alert-success pull-right mini'>Invite sent</div>");
+<% if @status %>
+	$("#row_<%=@friend_uid%>").append("<div class='alert alert-success pull-right mini'>Zaproszenie wysłane!</div>");
+<% else %>
+	$("#row_<%=@friend_uid%>").append("<div class='alert alert-error pull-right mini'>Brak uprawnień - Najsu publikować posty</div>");
+<% end %>
 
