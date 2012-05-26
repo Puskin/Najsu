@@ -537,6 +537,13 @@ p.page_info a { color: #fff; text-decoration: underline }
 #actionsModal.fbfriends .modal-body ul li:nth-child(even) { background: #f5f5f5 }
 
 #actionsModal.fbfriends .modal-body ul li.hidden { display: none }
+#actionsModal.fbfriends .modal-body #facebook_filter { 
+	padding-left: 10px; width: 505px; 
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+	margin-bottom: 15px;
+}
 
 
 
