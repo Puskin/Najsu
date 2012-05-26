@@ -526,8 +526,10 @@ p.page_info a { color: #fff; text-decoration: underline }
 
 
 
-#actionsModal.fbfriends { height: 500px; }
-#actionsModal.fbfriends .modal-body { height: 300px; overflow: scroll; }
+#actionsModal.fbfriends { height: 420px; }
+#actionsModal.fbfriends .modal-body { height: 286px; overflow: scroll; }
+#actionsModal.fbfriends .modal-body ul .li { width: 520px }
+#actionsModal.fbfriends .modal-body ul .li:nth-child(even) { background: #f5f5f5 }
 
 
 
