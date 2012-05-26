@@ -526,6 +526,12 @@ p.page_info a { color: #fff; text-decoration: underline }
 
 
 
+#actionsModal.fbfriends { height: 500px; }
+#actionsModal.fbfriends .modal-body { height: 300px; overflow: scroll; }
+
+
+
+
 #main .row { padding: 20px }
 /* Shared forms */
 #error_explanation ul { list-style-type: none; margin: 0 0 20px 0; }

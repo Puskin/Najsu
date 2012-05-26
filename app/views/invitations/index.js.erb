@@ -1,2 +1,3 @@
+$('#actionsModal').addClass('fbfriends');
 $('#actionsModal').modal('show');
 $('#actionsModal').html("<%= escape_javascript(render :partial => 'invitations/fbfriends', :locals => {:fb_friends => @fb_friends}) %>");
