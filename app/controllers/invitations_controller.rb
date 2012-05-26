@@ -6,6 +6,7 @@ class InvitationsController < ApplicationController
 
   def index  
     @fb_friends = current_user.fbdata.friends
+    @fb_uids = @fb_friends.map(&:fb_uid)
     respond_to do |format|
       format.html
       format.js
@@ -34,7 +35,7 @@ class InvitationsController < ApplicationController
         format.js { @status = false }
       end    
   end
-  
+
 
   # GET /invitations/1/edit
   def edit
