@@ -70,6 +70,8 @@ class User < ActiveRecord::Base
 
 
 
+
+
 	def facebook?
 		if self.fb_uid == nil or self.fb_uid.empty? == true
       false
@@ -78,14 +80,24 @@ class User < ActiveRecord::Base
     end
 	end
 
-  def facebook #get only basic data for some app ussage
-    @facebook ||= FbGraph::User.fetch(self.authentications.find_by_provider('facebook').uid)
+  def fbauth #get user authentication
+    @fbauth ||= self.authentications.find_by_provider("facebook").first if facebook? 
   end
 
-	def fbgraph #get more data via auth token
-		auth = self.authentications.find_by_provider("facebook")
+  def fb #get only basic PERSONAL data for some app ussage
+    @facebook ||= FbGraph::User.fetch(self.fbauth)
+  end
+
+	def fbdata #get more data via auth token
+		auth = self.fbauth
 		fbuser = FbGraph::User.fetch(auth.uid, :access_token => auth.token)
 	end
+
+  def fbpost(recipient_uid) #post to friend
+    auth = self.fbauth
+    fbuser = FbGraph::User.new(recipient_uid, :access_token => auth.token)
+  end
+
 
 
 

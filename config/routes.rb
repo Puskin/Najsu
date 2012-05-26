@@ -1,6 +1,6 @@
 Tuduk::Application.routes.draw do
 
-  resources :invitations
+  resources :invitations, only: [:index, :new]
   resources :authentications
   resources :comments
   resources :likes

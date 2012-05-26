@@ -1,11 +1,11 @@
 class InvitationsController < ApplicationController
 
   before_filter :signed_in_user
+  before_filter :facebook_user
   #zmienic new na create w fbuser.html i sprawdzić jak się zachowuje z facebook
 
-  def index
-    fbuser = current_user.fbgraph
-    @fb_friends = fbuser.friends
+  def index  
+    @fb_friends = current_user.fbdata.friends
     respond_to do |format|
       format.html
       format.js
@@ -14,11 +14,9 @@ class InvitationsController < ApplicationController
 
   def new
     @friend_uid = params[:uid]
-    auth = current_user.authentications.find_by_provider("facebook")
-    fbuser = FbGraph::User.new(@friend_uid, :access_token => auth.token)
-    #moze byc latwo napisane jako current_user.fbgraph.feed!
+    friend = current_user.fbpost(@friend_uid)
     
-    fbuser.feed!(
+    friend.feed!(
       :message => 'Polecam najsu, zobacz!',
       :link => 'https://najsu.pl',
       :name => 'Najsu',
@@ -81,4 +79,11 @@ class InvitationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def facebook_user
+      redirect_to root_path unless current_user.facebook?
+    end
+
 end
