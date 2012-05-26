@@ -5,6 +5,7 @@ class InvitationsController < ApplicationController
   #zmienic new na create w fbuser.html i sprawdzić jak się zachowuje z facebook
 
   def index  
+    @fb_users   = Authentication.all.map(&:uid)
     @fb_friends = current_user.fbdata.friends
     @fb_invited = current_user.invitations.map(&:uid)
     respond_to do |format|
