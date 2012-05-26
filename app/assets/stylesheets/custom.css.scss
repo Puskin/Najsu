@@ -527,9 +527,9 @@ p.page_info a { color: #fff; text-decoration: underline }
 
 
 #actionsModal.fbfriends { height: 420px; }
-#actionsModal.fbfriends .modal-body { height: 286px; overflow: scroll; }
-#actionsModal.fbfriends .modal-body ul .li { width: 520px }
-#actionsModal.fbfriends .modal-body ul .li:nth-child(even) { background: #f5f5f5 }
+#actionsModal.fbfriends .modal-body { height: 286px; overflow-x: hidden; overflow-y: scroll }
+#actionsModal.fbfriends .modal-body ul li { width: 520px }
+#actionsModal.fbfriends .modal-body ul li:nth-child(even) { background: #f5f5f5 }
 
 
 
