@@ -528,9 +528,10 @@ p.page_info a { color: #fff; text-decoration: underline }
 
 #actionsModal.fbfriends { height: 420px; }
 #actionsModal.fbfriends .modal-body { height: 286px; overflow-x: hidden; overflow-y: scroll }
-#actionsModal.fbfriends .modal-body ul li { width: 520px; line-height: 0; padding: 4px 0 }
-#actionsModal.fbfriends .modal-body ul li p { float: left; line-height: 20px; }
-#actionsModal.fbfriends .modal-body ul li img { float: left; }
+#actionsModal.fbfriends .modal-body ul { float: left; }
+#actionsModal.fbfriends .modal-body ul li { width: 520px; line-height: 0; padding: 4px 0; float: left; }
+#actionsModal.fbfriends .modal-body ul li p { float: left; line-height: 20px; margin: 0 }
+#actionsModal.fbfriends .modal-body ul li img { float: left; margin: 0 10px 0 0 }
 #actionsModal.fbfriends .modal-body ul li:nth-child(even) { background: #f5f5f5 }
 
 
