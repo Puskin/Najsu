@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
 	end
 
   def fbauth #get user authentication
-    @fbauth ||= self.authentications.find_by_provider("facebook").first if facebook? 
+    @fbauth ||= self.authentications.find_by_provider("facebook") if facebook? 
   end
 
   def fb #get only basic PERSONAL data for some app ussage
