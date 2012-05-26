@@ -182,6 +182,8 @@ function lightboxButtons(ev) {
 		$('.overlay').fadeOut();
 		document.location="#feed";
 	});
+
+
 	/* not needed because of partial reload
 	$('#cinema .actions input').click(function() {
 		$('#cinema .actions input').removeClass('active');
@@ -250,3 +252,25 @@ function resizeWindow( e ) {
 		$("#embed_video").removeClass("biggest")
 	}
 }                                           
+
+
+function facebook_live_search(){
+	var $list = $('#facebook_friends li');
+	// the on keyDown event handler
+	$('#facebook_filter').keyup(function(){
+		// get the current value of the text field
+		var string = $(this).val().toUpperCase();
+		// loop over each item in $table
+		$list.each(function(){
+			// set a string equal to the contents of the cell
+			var contents = $("p",this).html().toUpperCase();
+			var $row = $(this);
+			// check the string against that cell
+			var value = (!contents.match('^' + string)) ? $row.attr('class','hidden') : $row.removeAttr('class','hidden');
+		});
+	});
+}
+
+
+
+

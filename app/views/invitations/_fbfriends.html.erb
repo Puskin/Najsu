@@ -4,9 +4,7 @@
 </div>
 
 <div class="modal-body">
-
 	<input id="facebook_filter" placeholder="Szukaj znajomych..."/>
-
 	<ul class='unstyled' id="facebook_friends">
 		<% @fb_friends.each do |friend| %>
 			<% unless @fb_users.include?(friend.identifier) %>
@@ -28,25 +26,3 @@
 <div class="modal-footer">
 	<a href="#" class="btn" data-dismiss="modal">Zamknij</a>
 </div>
-
-
-
-<script type="text/javascript">
-	$(function(){
-		var $list = $('#facebook_friends li');
-		// the on keyDown event handler
-		$('#facebook_filter').keyup(function(){
-			// get the current value of the text field
-			var string = $(this).val().toUpperCase();
-			// loop over each item in $table
-			$list.each(function(){
-				// set a string equal to the contents of the cell
-				var contents = $("p",this).html().toUpperCase();
-				var $row = $(this);
-				// check the string against that cell
-				var value = (!contents.match('^' + string)) ? $row.attr('class','hidden') : $row.removeAttr('class','hidden');
-			});
-		});
-	});
-</script>
-
