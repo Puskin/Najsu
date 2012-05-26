@@ -9,7 +9,7 @@
 			<li id="row_<%=friend.identifier %>">
 				<%= image_tag("http://graph.facebook.com/#{friend.identifier}/picture", :size => "20x20") %>
 				<p><%= friend.name %></p>
-				<% if @fb_uids.include?(friend.identifier) == true %>
+				<% if @fb_invited.include?(friend.identifier) == true %>
 					<div class='alert alert-success pull-right mini'>Zaproszenie wysłane!</div>
 				<% else %>
 					<%= link_to "Zaproś", new_invitation_path(:uid => friend.identifier), :disable_with => "Ładowanie...",

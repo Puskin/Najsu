@@ -6,7 +6,7 @@ class InvitationsController < ApplicationController
 
   def index  
     @fb_friends = current_user.fbdata.friends
-    @fb_uids = @fb_friends.map(&:fb_uid)
+    @fb_invited = current_user.invitations.map(&:uid)
     respond_to do |format|
       format.html
       format.js
