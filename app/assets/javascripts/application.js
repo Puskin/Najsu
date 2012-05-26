@@ -51,11 +51,27 @@ $(document).ready(function(ev){
 	});
 
 
+
+
+	/* searching on users page via keyup with delay */
+	var delaySearch = (function(){
+	  var timer = 0;
+	  return function(callback, ms){
+	    clearTimeout (timer);
+	    timer = setTimeout(callback, ms);
+	  };
+	})();
+  
   $("#searchPeople #search").keyup(function() {
-    $.get($("#searchPeople").attr("action"), $("#searchPeople").serialize(), null, "script");
-    return false;
+  	delaySearch(function(){
+  		if($("#searchPeople #search").val() != ""){
+		    $.get($("#searchPeople").attr("action"), $("#searchPeople").serialize(), null, "script");
+		    return false;
+		  }
+	  }, 500 );
   });
 	
+
 
 
 
