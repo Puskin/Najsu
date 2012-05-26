@@ -3,5 +3,6 @@ $("#button_<%=@friend_uid%>").remove();
 	$("#row_<%=@friend_uid%>").append("<div class='alert alert-success pull-right mini'>Zaproszenie wysłane!</div>");
 <% else %>
 	$("#row_<%=@friend_uid%>").append("<div class='alert alert-error pull-right mini' rel='tooltip' title='Wyloguj się i zaloguj ponownie'>Brak uprawnień - pozwól Najsu publikować posty</div>");
+	$("#row_<%=@friend_uid%> div.mini").tooltip();
 <% end %>
 
