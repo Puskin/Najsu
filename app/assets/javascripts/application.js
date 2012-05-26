@@ -51,6 +51,14 @@ $(document).ready(function(ev){
 	});
 
 
+  $("#searchPeople #search").keyup(function() {
+    $.get($("#searchPeople").attr("action"), $("#searchPeople").serialize(), null, "script");
+    return false;
+  });
+	
+
+
+
 
 	// hide mini feed if clicked outside
 	$('html').click(function() {
