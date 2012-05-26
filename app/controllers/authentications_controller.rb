@@ -7,6 +7,10 @@ class AuthenticationsController < ApplicationController
     omniauth = request.env['omniauth.auth']
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
+      unless omniauth['credentials']['token'] == authentication.token
+        authentication.token = omniauth['credentials']['token']
+        authentication.save
+      end
       sign_in authentication.user
       @newuser = false #zalogowany autentykowany wczesniej user
     elsif current_user
