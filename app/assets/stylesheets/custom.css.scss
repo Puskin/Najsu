@@ -9,7 +9,7 @@ body {
 	padding-top: 61px; color: #000; background: #ededed;
 	font-size: 12px;
 } /*old bg f7f7f7 */
-body.frontend { background: #fff; padding-top: 105px; }
+body.frontend { background: #fff; padding-top: 85px; }
 body a, body a:hover { color: #d94335 }
 
 html.clean,
@@ -29,7 +29,7 @@ p { font-size: 12px }
 .frontend .container .row div .alert { float: left; width: 362px; margin-bottom: 20px }
 
 .frontend .container .row div .logo { 
-	text-indent: -9999px; width: 413px; float: left; height: 45px; 
+	text-indent: -9999px; width: 413px; float: left; height: 62px; 
 	background: url(logoBig.png) left top no-repeat; margin-bottom: 60px }
 .frontend .container .row div .featured { 
 	width: 413px; float: left; padding: 0 0 60px 0; border-bottom: 3px solid #e5e5e5;
@@ -81,8 +81,8 @@ p { font-size: 12px }
   box-shadow:  0px 2px 0px 0px rgba(0, 0, 0, 0.05);
 }
 #header .navbar-inner a.brand { 
-	background: url(logo.png); height: 17px; width: 68px; text-indent: -9999px;
-	float: left; font-weight: 900; color: #6a6a6a; padding: 0; margin: 19px 0 0 0  }
+	background: url(logo.png); height: 24px; width: 70px; text-indent: -9999px;
+	float: left; font-weight: 900; color: #6a6a6a; padding: 0; margin: 17px 0 0 0  }
 
 #header .nav { float: right; padding: 14px 0 0 0; margin: 0 }
 #header .nav li { margin-left: 5px; }
@@ -112,7 +112,7 @@ p { font-size: 12px }
 
 #header .bezel { background: url(header.jpg) repeat-x top; height: 6px }
 
-#header .user { float: left; padding: 8px 0; margin-left: 20px; position: relative; }
+#header .user { float: left; padding: 8px 0; margin-left: 15px; position: relative; }
 #header .user .avatar { height: 38px; width: 38px; position: relative; margin-right: 7px; float: left }
 #header .user .avatar .mask { width: 38px; height: 38px; background: url(avatarMask.png); position: absolute; left: 0; top: 0; pointer-events:none; z-index: 20 }
 #header .user .name { height: 38px; margin-right: 5px; cursor: pointer; float: left }
