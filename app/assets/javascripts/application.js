@@ -30,6 +30,9 @@ $(document).ready(function(ev){
 		if (e.keyCode == 27) {
 			$('iframe').remove(); 
 			$('.overlay').fadeOut(); 
+			if ($("#bye").hasClass("single_page")){
+				document.location="/";
+			}
 		}   // esc
 	});
 
