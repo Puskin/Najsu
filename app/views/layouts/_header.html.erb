@@ -38,7 +38,7 @@
 				
 	      <ul class="nav">
 						<% if signed_in? %>
-							<li id="bookmarklet"><%= link_to "Zakładka", bookmarklet_path, :class => active?("bookmarklet") %></li>
+							<li id="bookmarklet"><%= link_to "Strona z zakładką", bookmarklet_path, :class => active?("bookmarklet") %></li>
 						<% end %>
 
 	          <li><%= link_to "Główna", root_path, :class => active?("home") %></li>
