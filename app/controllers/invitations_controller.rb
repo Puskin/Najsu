@@ -19,11 +19,13 @@ class InvitationsController < ApplicationController
     friend = current_user.fbpost(@friend_uid)
     
     friend.feed!(
-      :message => 'Polecam najsu, zobacz!',
-      :link => 'https://najsu.pl',
-      :name => 'Najsu',
-      :description => 'Odkrywaj filmiki dziel ze znajomymi!'
+      :message => "Hej, zapraszam Cię na Najsu.pl - dołącz do moich znajomych i zobacz co oglądam!", 
+      :link => "www.najsu.pl", 
+      :name => "Najsu.pl", 
+      :description => "Odkrywaj najciekawsze filmiki w sieci, na świecie i wśród znajomych, udostępniaj swoje znaleziska!", 
+      :picture => "http://www.najsu.pl/assets/faviconBig.png"
     )
+
     current_user.invitations.create(:uid => @friend_uid)
 
     respond_to do |format| 
