@@ -259,6 +259,13 @@ body.app #content { padding-bottom: 0 }
 }
 #bookmarklet_page .content .main ul.steps li p { margin: 0; float: right;	width: 180px; line-height: 16px; color: rgba(0,0,0,0.6); font-size: 12px  }
 
+#bookmarklet_page .content .main #tutorial_button { 
+	text-indent: -9999px; background: url(tutorialButton.jpg); margin-top: 28px;
+	width: 320px; height: 99px; float: right; }
+
+
+
+
 #slidabilty { overflow: hidden; }
 #slidabilty img { -webkit-transform: rotate(0deg); position: absolute; z-index: -20; top: 0; left: 0 }
 #slidabilty:hover img,
