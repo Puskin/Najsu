@@ -1,6 +1,8 @@
 # coding: utf-8
 class InvitationsController < ApplicationController
 
+  include UsersHelper
+
   before_filter :signed_in_user
   before_filter :facebook_user
   #zmienic new na create w fbuser.html i sprawdzić jak się zachowuje z facebook
@@ -17,16 +19,7 @@ class InvitationsController < ApplicationController
 
   def new
     @friend_uid = params[:uid]
-    friend = current_user.fbpost(@friend_uid)
-    
-    friend.feed!(
-      :message => "Hej, zapraszam Cię na Najsu.pl - dołącz do moich znajomych i zobacz co oglądam!", 
-      :link => "www.najsu.pl", 
-      :name => "Najsu.pl", 
-      :description => "Odkrywaj najciekawsze filmiki w sieci, na świecie i wśród znajomych, udostępniaj swoje znaleziska!", 
-      :picture => "http://www.najsu.pl/assets/faviconBig.png"
-    )
-
+    fb_invite(@friend_uid)
     current_user.invitations.create(:uid => @friend_uid)
 
     respond_to do |format| 

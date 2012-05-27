@@ -1,14 +1,14 @@
 # coding: utf-8
 
 class UsersController < ApplicationController
-  
+
+  include UsersHelper
+
   before_filter :signed_in_user, except: [:new, :create]
   before_filter :signed_in_redirect, only: [:new, :create]
-
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   layout "frontend", only: [:create, :new]
-
 
   def index
     if query = params[:search]
@@ -38,6 +38,9 @@ class UsersController < ApplicationController
 
 
   def edit
+    if params[:setup] == "fbpost"
+      fb_post(current_user.fb_uid)
+    end
   end
 
 
