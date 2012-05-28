@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      redirect_to bookmarklet_path
+      redirect_to movie_path(146)
     else
       render action: "new"
     end
