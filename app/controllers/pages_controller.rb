@@ -23,7 +23,8 @@ class PagesController < ApplicationController
         @movies = current_user.feed.order('created_at DESC').paginate(:page => params[:page])
       end
     else
-      @movies = Movie.order('movies.created_at DESC').paginate(:page => params[:page])
+      #@movies = Movie.order('movies.created_at DESC').paginate(:page => params[:page])
+      @movies = Movie.order('likes_count DESC, created_at ASC').paginate(:page => params[:page])
     end
 
     respond_to do |format|
