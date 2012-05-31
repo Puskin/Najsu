@@ -17,6 +17,8 @@ class Movie < ActiveRecord::Base
 
   # Period scopes for various types 
   scope :last_week, where("created_at > ?", 7.days.ago )
+  scope :last_days, where("created_at > ?", 3.days.ago )
+
 
   # Hype type scopes
   scope :popular, order("likes_count DESC")
