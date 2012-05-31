@@ -21,7 +21,7 @@ class AuthenticationsController < ApplicationController
       user.apply_omniauth(omniauth)
       user.save!(:validate => false)
       sign_in user
-      fb_post(user.fb_uid)
+      #fb_post(user.fb_uid)
       @newuser = true #utworzenie i autentykacja nowego usera    
     end
   end
