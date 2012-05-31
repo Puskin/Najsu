@@ -5,16 +5,17 @@
 		$("#paginaDomina").html("<%= escape_javascript( will_paginate @movies, :page_links => false, :next_label => 'Więcej!' ) %>");       
 	  $('.pagination a').attr('data-remote', 'true');
 	  $('.previous_page').remove()
+	  $('[rel="tooltip"]').tooltip();
 	<% end %>
 <% else %>
 	$("#moviesList").html("<%= escape_javascript( render @movies ) %>");       
 	$("#information").html("<%= escape_javascript( render :partial => 'pages/homeNotice' ) %>");       
 	$("#paginaDomina").html("<%= escape_javascript( will_paginate @movies, :page_links => false, :next_label => 'Więcej!' ) %>");       
 	$("#moviesList").masonry( 'reload' );       
-		$('[rel="tooltip"]').tooltip();
-	 $('.pagination a').attr('data-remote', 'true');
-	 $('.previous_page').remove()
-	 heightCheck();
+	$('[rel="tooltip"]').tooltip();
+	$('.pagination a').attr('data-remote', 'true');
+	$('.previous_page').remove()
+	heightCheck();
 <% end %>
 
 
