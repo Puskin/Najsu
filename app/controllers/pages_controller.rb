@@ -12,7 +12,7 @@ class PagesController < ApplicationController
       when "newest"
         @movies = Movie.order('created_at DESC').paginate(:page => params[:page])
       when "popular"
-        @movies = Movie.order('likes_count DESC, created_at ASC').last_days.paginate(:page => params[:page])
+        @movies = Movie.order('likes_count DESC, created_at DESC').last_days.paginate(:page => params[:page])
       when "friends"
         @movies = current_user.feed.order('created_at DESC').paginate(:page => params[:page])
       when "discussed"
@@ -25,7 +25,7 @@ class PagesController < ApplicationController
     else
       #@movies = Movie.order('movies.created_at DESC').paginate(:page => params[:page])
       #@movies = Movie.order('likes_count DESC, created_at ASC').paginate(:page => params[:page])
-      @movies = Movie.order('likes_count DESC, created_at ASC').last_days.paginate(:page => params[:page])
+      @movies = Movie.order('likes_count DESC, created_at DESC').last_days.paginate(:page => params[:page])
     end
 
     respond_to do |format|
