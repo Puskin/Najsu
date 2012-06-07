@@ -30,7 +30,7 @@ var video = parseVideoURL(url);
 
 
 if(url.indexOf("youtube.com") != -1 || url.indexOf("vimeo.com") != -1) {
-    var clean_title = video.title.replace(/[^a-zA-Z0-9 !-]/g, ""); /* leave only digits some chars gotta perfect it */
+    var clean_title = video.title.replace(/[^a-zA-Z0-9 !-\u017a]/g, ""); /* leave only digits some chars gotta perfect it */
     window.open('http://www.najsu.pl/submit?resource_id='+video.id+'&resource_title='+clean_title+'&resource_source='+video.provider,'Najsu','status=no,directories=no,location=no,resizable=no,menubar=no,width=200,height=110,toolbar=no');    
 }
 
