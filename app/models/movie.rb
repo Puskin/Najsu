@@ -16,6 +16,7 @@ class Movie < ActiveRecord::Base
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
 
   # Period scopes for various types 
+  scope :last_month, where("created_at > ?", 24.days.ago )
   scope :last_week, where("created_at > ?", 7.days.ago )
   scope :last_days, where("created_at > ?", 3.days.ago )
 
