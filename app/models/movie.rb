@@ -10,7 +10,7 @@ class Movie < ActiveRecord::Base
   belongs_to :user
 
   # Pagination parameter
-  self.per_page = 10
+  self.per_page = 25
 
   # Returns movies from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }

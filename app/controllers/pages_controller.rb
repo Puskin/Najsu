@@ -25,7 +25,8 @@ class PagesController < ApplicationController
     else
       #@movies = Movie.order('movies.created_at DESC').paginate(:page => params[:page])
       #@movies = Movie.order('likes_count DESC, created_at ASC').paginate(:page => params[:page])
-      @movies = Movie.order('likes_count DESC, created_at DESC').last_month.paginate(:page => params[:page])
+      #@movies = Movie.order('likes_count DESC, created_at DESC').last_month.paginate(:page => params[:page])
+      @movies = Movie.order('id DESC').paginate(:page => params[:page])
     end
 
     respond_to do |format|
