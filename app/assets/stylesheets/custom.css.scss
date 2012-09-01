@@ -423,6 +423,23 @@ margin-right: 3px; width: 136px;
 	border-color: lightgray }
 
 
+
+/* Big ass movielist thumbnails */
+
+#moviesList.big .movie { width: 290px }
+#moviesList.big .movie a,
+#moviesList.big .movie a .play { width: 290px; height: 153px; }
+#moviesList.big .movie img { width: 290px; margin-top: -33px }
+#moviesList.big .movie.vimeo img { width: 290px; margin-top: 0 }
+#moviesList.big .movie form,
+#moviesList.big .movie .comments li,
+#moviesList.big .movie .comments li.author .data { display: none }
+
+#moviesList.big .movie .comments,
+#moviesList.big .movie .comments li.author { width: 290px; display: block; border: 0; padding: 0 }
+#moviesList.big .movie .comments li.author .title .counters { width: 286px; }
+#moviesList.big .movie .comments li.author .title p { line-height: 16px; height: 15px; overflow: hidden;  }
+
 p.page_info { 
 	background: none repeat scroll 0 0 #5FBCDE;
 	border-radius: 4px 4px 4px 4px;
